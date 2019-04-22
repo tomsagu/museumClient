@@ -1,0 +1,16 @@
+<main class="mt-5 pt-5">
+  <p>Document</p>
+  <div class="container">
+
+
+
+      <mat-nav-list>
+          <mat-list-item *ngFor="let document of documents" >
+
+              <a  (click)="goToArticle(document)"><img src="http://www.teclas.org/logos/art_soporte1.jpg" alt="{{document.name}}"> {{document.name}}</a>
+              
+          </mat-list-item>
+      </mat-nav-list>
+  </div>
+</main>
+<!--Main layout-->
