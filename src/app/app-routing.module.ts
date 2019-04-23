@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { DocumentationModule } from './documentation/documentation.module';
 import { CollectionModule } from './collection/collection.module';
+import { ArticleModule } from './article/article.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
    {
     path: 'collection',
     loadChildren: () => CollectionModule
+  },
+  {
+    path: 'documentation/article/:id',
+    loadChildren: () => ArticleModule
   }
 ];
 

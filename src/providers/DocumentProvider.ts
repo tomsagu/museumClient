@@ -10,7 +10,7 @@ import { Document } from 'src/models/Document';
 export class DocumentProvider implements HttpMethodsInterface {
 
 
-    basicUrl : string = 'http://localhost:8080/documents';
+    basicUrl : string = 'http://localhost:8090/documents';
 
 
     constructor(private http: Http) {}
