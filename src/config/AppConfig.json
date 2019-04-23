@@ -1,0 +1,12 @@
+{
+    "Endpoints": {
+        "FezComicRESTPy": {
+
+            "Piece": "http://localhost:8080/pieces"
+        },
+        "External": {
+            "Quote": "https://quotes.rest/qod.json",
+            "GoogleBooks": "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+        }
+    }
+}
