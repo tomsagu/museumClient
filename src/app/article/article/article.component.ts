@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute ,Router} from "@angular/router";
+import { DocumentProvider } from 'src/providers/DocumentProvider';
+import { Document } from '../../../models/document';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-article',
@@ -8,14 +11,23 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ArticleComponent implements OnInit {
 
-  route : ActivatedRoute;
-  documentId : String;
-  constructor() { }
+  document : Document;
+  articles : Article [];
+  
+  constructor(
+    private route : ActivatedRoute,
+    private documentProvider : DocumentProvider
+    ) { }
 
   ngOnInit() {
-    //No reconoce snapshot.
-    this.documentId = this.route.snapshot.paramMap.get('id').toString(); //get the documentId from url param
-    console.log(this.documentId);
+    
+    let documentID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
+    
+    if(documentID != null && documentID.localeCompare("")){
+      this.documentProvider.get(documentID).subscribe(document => {
+        this.document = document;
+        this.articles = document.articles;
+      });
+    }
   }
-
 }

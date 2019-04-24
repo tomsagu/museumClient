@@ -32,7 +32,11 @@ export class DocumentProvider implements HttpMethodsInterface {
 
     get(id: String): Observable<Document> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json()._embedded.documents }));
+        return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json()}));
+    }
+    getByWord(word: String): Observable<Document[]> {
+        let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
+        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.documents}));
     }
     put(id: String, document: Document): Observable<Document> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: false});
