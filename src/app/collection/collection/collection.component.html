@@ -1,16 +1,54 @@
 <main class="mt-5 pt-5">
-    <p>Coleccion</p>
+    <h4>COLECCION</h4>
+    <h1>Piezas</h1>
     <div class="container">
         <ul class="list-group" *ngFor="let piece of pieces">
-            <li class="list-group-item">{{piece.name}}</li>
-            <li class="list-group-item">{{piece.text}}</li>
+            <li class="list-group-item">id: {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
+            <li class="list-group-item">Nombre: {{piece.name}}</li>
+            <li class="list-group-item">Texto: {{piece.text}}</li>
+            <li class="list-group-item">Año: {{piece.year}}</li>
+            <li class="list-group-item">CreateDate: {{(piece.createdate).substring(0,10)}}</li>
+            <li class="list-group-item">Qr: {{piece.qr}}</li>
+            <li class="list-group-item">NSala: {{piece.room_name}}</li>
+            <li class="list-group-item">Marca: {{piece.brand_name}}</li>
             <li class="list-group-item"><img
                     src="http://www.teclas.org/img/w/WW_Continental_01.jpg"
                     alt="hola"></li>
-            <li class="list-group-item">{{piece.types}}</li>
-            <li class="list-group-item">id: {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
+            <li class="list-group-item">Tipo: {{piece.types}}</li> 
+            <br>
         </ul>
     </div>
+
+    <h1>Tipos</h1>
+    <div class="container">
+        <ul class="list-group" *ngFor="let type of types">
+            <li class="list-group-item">id/nombre: {{(type._links.self.href.split("/")[(type._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
+            <br>
+        </ul>
+    </div>
+
+    <h1>salas</h1>
+    <div class="container">
+        <ul class="list-group" *ngFor="let room of rooms">
+            <li class="list-group-item">id/nombre: {{(room._links.self.href.split("/")[(room._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
+            <li class="list-group-item">Localizacion: {{room.location}}</li>
+            <li class="list-group-item">Texto: {{room.text}}</li>
+            <br>
+        </ul>
+    </div>
+
+    <h1>Marcas</h1>
+    <div class="container">
+        <ul class="list-group" *ngFor="let brand of brands">
+            <li class="list-group-item">id/nombre: {{(brand._links.self.href.split("/")[(brand._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
+            <li class="list-group-item">Texto: {{brand.text}}</li>
+            <br>
+        </ul>
+    </div>
+  
+  
+ 
+    <!-- 
     <div>
         <mat-list role="list">
             <mat-list-item role="listitem">Item 1</mat-list-item>
@@ -32,5 +70,7 @@
         </p>
 
     </div>
+    -->
+
 </main>
 <!--Main layout-->

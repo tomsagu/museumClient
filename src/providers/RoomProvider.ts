@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { HttpMethodsInterface } from './HttpMethodsInterface';
-import { Piece } from 'src/models/Piece';
+import { Room } from 'src/models/Room';
 
 @Injectable()
-export class PieceProvider implements HttpMethodsInterface {
+export class RoomProvider implements HttpMethodsInterface {
 
 
-    basicUrl : string = "http://localhost:8080/pieces";
+    basicUrl : string = "http://localhost:8080/rooms";
 
 
     constructor(private http: Http) {}
@@ -24,31 +24,31 @@ export class PieceProvider implements HttpMethodsInterface {
         return headers;
     }
 
-    all(): Observable<Piece[]> {
+    all(): Observable<Room[]> {
         
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.pieces }));
+        return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.rooms }));
     }
 
-    get(id: string): Observable<Piece> {
+    get(id: string): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
     }
 
-    put(id: string, piece: Piece): Observable<Piece> {
+    put(id: string, room: Room): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.put(this.basicUrl + '/'  + id, piece).pipe(map(response => { return response.json() }));
+        return this.http.put(this.basicUrl + '/'  + id, room).pipe(map(response => { return response.json() }));
     }
-    post(piece: Piece): Observable<Piece> {
+    post(room: Room): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.post(this.basicUrl, piece).pipe(map(response => { return response.json() }));
+        return this.http.post(this.basicUrl, room).pipe(map(response => { return response.json() }));
     }
-    delete(id: string): Observable<Piece> {
+    delete(id: string): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.delete(this.basicUrl + '/'  + id).pipe(map(response => { return response.json() }));
     }
 
-    count(): Observable<Piece> {
+    count(): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.get(this.basicUrl + 'count').pipe(map(response => { return response.json() }));
     }
