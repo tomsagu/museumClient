@@ -9,3 +9,4 @@ import { map } from 'rxjs/operators';
 export class AppSettings{
      //json:any = AppConfig;
 }
+
