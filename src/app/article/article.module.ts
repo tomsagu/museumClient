@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './article/article.component';
 
+import { DocumentProvider } from 'src/providers/DocumentProvider';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ArticleComponent],
+  providers: [DocumentProvider],
   imports: [
     CommonModule,
     ArticleRoutingModule,
