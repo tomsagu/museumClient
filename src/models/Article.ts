@@ -1,16 +1,16 @@
 export class Article {
     name : String;
     text : String;
-    image : String [];
+    images : String [];
     
 
     constructor(
         name : String,
         text : String,
-        image : String[]
+        images : String[]
     ) {
         this.name = name || '';
         this.text = text || '';
-        this.image = image || null;
+        this.images = images || null;
     }
 }

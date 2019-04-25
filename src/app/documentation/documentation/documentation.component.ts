@@ -12,7 +12,6 @@ export class DocumentationComponent implements OnInit {
 
   documents: Document[] = [];
   inputSearchValue: String;
-  asda = "ddd";
 
   constructor(
     private router: Router,
@@ -36,9 +35,6 @@ export class DocumentationComponent implements OnInit {
   //show the documents which contain in their names or texts the word searched
   doSearch(){
 
-    //TODO - Implement getByName   
-    console.log(this.inputSearchValue); //this is the word searched
-    
     this.documentProvider.getByWord(this.inputSearchValue).subscribe(documents => {
       this.documents = documents;
     });
