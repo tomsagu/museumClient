@@ -1,58 +1,80 @@
-<main class="mt-5 pt-5">
-    <h4>COLECCION</h4>
-    <h1>Piezas</h1>
-    <div class="container">
-        <ul class="list-group" *ngFor="let piece of pieces">
-            <li class="list-group-item"><b>id:</b>
-                {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
-            <li class="list-group-item"><b>Nombre: </b> {{piece.name}}</li>
-            <li class="list-group-item"><b>Texto: </b>{{piece.text}}</li>
-            <li class="list-group-item"><b>Año: </b>{{piece.year}}</li>
-            <li class="list-group-item"><b>CreateDate: </b>{{(piece.createdate).substring(0,10)}}</li>
-            <li class="list-group-item"><b>Qr: </b><img class="mediana" src="{{piece.qr}}" alt="Imagen no disponible">
-            </li>
-            <li class="list-group-item"><b>NSala: </b>{{piece.room_name}}</li>
-            <li class="list-group-item"><b>Marca: </b>{{piece.brand_name}}</li>
-            <li class="list-group-item">
-                <img class="mediana" src="{{piece.images[0]}}" alt="Imagen disponible"></li>
-            <li class="list-group-item"><b>Tipo: </b>{{piece.types}}</li>
-            <br>
-        </ul>
-    </div>
-
+<div class="header">
+    <h2><b>Coleccion de Piezas</b></h2>
+</div>
+<div class="row">
+    <!-- COLUMNA IZQUIERDA-->
     <div class="leftcolumn">
-        <h1>Tipos</h1>
-        <div class="container">
+
+        <div class="card">
+            <h2>Tipos de Piezas</h2>
+            <h5>Selecciona los tipos que deseas buscar:</h5>
+            <img class="medianaancha"
+                src="http://2.bp.blogspot.com/_pev71yUgpNw/TPK9nJ_KWVI/AAAAAAAAAC8/lk-sRZdJYM8/s1600/IMG_0036.jpg"
+                alt="">
             <ul class="list-group" *ngFor="let type of types">
                 <li class="list-group-item"><b>tipo:</b>
                     {{(type._links.self.href.split("/")[(type._links.self.href.split("/").length-1)]).replace(space," ")}}
                 </li>
-                <br>
             </ul>
         </div>
-    </div>
-    <!--
-    <h1>salas</h1>
-    <div class="container">
-        <ul class="list-group" *ngFor="let room of rooms">
-            <li class="list-group-item">id/nombre: {{(room._links.self.href.split("/")[(room._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
-            <li class="list-group-item">Localizacion: {{room.location}}</li>
-            <li class="list-group-item">Texto: {{room.text}}</li>
-            <br>
-        </ul>
+
+        <div class="card">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Sep 2, 2017</h5>
+            <div class="fakeimg" style="height:200px;">Image</div>
+            <p>Some text..</p>
+        </div>
     </div>
 
-    <h1>Marcas</h1>
-    <div class="container">
-        <ul class="list-group" *ngFor="let brand of brands">
-            <li class="list-group-item">id/nombre: {{(brand._links.self.href.split("/")[(brand._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
-            <li class="list-group-item">Texto: {{brand.text}}</li>
-            <br>
-        </ul>
-    </div>
-  
-  
- -->
 
-</main>
+
+    <div class="rightcolumn">
+
+        <div class="card">
+                <h2>Coincidencias: </h2>
+            <div>
+                <div *ngFor="let piece of pieces">
+                    <div class="card2">
+                        <li class="list-group-item"><b>id:</b>
+                            {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
+                        <li class="list-group-item"><b>Nombre: </b> {{piece.name}}</li>
+                        
+                        <li class="list-group-item"><b>Texto:</b> {{ (piece.text).substring(0,300)}}{{piece.text.length > 300 ? '...' : ''}}</li>
+                        <li class="list-group-item"><b>Año: </b>{{piece.year}}</li>
+                        <li class="list-group-item"><b>CreateDate: </b>{{(piece.createdate).substring(0,10)}}</li>
+                        <li class="list-group-item"><b>Qr: </b><img class="mediana" src="{{piece.qr}}"
+                                alt="Imagen no disponible">
+                        </li>
+                        <li class="list-group-item"><b>NSala: </b>{{piece.room_name}}</li>
+                        <li class="list-group-item"><b>Marca: </b>{{piece.brand_name}}</li>
+                        <li class="list-group-item">
+                            <img class="mediana" src="{{piece.images[0]}}" alt="Imagen disponible"></li>
+                        <li class="list-group-item"><b>Tipo: </b>{{piece.types}}</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--
+        <div class="card">
+            <div>
+                <div *ngFor="let piece of pieces">
+                    <div class="column">
+                        <h2>Column 2</h2>
+                        <p>Some text..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Follow Me</h3>
+            <p>Some text..</p>
+        </div>
+    </div>
+</div>
+-->
+<div class="footer">
+    <h2>Footer</h2>
+</div>
 <!--Main layout-->
