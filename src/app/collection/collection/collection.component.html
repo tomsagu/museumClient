@@ -3,30 +3,35 @@
     <h1>Piezas</h1>
     <div class="container">
         <ul class="list-group" *ngFor="let piece of pieces">
-            <li class="list-group-item">id: {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
-            <li class="list-group-item">Nombre: {{piece.name}}</li>
-            <li class="list-group-item">Texto: {{piece.text}}</li>
-            <li class="list-group-item">Año: {{piece.year}}</li>
-            <li class="list-group-item">CreateDate: {{(piece.createdate).substring(0,10)}}</li>
-            <li class="list-group-item">Qr: {{piece.qr}}</li>
-            <li class="list-group-item">NSala: {{piece.room_name}}</li>
-            <li class="list-group-item">Marca: {{piece.brand_name}}</li>
-            <li class="list-group-item"><img
-                    src="http://www.teclas.org/img/w/WW_Continental_01.jpg"
-                    alt="hola"></li>
-            <li class="list-group-item">Tipo: {{piece.types}}</li> 
+            <li class="list-group-item"><b>id:</b>
+                {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
+            <li class="list-group-item"><b>Nombre: </b> {{piece.name}}</li>
+            <li class="list-group-item"><b>Texto: </b>{{piece.text}}</li>
+            <li class="list-group-item"><b>Año: </b>{{piece.year}}</li>
+            <li class="list-group-item"><b>CreateDate: </b>{{(piece.createdate).substring(0,10)}}</li>
+            <li class="list-group-item"><b>Qr: </b><img class="mediana" src="{{piece.qr}}" alt="Imagen no disponible">
+            </li>
+            <li class="list-group-item"><b>NSala: </b>{{piece.room_name}}</li>
+            <li class="list-group-item"><b>Marca: </b>{{piece.brand_name}}</li>
+            <li class="list-group-item">
+                <img class="mediana" src="{{piece.images[0]}}" alt="Imagen disponible"></li>
+            <li class="list-group-item"><b>Tipo: </b>{{piece.types}}</li>
             <br>
         </ul>
     </div>
 
-    <h1>Tipos</h1>
-    <div class="container">
-        <ul class="list-group" *ngFor="let type of types">
-            <li class="list-group-item">id/nombre: {{(type._links.self.href.split("/")[(type._links.self.href.split("/").length-1)]).replace(space," ")}}</li>
-            <br>
-        </ul>
+    <div class="leftcolumn">
+        <h1>Tipos</h1>
+        <div class="container">
+            <ul class="list-group" *ngFor="let type of types">
+                <li class="list-group-item"><b>tipo:</b>
+                    {{(type._links.self.href.split("/")[(type._links.self.href.split("/").length-1)]).replace(space," ")}}
+                </li>
+                <br>
+            </ul>
+        </div>
     </div>
-
+    <!--
     <h1>salas</h1>
     <div class="container">
         <ul class="list-group" *ngFor="let room of rooms">
@@ -47,30 +52,7 @@
     </div>
   
   
- 
-    <!-- 
-    <div>
-        <mat-list role="list">
-            <mat-list-item role="listitem">Item 1</mat-list-item>
-            <mat-list-item role="listitem">Item 2</mat-list-item>
-            <mat-list-item role="listitem">Item 3</mat-list-item>
-        </mat-list>
-    </div>
-
-    <div class="container">
-
-        <mat-selection-list #shoes>
-            <mat-list-option class="list-group-item" *ngFor="let shoe of typesOfShoes">
-                {{shoe}}
-            </mat-list-option>
-        </mat-selection-list>
-
-        <p class="list-group-item">
-            Options selected: {{shoes.selectedOptions.selected.length}}
-        </p>
-
-    </div>
-    -->
+ -->
 
 </main>
 <!--Main layout-->
