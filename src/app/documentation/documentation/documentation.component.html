@@ -1,0 +1,27 @@
+<main class="mt-5 pt-5">
+    <div class="container">    
+        <div class="input-group mb-3 searchPadding">
+            <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
+            <div class="input-group-append">
+                <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+        <div class="title">{{documents.length}} resultados encontrados</div>
+        <mat-nav-list *ngFor="let document of documents">
+            <a (click)="goToArticle(document)">
+                <div class="grid-container hover">
+                    <div class="item1"><img class="imageStyle" src="{{document.imagedoc}}" alt="{{document.name}}">
+                    </div>
+                    <div class="item2">
+                        <p class="title">{{document.name}}</p>
+                    </div>
+                    <div class="item3">
+                        <p class="text">{{document.text}}</p>
+                    </div>
+                </div>
+            </a>
+        </mat-nav-list>
+    </div>
+</main>
+<!--Main layout-->
