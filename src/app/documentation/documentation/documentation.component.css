@@ -1,0 +1,45 @@
+.item1 { grid-area: menu; }
+        .item2 { grid-area: main; }
+        .item3 { grid-area: right; }
+        
+        
+        .grid-container {
+          display: grid;
+          grid-template-areas:
+            
+            'menu menu main main main main'
+            'menu menu right right right right';
+          grid-gap:5px;
+          
+          padding: 5px;
+        }
+        
+        .grid-container > div {          
+          text-align: center;
+          padding: 10px 20px;
+          font-size: 30px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 75%;
+          }
+
+        .text {
+            font-size: 50%;
+          } 
+          .imageStyle {
+            width: 150px;
+            height: 150px;
+          } 
+          .searchPadding{
+              padding-left: 30%;
+              padding-right: 30%;
+          }
+         .hover{
+            background-color: rgba(156, 156, 156, 0.425);
+         }
+         .hover:hover{
+            background-color: rgba(156, 156, 156, 0.658);
+         }
+          
