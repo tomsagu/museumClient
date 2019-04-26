@@ -34,7 +34,7 @@
                 <h2>Coincidencias: </h2>
             <div>
                 <div *ngFor="let piece of pieces">
-                    <div class="card2">
+                    <div class="card2" (click)="goToArticle(document)">
                         <li class="list-group-item"><b>id:</b>
                             {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
                         <li class="list-group-item"><b>Nombre: </b> {{piece.name}}</li>
