@@ -13,6 +13,7 @@ import { TypeProvider } from 'src/providers/TypeProvider';
 import { RoomProvider } from 'src/providers/RoomProvider';
 import {MatListModule} from '@angular/material/list';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -29,7 +30,7 @@ const routes: Routes = [
     MatListModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   exports:[
     CollectionComponent

@@ -5,76 +5,67 @@
     <!-- COLUMNA IZQUIERDA-->
     <div class="leftcolumn">
 
-        <div class="card">
+        <!--FORM-->
+        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
+            <h2>¿Buscas una pieza?</h2>
+            <!--Multicheckbox-->
+            <div class="form-group">
+                <label for="options">Tipos de Piezas:</label>
+                <div *ngFor="let option of options">
+                    <label>
+                        <input type="checkbox"
+                               name="options"
+                               value="{{option.value}}"
+                               [(ngModel)]="option.checked"/>
+                        {{option.name}}
+                    </label>
+                </div>
+            </div>
+            <p><b>Valores Seleccionados: </b>{{selectedOptions}} </p>
+            <button (click)="submit()" type="button" id="button-addon2">Buscar</button>
+            <!--END Multicheckbox-->
+        </div>
+         <!--END FORM-->
+
+        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
             <h2>Tipos de Piezas</h2>
             <h5>Selecciona los tipos que deseas buscar:</h5>
             <img class="medianaancha"
                 src="http://2.bp.blogspot.com/_pev71yUgpNw/TPK9nJ_KWVI/AAAAAAAAAC8/lk-sRZdJYM8/s1600/IMG_0036.jpg"
                 alt="">
-            <ul class="list-group" *ngFor="let type of types">
-                <li class="list-group-item"><b>tipo:</b>
-                    {{(type._links.self.href.split("/")[(type._links.self.href.split("/").length-1)]).replace(space," ")}}
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let type of types"><b>tipo:</b>
+                    {{type.name}}
                 </li>
             </ul>
         </div>
 
-        <div class="card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height:200px;">Image</div>
-            <p>Some text..</p>
-        </div>
     </div>
 
 
 
     <div class="rightcolumn">
 
-        <div class="card">
-                <h2>Coincidencias: </h2>
-            <div>
-                <div *ngFor="let piece of pieces">
-                    <div class="card2" (click)="goToArticle(document)">
-                        <li class="list-group-item"><b>id:</b>
-                            {{piece._links.self.href.split("/")[(piece._links.self.href.split("/").length-1)]}}</li>
-                        <li class="list-group-item"><b>Nombre: </b> {{piece.name}}</li>
-                        
-                        <li class="list-group-item"><b>Texto:</b> {{ (piece.text).substring(0,300)}}{{piece.text.length > 300 ? '...' : ''}}</li>
-                        <li class="list-group-item"><b>Año: </b>{{piece.year}}</li>
-                        <li class="list-group-item"><b>CreateDate: </b>{{(piece.createdate).substring(0,10)}}</li>
-                        <li class="list-group-item"><b>Qr: </b><img class="mediana" src="{{piece.qr}}"
-                                alt="Imagen no disponible">
-                        </li>
-                        <li class="list-group-item"><b>NSala: </b>{{piece.room_name}}</li>
-                        <li class="list-group-item"><b>Marca: </b>{{piece.brand_name}}</li>
-                        <li class="list-group-item">
-                            <img class="mediana" src="{{piece.images[0]}}" alt="Imagen disponible"></li>
-                        <li class="list-group-item"><b>Tipo: </b>{{piece.types}}</li>
+        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
+            <h2><b>Coincidencias:</b> {{pieces.length}}</h2>
+
+            <div class="card-columns">
+                <div class="card border-info mb-3" *ngFor="let piece of pieces" (click)="goToPiece(piece)">
+                    <img class="card-img-top" src="{{piece.images[0]}}" alt="Card No image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{piece.name}}</h5>
+                        <p class="card-text">{{ (piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{piece.types}}</small>
                     </div>
                 </div>
             </div>
+
         </div>
 
-<!--
-        <div class="card">
-            <div>
-                <div *ngFor="let piece of pieces">
-                    <div class="column">
-                        <h2>Column 2</h2>
-                        <p>Some text..</p>
-                    </div>
-                </div>
-            </div>
+        <div class="footer">
+            <h2>Footer</h2>
         </div>
-
-        <div class="card">
-            <h3>Follow Me</h3>
-            <p>Some text..</p>
-        </div>
-    </div>
-</div>
--->
-<div class="footer">
-    <h2>Footer</h2>
-</div>
-<!--Main layout-->
+        <!--Main layout-->

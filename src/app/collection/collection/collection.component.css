@@ -14,10 +14,10 @@ img.grande{
 
 
 
-body {
-  font-family: Arial;
-  padding: 20px;
-  background: #f1f1f1;
+/* Header/Blog Title */
+.card {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.08);
+  border-color: black;
 }
 
 /* Header/Blog Title */
@@ -44,38 +44,6 @@ body {
   padding-right: 20px;
 }
 
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* Add a card effect for articles */
-.card2 {
-  float: left;
-  width: 50%;
-  height: 800px;
-  background-color:white;
-  padding: 10px;
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 20%;
-  background-color: cyan;
-}
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -83,13 +51,6 @@ body {
   clear: both;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-  margin-top: 20px;
-}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {

@@ -4,6 +4,7 @@ import { HomeModule } from './home/home.module';
 import { DocumentationModule } from './documentation/documentation.module';
 import { CollectionModule } from './collection/collection.module';
 import { ArticleModule } from './article/article.module';
+import { PieceModule } from './piece/piece.module';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'documentation/article/:id',
     loadChildren: () => ArticleModule
+  },
+  {
+    path: 'collection/piece/:id',
+    loadChildren: () => PieceModule
   }
 ];
 
