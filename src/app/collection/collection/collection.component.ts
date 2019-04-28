@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 import { PieceProvider } from 'src/providers/PieceProvider';
 import { BrandProvider } from 'src/providers/BrandProvider';
 import { TypeProvider } from 'src/providers/TypeProvider';
@@ -8,6 +9,9 @@ import { Piece } from 'src/models/Piece';
 import { Type } from 'src/models/Type';
 import { Brand } from 'src/models/Brand';
 import { Room } from 'src/models/Room';
+import { TimeoutError, empty } from 'rxjs';
+import { TouchSequence } from 'selenium-webdriver';
+
 
 
 
@@ -19,42 +23,73 @@ import { Room } from 'src/models/Room';
 
 export class CollectionComponent implements OnInit {
 
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   pieces: Piece[] = [];
   types: Type[] = [];
   brands: Brand[] = [];
   rooms: Room[] = [];
-  space= /%20/gi;
 
+  options = [/*
+    {name:'OptionA', value:'1', checked:true},
+    {name:'OptionB', value:'2', checked:false},
+    {name:'OptionC', value:'3', checked:false}*/
+  ]
   constructor(
     private router: Router,
     private pieceProvider: PieceProvider,
     private brandProvider: BrandProvider,
     private typeProvider: TypeProvider,
-    private roomProvider: RoomProvider
-  ) { }
+    private roomProvider: RoomProvider,
+  ) {
+
+
+  }
 
   ngOnInit() {
     this.pieceProvider.all().subscribe(pieces => {
       this.pieces = pieces;
-      console.log(pieces);
+      // console.log(pieces);
     });
-
     this.brandProvider.all().subscribe(brands => {
       this.brands = brands;
-      console.log(brands);
+      // console.log(brands);
     });
-
     this.typeProvider.all().subscribe(types => {
       this.types = types;
-      console.log(this.types);
+      this.initoptions();
+      // console.log(this.types);
     });
-
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
-     console.log(rooms);
+      // console.log(rooms);
     });
 
+    
   }
+
+  //go to Piece Component and show the info of the piece clicked
+  goToPiece(piece) {
+    var link = piece._links.self.href.split("/");
+    var id = link[link.length - 1];
+
+    this.router.navigate(['collection/piece/' + id]);
+  }
+
+  initoptions(){
+    for(let i in this.types){
+      this.options[i]={name:this.types[i].name,value:i,checked:false};
+    }
+  }
+
+  get selectedOptions() { // right now: ['1','3']  
+    return this.options
+              .filter(opt => opt.checked)
+              .map(opt => opt.name)
+  }
+  
+  
+
+  submit() {
+    console.log(this.selectedOptions);
+   }
 
 }
