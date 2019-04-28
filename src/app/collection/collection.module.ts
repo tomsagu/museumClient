@@ -12,6 +12,8 @@ import { BrandProvider } from 'src/providers/BrandProvider';
 import { TypeProvider } from 'src/providers/TypeProvider';
 import { RoomProvider } from 'src/providers/RoomProvider';
 import {MatListModule} from '@angular/material/list';
+import { Ng5SliderModule } from 'ng5-slider';
+
 
 
 const routes: Routes = [
@@ -31,6 +33,7 @@ const routes: Routes = [
     HttpModule,
     HttpClientModule,
     RouterModule.forChild(routes),
+    Ng5SliderModule,
   ],
   exports:[
     CollectionComponent
