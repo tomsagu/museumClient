@@ -8,6 +8,10 @@
             </div>
         </div>
         <div class="title">{{documents.length}} resultados encontrados</div>
+        <div class="noDocuments" style="text-align: center;">
+            <h1>No hay documentos que mostrar.</h1>
+        </div>
+        <div class="documentList">
         <mat-nav-list *ngFor="let document of documents">
             <a (click)="goToArticle(document)">
                 <div class="grid-container hover">
@@ -21,7 +25,9 @@
                     </div>
                 </div>
             </a>
-        </mat-nav-list>
+        </mat-nav-list> 
+    </div> 
+
     </div>
 </main>
 <!--Main layout-->

@@ -1,9 +1,74 @@
 <main class="mt-5 pt-5">
   <div class="container">
-    <span><strong>Documento: {{document.name}}</strong></span>
-    <div *ngFor="let article of articles">  
-       {{article.name}}
-       </div>
+    <div class="header">
+      <span><strong><a href="/documentation">Documento:</a> {{document.name}}</strong></span>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2><strong>{{articleSelected.name}}</strong></h2>
+          <hr>
+          <p>{{articleSelected.text}}</p>
+          <nav aria-label="Page navigation example" class="alignrigth">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" (click)="goPrevious()">Previous</a></li>
+              <li class="page-item"><a class="page-link" (click)="goNext()">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+      <div class="rightcolumn">
+        <div class="cardmenu" style="border: 1px dotted rgb(0, 0, 0);">
+          <h3>Artículos</h3>
+          <hr>
+          <div *ngFor="let article of articles">
+            <ul id="myUL" class="pagination">
+              <li class="page-item"><a class="page-link" (click)="viewArticle(article)">{{article.name}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer" style="display: none;">
+      <div class="card">
+        <h2><strong>Galería de imágenes</strong></h2>
+        <hr>
+
+        <div class="row">
+            <div class="column" *ngFor="let image of images">
+              <img src="{{image}}" style="height: 200px; width:200px" (click)="openModal();currentSlide(this.images.indexOf(image)+1)" class="hover-shadow cursor">
+            </div>
+            
+          </div>
+          
+          <div id="myModal" class="modal">
+            <span class="close cursor" (click)="closeModal()">&times;</span>
+            <div class="modal-content">
+          
+              <div class="mySlides" *ngFor="let image of images">
+                <img src="{{image}}" style="height: 475px; width:675px">
+              </div>
+          
+              
+              <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+              <a class="next" (click)="plusSlides(1)">&#10095;</a>
+          
+              <div class="caption-container">
+                <p id="caption"></p>
+              </div>
+          
+              <div class="row">
+              
+              <div class="column" *ngFor="let image of images">
+                <img class="demo cursor" src="{{image}}" style="height:150px; width:150px" (click)="currentSlide(this.images.indexOf(image)+1)">
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </main>
 <!--Main layout-->

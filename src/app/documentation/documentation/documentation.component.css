@@ -19,7 +19,7 @@
           padding: 10px 20px;
           font-size: 30px;
         }
-
+ 
         .title {
             font-weight: bold;
             font-size: 75%;
@@ -30,7 +30,7 @@
           } 
           .imageStyle {
             width: 150px;
-            height: 150px;
+            height: 150px;       
           } 
           .searchPadding{
               padding-left: 30%;
