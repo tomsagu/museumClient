@@ -29,10 +29,19 @@
                 <ng5-slider [(value)]="minYear" [(highValue)]="maxYear" [options]="options"></ng5-slider>
             </div>
             <!-- END Range Slider-->
+            <!--Select Brand-->
+            <div class="form-group">
+                <label for="exampleSelect1">Example select</label>
+                <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
+                  <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
+                </select>
+              </div>
+            <!--END Select Brand-->
             <p><b>Valores Seleccionados: </b></p>
             <p><b>Tipos: </b> {{(selectedOptions=='') ? 'No ha elegido ningun tipo' : ''}} {{selectedOptions}}</p>
             <p><b>Rango de Tiempo: </b>[{{minYear}},{{maxYear}}]</p>
-            <button (click)="submit()" type="button" id="button-addon2">Buscar</button>
+            <p><b>Marca: </b>{{selectedBrand}}</p>
+            <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
         </div>
         <!--END FORM-->
 
