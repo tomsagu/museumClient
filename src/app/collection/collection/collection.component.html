@@ -7,10 +7,10 @@
 
         <!--FORM-->
         <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h2>¿Buscas una Pieza?</h2>
+            <h2><b>¿Buscas una pieza?</b></h2>
             <!--Multicheckbox-->
             <div class="form-group">
-                <label for="options">Tipos de Piezas:</label>
+                <h3><b>Tipos de Piezas</b></h3>
                 <div *ngFor="let option of optionsCheckbox">
                     <label>
                         <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" />
@@ -21,7 +21,7 @@
             <!--END Multicheckbox-->
             <!-- Range Slider-->
             <div data-role="header">
-                <h1>Año de la Pieza</h1>
+                <h3><b>Año de la pieza</b></h3>
             </div>
             <div class="custom-slider">
                 <p>Año minimo: <input type="number" step="{{options.step}}" [(ngModel)]="minYear"></p>
@@ -31,7 +31,7 @@
             <!-- END Range Slider-->
             <!--Select Brand-->
             <div class="form-group">
-                <label for="exampleSelect1">Example select</label>
+                <h3><b>Marca de la pieza</b></h3>
                 <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
                   <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
                 </select>
@@ -40,23 +40,10 @@
             <p><b>Valores Seleccionados: </b></p>
             <p><b>Tipos: </b> {{(selectedOptions=='') ? 'No ha elegido ningun tipo' : ''}} {{selectedOptions}}</p>
             <p><b>Rango de Tiempo: </b>[{{minYear}},{{maxYear}}]</p>
-            <p><b>Marca: </b>{{selectedBrand}}</p>
+            <p><b>Marca: </b>{{(selectedBrand=='') ? 'No ha elegido ninguna marca' : ''}} {{selectedBrand}}</p>
             <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
         </div>
         <!--END FORM-->
-
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h2 class="header">Tipos de Piezas</h2>
-            <h5>Selecciona los tipos que deseas buscar:</h5>
-            <img class="medianaancha"
-                src="http://2.bp.blogspot.com/_pev71yUgpNw/TPK9nJ_KWVI/AAAAAAAAAC8/lk-sRZdJYM8/s1600/IMG_0036.jpg"
-                alt="">
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let type of types"><b>tipo:</b>
-                    {{type.name}}
-                </li>
-            </ul>
-        </div>
 
     </div>
 
