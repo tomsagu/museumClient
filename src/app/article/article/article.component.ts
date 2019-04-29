@@ -25,7 +25,7 @@ export class ArticleComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    
+    var imagesListDiv = document.getElementsByClassName("footer") as HTMLCollectionOf<HTMLElement>;
     let documentID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
     
     if(documentID != null && documentID.localeCompare("")){
@@ -33,19 +33,28 @@ export class ArticleComponent implements OnInit {
         this.document = document;
         this.articles = document.articles;
         this.articleSelected = document.articles[this.articleIndex];
-        this.images = this.articleSelected.images;
-        console.log(this.images);
+        this.images = this.articleSelected.images;      
+        if(this.images != null){
+          imagesListDiv[0].style.display="block";
+        }
       });
     }
   }
 
   viewArticle(article) {
+    var imagesListDiv = document.getElementsByClassName("footer") as HTMLCollectionOf<HTMLElement>;
     this.articleSelected = article;
     this.articleIndex = this.articles.indexOf(article);
     this.images = this.articleSelected.images;
+    if(this.images != null){
+      imagesListDiv[0].style.display="block";
+    }else{
+      imagesListDiv[0].style.display="none";
+    }
   }
 
   goPrevious() {
+    var imagesListDiv = document.getElementsByClassName("footer") as HTMLCollectionOf<HTMLElement>;
     if(this.articleIndex == 0){ //If it is the first article
       this.articleIndex = this.articles.length-1;
     }   
@@ -54,10 +63,15 @@ export class ArticleComponent implements OnInit {
     }
     this.articleSelected = this.articles[this.articleIndex];
     this.images = this.articleSelected.images;
-
+    if(this.images != null){
+      imagesListDiv[0].style.display="block";
+    }else{
+      imagesListDiv[0].style.display="none";
+    }
   }
 
   goNext() {
+    var imagesListDiv = document.getElementsByClassName("footer") as HTMLCollectionOf<HTMLElement>;
     if(this.articleIndex == this.articles.length-1){ //If it is the last article
       this.articleIndex = 0;
     }   
@@ -66,7 +80,13 @@ export class ArticleComponent implements OnInit {
     }
     this.articleSelected = this.articles[this.articleIndex];
     this.images = this.articleSelected.images;
+    if(this.images != null){
+      imagesListDiv[0].style.display="block";
+    }else{
+      imagesListDiv[0].style.display="none";
+    }
   }
+  
  
 
   openModal() {
@@ -93,6 +113,7 @@ export class ArticleComponent implements OnInit {
     }
     slides[this.slideIndex-1].style.display = "block";
     dots[this.slideIndex-1].className += " active";
+    
 
   }
 

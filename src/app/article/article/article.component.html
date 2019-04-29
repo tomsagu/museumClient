@@ -1,7 +1,7 @@
 <main class="mt-5 pt-5">
   <div class="container">
     <div class="header">
-      <span><strong>Documento: {{document.name}}</strong></span>
+      <span><strong><a href="/documentation">Documento:</a> {{document.name}}</strong></span>
       <hr>
     </div>
     <div class="row">
@@ -31,14 +31,14 @@
         </div>
       </div>
     </div>
-    <div class="footer">
+    <div class="footer" style="display: none;">
       <div class="card">
         <h2><strong>Galería de imágenes</strong></h2>
         <hr>
 
         <div class="row">
             <div class="column" *ngFor="let image of images">
-              <img src="{{image}}" style="height: 200px; width:200px" (click)="openModal();currentSlide(1)" class="hover-shadow cursor">
+              <img src="{{image}}" style="height: 200px; width:200px" (click)="openModal();currentSlide(this.images.indexOf(image)+1)" class="hover-shadow cursor">
             </div>
             
           </div>
@@ -62,18 +62,11 @@
               <div class="row">
               
               <div class="column" *ngFor="let image of images">
-                <img class="demo cursor" src="{{image}}" style="height:150px; width:150px" (click)="currentSlide(1)">
+                <img class="demo cursor" src="{{image}}" style="height:150px; width:150px" (click)="currentSlide(this.images.indexOf(image)+1)">
               </div>
             </div>
             </div>
           </div>
-          
-      
-      
-
-
-
-
       </div>
     </div>
   </div>
