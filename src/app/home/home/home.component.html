@@ -1,5 +1,5 @@
 <main class="mt-5 pt-5">
-    <div class="container">     
+    <div class="container">    
         <!--Carousel Wrapper-->
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
     <!--Indicators-->
@@ -13,37 +13,37 @@
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
         <div class="view">
-          <img class="d-block w-100" src="http://www.teclas.org/img/a/Apple_IIeuroplus_01.jpg" alt="First slide">
+          <img class="d-block w-100" src="{{piece1.images[0]}}" alt="First slide">
           <div class="mask rgba-black-slight"></div>
         </div>
         <div class="carousel-caption">
-          <h3 class="h3-responsive">II Europlus</h3>
-          <p>Fabricante: Apple Computer</p>
-          <p>Año: 1979</p>
+          <h3 class="h3-responsive">{{piece1.name}}</h3>
+          <p>Fabricante: {{piece1.brand_name}}</p>
+          <p>Año: {{piece1.year}}</p>
         </div>
       </div>
       <div class="carousel-item">
         <!--Mask color-->
         <div class="view">
-          <img class="d-block w-100" src="http://www.teclas.org/img/c/Canon_Canola1614P_02.jpg" alt="Second slide">
+          <img class="d-block w-100" src="{{piece2.images[0]}}" alt="Second slide">
           <div class="mask rgba-black-slight"></div>
         </div>
         <div class="carousel-caption">
-          <h3 class="h3-responsive">Canola 1614P</h3>
-          <p>Fabricante: Canon</p>
-          <p>Año: 1973</p>
+          <h3 class="h3-responsive">{{piece2.name}}</h3>
+          <p>Fabricante: {{piece2.brand_name}}</p>
+          <p>Año: {{piece2.year}}</p>
         </div>
       </div>
       <div class="carousel-item">
         <!--Mask color-->
         <div class="view">
-          <img class="d-block w-100" src="http://www.teclas.org/img/d/Decimo_Super_Vatman_01.jpg" alt="Third slide">
+          <img class="d-block w-100" src="{{piece3.images[0]}}" alt="Third slide">
           <div class="mask rgba-black-slight"></div>
         </div>
         <div class="carousel-caption">
-          <h3 class="h3-responsive">Super Vatman</h3>
-          <p>Fabricante: Decimo</p>
-          <p>Año: 1975</p>
+          <h3 class="h3-responsive">{{piece3.name}}</h3>
+          <p>Fabricante: {{piece3.brand_name}}</p>
+          <p>Año: {{piece3.year}}</p>
         </div>
       </div>
     </div>
