@@ -1,0 +1,107 @@
+/*IMAGENES*/
+img.pequeña{
+width: 50px; height: 50px;
+}
+img.mediana{
+width: 100px; height: 100px;
+}
+img.medianaancha{
+  width: 150px; height: 100px;
+  }
+img.grande{
+ width: 200px; height: 200px;
+}
+
+
+
+/* Header/Blog Title */
+.card {
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.08);
+  border-color: black;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn { 
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 75%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn,.card2{ 
+    width: 100%;
+    padding: 0;
+  }
+}
+
+
+/*Slider*/
+  .custom-slider .ng5-slider .ng5-slider-bar {
+    background: #ffe4d1;
+    height: 2px;
+  }
+  .custom-slider .ng5-slider .ng5-slider-selection {
+    background: orange;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: orange;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick {
+    width: 1px;
+    height: 10px;
+    margin-left: 4px;
+    border-radius: 0;
+    background: #ffe4d1;
+    top: -1px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+    background: orange;
+  }

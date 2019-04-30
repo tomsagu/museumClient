@@ -6,8 +6,8 @@ export class Piece {
     year : String;
     createdate : Date;
     qr : String;
-    room_name : String;
-    brand_name : String;
+    room : String;
+    brand : String;
     images : String[];
     types : String[];
 
@@ -18,8 +18,8 @@ export class Piece {
         year : String,
         createdate : Date,
         qr : String,
-        room_name : String,
-        brand_name : String,
+        room : String,
+        brand : String,
         images : String[],
         types : String[]
     ) {
@@ -29,8 +29,8 @@ export class Piece {
         this.year = year || '';
         this.createdate = createdate || null;
         this.qr = qr || '';
-        this.room_name = room_name || '';
-        this.brand_name = brand_name || '';
+        this.room = room || '';
+        this.brand = brand || '';
         this.images = images || null;
         this.types = types || null;
 
