@@ -11,7 +11,7 @@ import { Piece } from 'src/models/Piece';
 export class PieceComponent implements OnInit {
 
   piece: Piece;
-
+  visita: number;
   constructor(
     private route: ActivatedRoute,
     private pieceProvider: PieceProvider
@@ -23,8 +23,15 @@ export class PieceComponent implements OnInit {
     if (pieceID != null && pieceID.localeCompare("")) {
       this.pieceProvider.get(pieceID).subscribe(piece => {
         this.piece = piece;
+        this.aumentarVisitas();
       });
     }
-  }
+    
+    //this.piece.visits=String((Number(this.piece.visits)+1));
+    //this.pieceProvider.put(this.piece.id,this.piece);
+    }
 
+    aumentarVisitas(){
+      console.warn(this.piece.name);
+    }
 }

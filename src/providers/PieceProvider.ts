@@ -52,7 +52,7 @@ export class PieceProvider implements HttpMethodsInterface {
         
     }
 
-    put(id: string, piece: Piece): Observable<Piece> {
+    put(id: String, piece: Piece): Observable<Piece> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.put(this.basicUrl + '/'  + id, piece).pipe(map(response => { return response.json() }));
     }

@@ -8,6 +8,8 @@ export class Piece {
     qr : String;
     room : String;
     brand : String;
+    visits : String;
+    donor : String;
     images : String[];
     types : String[];
 
@@ -20,6 +22,8 @@ export class Piece {
         qr : String,
         room : String,
         brand : String,
+        visits : String,
+        donor : String,
         images : String[],
         types : String[]
     ) {
@@ -31,6 +35,8 @@ export class Piece {
         this.qr = qr || '';
         this.room = room || '';
         this.brand = brand || '';
+        this.visits = brand || '';
+        this.donor = brand || '';
         this.images = images || null;
         this.types = types || null;
 
