@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
 import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './article/article.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     ArticleRoutingModule,
     FormsModule,
     HttpModule,
+    NgxImageGalleryModule,
     RouterModule.forChild(routes)
   ],
   exports: [
