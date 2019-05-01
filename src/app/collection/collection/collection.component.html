@@ -1,5 +1,5 @@
 <div class="header">
-    <h2><b>Coleccion de Piezas</b></h2>
+    <h2><b>Colecci&oacute;n de Piezas</b></h2>
 </div>
 <div class="row">
     <!-- COLUMNA IZQUIERDA-->
@@ -33,9 +33,9 @@
             <div class="form-group">
                 <h3><b>Marca de la pieza</b></h3>
                 <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
-                  <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
+                    <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
                 </select>
-              </div>
+            </div>
             <!--END Select Brand-->
             <p><b>Valores Seleccionados: </b></p>
             <p><b>Tipos: </b> {{(selectedOptions=='') ? 'No ha elegido ningun tipo' : ''}} {{selectedOptions}}</p>
@@ -68,9 +68,5 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="footer">
-            <h2>Footer</h2>
         </div>
         <!--Main layout-->

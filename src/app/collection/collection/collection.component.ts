@@ -37,7 +37,7 @@ export class CollectionComponent implements OnInit {
     step: 5
   };
   //select
-  selectedBrand : String ="";
+  selectedBrand: String = "";
   constructor(
     private router: Router,
     private pieceProvider: PieceProvider,
@@ -68,7 +68,7 @@ export class CollectionComponent implements OnInit {
       // console.log(rooms);
     });
 
-    
+
   }
 
   //go to Piece Component and show the info of the piece clicked
@@ -79,25 +79,25 @@ export class CollectionComponent implements OnInit {
     this.router.navigate(['collection/piece/' + id]);
   }
 
-  initoptions(){
-    for(let i in this.types){
-      this.optionsCheckbox[i]={name:this.types[i].name,value:i,checked:false};
+  initoptions() {
+    for (let i in this.types) {
+      this.optionsCheckbox[i] = { name: this.types[i].name, value: i, checked: false };
     }
   }
 
   get selectedOptions() { // right now: ['1','3']  
     return this.optionsCheckbox
-              .filter(opt => opt.checked)
-              .map(opt => opt.name)
+      .filter(opt => opt.checked)
+      .map(opt => opt.name)
   }
 
-  doSearch(){
-    this.pieceProvider.getByYearAndTypesAndBrandName(this.minYear.toString(),this.maxYear.toString(),this.selectedOptions,this.selectedBrand).subscribe(pieces => {
+  doSearch() {
+    this.pieceProvider.getByYearAndTypesAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions, this.selectedBrand).subscribe(pieces => {
       this.pieces = pieces;
     });
   }
 
-  intersection ( array1: any[], array2: any[]): any[] {
+  intersection(array1: any[], array2: any[]): any[] {
     let result: any[] = [];
     let dict: {} = {};
     for (let el of array1) {
@@ -105,20 +105,20 @@ export class CollectionComponent implements OnInit {
         dict[el] = 1;
       }
     }
-  
+
     for (let el2 of array2) {
       if (el2 in dict && dict[el2] !== 2) {
         dict[el2] = 2;
         result.push(el2);
       }
     }
-    
-  
+
+
     return result;
   };
 
   submit() {
     console.log(this.brands);
-   }
+  }
 
 }
