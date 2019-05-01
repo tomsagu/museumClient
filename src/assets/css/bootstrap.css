@@ -48,10 +48,16 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer,header, hgroup, main, nav, section {
+article, aside, figcaption, figure, header, hgroup, main, nav, section {
   display: block;
 }
-
+footer{
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
 body {
   margin: 0;
@@ -62,6 +68,9 @@ body {
   color: #212529;
   text-align: left;
   background-color: #eeeeee;
+
+  position: relative;
+  padding-bottom: 25%;
 }
 
 [tabindex="-1"]:focus {
