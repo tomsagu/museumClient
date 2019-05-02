@@ -45,6 +45,10 @@ const routes: Routes = [
     path: 'documentationCRUD',
     loadChildren: () => DocumentationCRUDModule,
     canActivate: [AdminGuard] 
+  },
+  {
+    path: 'collection/:id',
+    loadChildren: () => CollectionModule
   }
 ];
 
