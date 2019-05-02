@@ -12,6 +12,10 @@ import { ArticleModule } from './article/article.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { LoginModule } from './login/login.module';
+import { UserProvider } from 'src/providers/UserProvider';
+import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +29,13 @@ import { FooterComponent } from './footer/footer.component';
     HomeModule,
     DocumentationModule,
     CollectionModule,
-    ArticleModule
+    ArticleModule,
+    LoginModule,
+    DocumentationCRUDModule
+    
+    
   ],
-  providers: [],
+  providers: [UserProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
