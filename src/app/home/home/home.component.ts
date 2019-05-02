@@ -42,13 +42,13 @@ export class HomeComponent implements OnInit {
       this.brand3 = brands[randomNumbersBrand[2]];
 
       this.pieceProvider.getByBrandName(this.brand1.name).subscribe(pieces => {
-        this.piece1ByBrand = pieces[this.getRandomArbitrary(0, this.brand1.pieces.length-1)];
+        this.piece1ByBrand = pieces[0];;
       });
       this.pieceProvider.getByBrandName(this.brand2.name).subscribe(pieces => {
-        this.piece2ByBrand = pieces[this.getRandomArbitrary(0, this.brand2.pieces.length-1)];
+        this.piece2ByBrand = pieces[0];
       });
       this.pieceProvider.getByBrandName(this.brand3.name).subscribe(pieces => {
-        this.piece3ByBrand = pieces[this.getRandomArbitrary(0, this.brand3.pieces.length-1)];
+        this.piece3ByBrand = pieces[0];
       });
     });
   }
@@ -67,17 +67,19 @@ export class HomeComponent implements OnInit {
     while (arr.length < 3) {
       var r = Math.floor(Math.random() * this.brands.length - 1) + 1;
       if (arr.indexOf(r) === -1) arr.push(r);
+      console.log(arr);
     }
     return arr;
   }
   getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  goToSearch(brand) {
-    //var link = brand._links.self.href.split("/");
-    //var id = link[link.length - 1];
 
-    this.router.navigate(['collection']);
+  goToSearch(brand) {
+    var link = brand._links.self.href.split("/");
+    var id = link[link.length - 1];
+
+    this.router.navigate(['collection/' + id]);
 
   }
 

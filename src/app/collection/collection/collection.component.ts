@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PieceProvider } from 'src/providers/PieceProvider';
 import { BrandProvider } from 'src/providers/BrandProvider';
 import { TypeProvider } from 'src/providers/TypeProvider';
@@ -39,6 +39,7 @@ export class CollectionComponent implements OnInit {
   //select
   selectedBrand: String = "";
   constructor(
+    private route : ActivatedRoute,
     private router: Router,
     private pieceProvider: PieceProvider,
     private brandProvider: BrandProvider,
@@ -50,6 +51,14 @@ export class CollectionComponent implements OnInit {
   }
 
   ngOnInit() {
+    let brandID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
+    
+    if(brandID != null && brandID.localeCompare("")){
+      this.brandProvider.get(brandID).subscribe(brand => {
+        this.selectedBrand = brand.name;
+      });
+    }
+
     this.pieceProvider.all().subscribe(pieces => {
       this.pieces = pieces;
       // console.log(pieces);

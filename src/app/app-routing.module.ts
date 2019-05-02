@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'collection/piece/:id',
     loadChildren: () => PieceModule
+  },
+  {
+    path: 'collection/:id',
+    loadChildren: () => CollectionModule
   }
 ];
 
