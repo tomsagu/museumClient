@@ -56,6 +56,7 @@ export class CollectionComponent implements OnInit {
     if(brandID != null && brandID.localeCompare("")){
       this.brandProvider.get(brandID).subscribe(brand => {
         this.selectedBrand = brand.name;
+        this.doSearchByBrandName();
       });
     }
 
@@ -102,6 +103,12 @@ export class CollectionComponent implements OnInit {
 
   doSearch() {
     this.pieceProvider.getByYearAndTypesAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions, this.selectedBrand).subscribe(pieces => {
+      this.pieces = pieces;
+    });
+  }
+
+  doSearchByBrandName(){
+    this.pieceProvider.getByBrandName(this.selectedBrand).subscribe(pieces => {
       this.pieces = pieces;
     });
   }
