@@ -97,26 +97,6 @@ export class CollectionComponent implements OnInit {
     });
   }
 
-  intersection ( array1: any[], array2: any[]): any[] {
-    let result: any[] = [];
-    let dict: {} = {};
-    for (let el of array1) {
-      if (!(el in dict)) {
-        dict[el] = 1;
-      }
-    }
-  
-    for (let el2 of array2) {
-      if (el2 in dict && dict[el2] !== 2) {
-        dict[el2] = 2;
-        result.push(el2);
-      }
-    }
-    
-  
-    return result;
-  };
-
   submit() {
     console.log(this.brands);
    }
