@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { UserProvider } from 'src/providers/UserProvider';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 import { HttpModule } from '@angular/http';
 
@@ -19,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [LoginComponent],
-  providers: [UserProvider],
+  providers: [UserProvider,HeaderComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserProvider } from 'src/providers/UserProvider';
 import {Md5} from 'ts-md5/dist/md5';
-//import { HeaderComponent } from 'src/app/header/header.component';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,13 @@ export class LoginComponent implements OnInit {
   inputUsername: string = "";
   inputPassword: string = "";
   hashPassword : string;
+  errorText : string = "";
  
 
   constructor(
     private router: Router,
     private userProvider: UserProvider,
-    //private headerComponent : HeaderComponent
+    private headerComponent : HeaderComponent
   ) { }
 
   
@@ -36,13 +37,14 @@ export class LoginComponent implements OnInit {
           var link = user._links.self.href.split("/");
           var id = link[link.length - 1];
           sessionStorage.setItem("userId",id);
-          //this.headerComponent.ngOnInit();
+          this.errorText = "";
+          this.headerComponent.ngOnInit();
           this.router.navigate(['documentationCRUD']);
           
-        },err => console.log("Usuario o contraseña incorrecta"));
+        },err => this.errorText= "Usuario o contraseña incorrecta");
               
       } else {
-        console.log("Complete ambos campos");
+        this.errorText = "Complete ambos campos";
       }
   }
 }
