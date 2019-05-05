@@ -1,0 +1,15 @@
+<main class="mt-5 pt-5">
+    <div class="container">    
+            <h1 class="h3 mb-3 font-weight-normal">Inicio de sesión</h1>
+            <br/>
+            <h5 class="errorText">{{errorText}}</h5>
+            <label for="inputText" class="sr-only">Usuario</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="Usuario" required autofocus [(ngModel)]='inputUsername'>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required [(ngModel)]='inputPassword'>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn()">Iniciar sesión</button>
+            <p class="mt-5 mb-3 text-muted">&copy; Museo Informática - 2019</p>
+    </div>
+</main>
+<!--Main layout-->

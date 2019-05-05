@@ -6,6 +6,11 @@ import { CollectionModule } from './collection/collection.module';
 import { ArticleModule } from './article/article.module';
 import { PieceModule } from './piece/piece.module';
 
+import { LoginModule } from './login/login.module';
+import { AdminGuard } from 'src/guards/AdminGuard';
+import { UserProvider } from 'src/providers/UserProvider';
+import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -33,6 +38,15 @@ const routes: Routes = [
     loadChildren: () => PieceModule
   },
   {
+    path: 'login',
+    loadChildren: () => LoginModule
+  },
+  {
+    path: 'documentationCRUD',
+    loadChildren: () => DocumentationCRUDModule,
+    canActivate: [AdminGuard] 
+  },
+  {
     path: 'collection/:id',
     loadChildren: () => CollectionModule
   }
@@ -40,6 +54,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers : [UserProvider,AdminGuard]
 })
 export class AppRoutingModule { }

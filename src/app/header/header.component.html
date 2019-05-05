@@ -63,11 +63,15 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-                          target="_blank">
-                          <i class="fas fa-user-cog"></i>Administraci&oacute;n
+                      <a class="nav-link border border-light rounded waves-effect" (click)="doLogIn()">
+                          <i class="fas fa-user-cog"></i>Administración
                       </a>
                   </li>
+                  <li id="signout" class="nav-item" style="display:none;">
+                        <a href="home" class="nav-link border border-light rounded waves-effect" (click)="doSignOut()">
+                            <i class="fas fa-user-cog"></i>Cerrar Sesión
+                        </a>
+                    </li>
               </ul>
 
           </div>
