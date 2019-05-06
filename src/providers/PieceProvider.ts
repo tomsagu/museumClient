@@ -57,15 +57,17 @@ export class PieceProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl + '/search/findByBrand?brandname=' + brand).pipe(map(response => { return response.json()._embedded.pieces }));
 
     }
-
-    put(id: string, piece: Piece): Observable<Piece> {
-        let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
-        return this.http.put(this.basicUrl + '/' + id, piece).pipe(map(response => { return response.json() }));
+  
+    put(id: String, piece: Piece): Observable<Piece> {
+        let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
+        return this.http.put(this.basicUrl + '/'  + id, piece).pipe(map(response => { return response.json() }));
     }
+  
     post(piece: Piece): Observable<Piece> {
         let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
         return this.http.post(this.basicUrl, piece).pipe(map(response => { return response.json() }));
     }
+  
     delete(id: string): Observable<Piece> {
         let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
         return this.http.delete(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));

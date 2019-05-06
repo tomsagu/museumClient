@@ -48,12 +48,10 @@
     </div>
 
 
-
     <div class="rightcolumn">
 
         <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h2><b>Coincidencias:</b> {{pieces.length}}</h2>
-
+            <h2><b>Coincidencias:</b> {{pieces.length>0 ? pieces.length : 'No hay piezas que coincidan con esos criterios'}} </h2>
             <div class="card-columns">
                 <div class="card border-info mb-3" *ngFor="let piece of pieces" (click)="goToPiece(piece)">
                     <img class="card-img-top" src="{{piece.images[0]}}" alt="Card No image">
