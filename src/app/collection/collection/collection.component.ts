@@ -51,7 +51,7 @@ export class CollectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    let brandID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
+    let brandID = this.route.snapshot.paramMap.get('id'); //get the id from url param
     
     if(brandID != null && brandID.localeCompare("")){
       this.brandProvider.get(brandID).subscribe(brand => {
