@@ -12,23 +12,23 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     var signout = document.getElementById("signout");
-    if(sessionStorage.getItem("userId") != null){
+    if (sessionStorage.getItem("userId") != null) {
       signout.style.display = "block";
-    }else{
+    } else {
       signout.style.display = "none";
     }
   }
 
-  doLogIn(){
-    if(sessionStorage.getItem("userId") != null){
+  doLogIn() {
+    if (sessionStorage.getItem("userId") != null) {
       this.router.navigate(['documentationCRUD']);
-    }else{
+    } else {
       this.router.navigate(['login']);
     }
     this.ngOnInit();
   }
 
-  doSignOut(){
+  doSignOut() {
     sessionStorage.removeItem("userId");
     this.ngOnInit();
   }
