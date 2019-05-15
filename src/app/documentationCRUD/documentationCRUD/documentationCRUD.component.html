@@ -1,4 +1,38 @@
-<div class="container" style="margin-top: 20px;">    
-  DocumentationCRUD
-    </div>
+<main class="mt-5 pt-5">
+  <div class="container">    
+      <div class="input-group mb-3 searchPadding">
+          <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+              aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
+          <div class="input-group-append">
+              <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+          </div>
+      </div>
+      <div class="grid-container1">
+        <div class="item1 title">{{documents.length}} resultados encontrados</div>
+        <div class="item2"><button (click)="goToCreateDocument()" type="button" id="button-addon2">Crear Documento</button></div>
+    </div> 
+      <div class="noDocuments" style="text-align: center;">
+          <br/>
+          <br/>
+          <h2>No hay documentos que mostrar.</h2>
+          <br/>
+          <br/>
+      </div>
+      <div class="documentList">
+      <mat-nav-list *ngFor="let document of documents">        
+              <div class="grid-container hover">                  
+                  <div class="item1">
+                      <p class="title">{{document.name}}</p>
+                  </div> 
+                  <div class="item2">
+                    <a (onclick)="goToEditDocument(document)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
+                    &nbsp;
+                    <a (onclick)="doDelete(document)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
+                </div>  
+                         
+              </div>         
+      </mat-nav-list> 
+  </div> 
+  </div>
+</main>
 <!--Main layout-->

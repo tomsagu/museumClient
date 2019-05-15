@@ -7,6 +7,8 @@ import { DocumentationCRUDRoutingModule } from './documentationCRUD-routing.modu
 import { DocumentationCRUDComponent } from './documentationCRUD/documentationCRUD.component';
 import { DocumentProvider } from 'src/providers/DocumentProvider';
 import { HttpModule } from '@angular/http';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const routes: Routes = [
   {
@@ -21,6 +23,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    MatListModule,
+    MatGridListModule,
     DocumentationCRUDRoutingModule,
     HttpModule,
     RouterModule.forChild(routes)
