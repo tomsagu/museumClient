@@ -5,6 +5,7 @@ import { DocumentationModule } from './documentation/documentation.module';
 import { CollectionModule } from './collection/collection.module';
 import { ArticleModule } from './article/article.module';
 import { PieceModule } from './piece/piece.module';
+import { PieceCRUDModule } from './pieceCRUD/pieceCRUD.module';
 
 import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'collection/:id',
     loadChildren: () => CollectionModule
+  },
+  {
+    path: 'pieceCRUD',
+    loadChildren: () => PieceCRUDModule
   }
 ];
 
