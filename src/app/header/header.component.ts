@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   doLogIn() {
     if (sessionStorage.getItem("userId") != null) {
-      this.router.navigate(['documentationCRUD']);
+      this.router.navigate(['indexCRUD']);
     } else {
       this.router.navigate(['login']);
     }
@@ -32,5 +32,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem("userId");
     this.ngOnInit();
   }
-
+  goInicio() {
+        this.router.navigate(['home']);
+}
 }

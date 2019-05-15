@@ -8,7 +8,6 @@ import { DocumentationCRUDComponent } from './documentationCRUD/documentationCRU
 import { DocumentProvider } from 'src/providers/DocumentProvider';
 import { HttpModule } from '@angular/http';
 
-
 const routes: Routes = [
   {
     path: '',
