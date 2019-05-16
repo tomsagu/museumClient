@@ -53,7 +53,8 @@ const routes: Routes = [
   },
   {
     path: 'pieceCRUD',
-    loadChildren: () => PieceCRUDModule
+    loadChildren: () => PieceCRUDModule,
+    canActivate: [AdminGuard] 
   }
 ];
 

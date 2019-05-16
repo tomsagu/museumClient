@@ -7,7 +7,8 @@ import { PieceCRUDRoutingModule } from './PieceCRUD-routing.module';
 import { PieceCRUDComponent } from './pieceCRUD/pieceCRUD.component';
 import { PieceProvider } from 'src/providers/PieceProvider';
 import { HttpModule } from '@angular/http';
-
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const routes: Routes = [
   {
@@ -22,6 +23,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    MatListModule,
+    MatGridListModule,
     PieceCRUDRoutingModule,
     HttpModule,
     RouterModule.forChild(routes)
