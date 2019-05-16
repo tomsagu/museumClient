@@ -1,0 +1,43 @@
+<main class="mt-5 pt-5">
+  <div class="container">    
+    <h3><strong>{{mainTitle}}</strong></h3>
+    <hr>
+
+    <div class="grid-container hover">                  
+      <div class="item1">
+            <div class="formPadding">
+                <label class="title" for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>                
+ 
+                <label class="title" for="description">Descripción</label>
+                <textarea class="form-control" style="height: 150px;" id="description" placeholder="Descripción" 
+                  [(ngModel)]='inputDescriptionValue'></textarea>               
+ 
+                <label class="title" for="image">Imágenes</label>
+                <div class="form-inline">
+                  
+                  <input id="inputImage" type="text" class="form-control" style="width: 70%;" placeholder="Imágenes" aria-label="Imágenes"
+                      aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
+                      &nbsp;
+                      <button class="btn btn-primary mb-2" (click)="addImage()"  type="button" id="button-addon2">Añadir</button>
+                  
+
+                </div>  
+              </div>
+               
+                  
+                      
+              
+
+
+              
+            
+      </div> 
+      <div class="item2">
+        das
+    </div>  
+             
+  </div>         
+  </div>
+</main>
+<!--Main layout-->

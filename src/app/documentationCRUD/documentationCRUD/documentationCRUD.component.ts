@@ -56,13 +56,20 @@ export class DocumentationCRUDComponent implements OnInit {
 
   //go to create document view
   goToCreateDocument() {
-    //TODO
+    var id = "null";
+    var inMode = "create";
+    this.router.navigate(['indexCRUD/maintenanceDocumentation/' + id + '/' + inMode]);
 
   }
 
   //go to edit document view
   goToEditDocument(document) {
-    //TODO
+    console.log("asdsa");
+    var link = document._links.self.href.split("/");
+    var id = link[link.length - 1];  
+    console.log(id);
+    var inMode = "edit";
+    this.router.navigate(['indexCRUD/maintenanceDocumentation/' + id + '/' + inMode]);
 
   }
 

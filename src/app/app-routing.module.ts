@@ -10,6 +10,7 @@ import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
 import { UserProvider } from 'src/providers/UserProvider';
 import { CRUDModule } from './crud/crud.module';
+import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { CollectionCRUDModule } from './collectionCRUD/collectionCRUD.module';
 
 const routes: Routes = [
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'indexCRUD',
     loadChildren: () => CRUDModule,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'indexCRUD/maintenanceDocumentation/:id/:inMode',
+    loadChildren: () => MaintenanceDocumentationModule,
     canActivate: [AdminGuard]
   },
   {
