@@ -32,10 +32,10 @@ export class HomeComponent implements OnInit {
       this.piece2 = pieces[randomNumbers[1]];
       this.piece3 = pieces[randomNumbers[2]];
     });
-    
+
     this.brandProvider.all().subscribe(brands => {
       this.brands = brands;
-      
+
       var randomNumbersBrand = this.get3RandomDifferentNumbersBrand();
       this.brand1 = brands[randomNumbersBrand[0]];
       this.brand2 = brands[randomNumbersBrand[1]];

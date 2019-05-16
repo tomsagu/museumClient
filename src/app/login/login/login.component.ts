@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("userId",id);
           this.errorText = "";
           this.headerComponent.ngOnInit();
-          this.router.navigate(['documentationCRUD']);
+          this.router.navigate(['indexCRUD']);
           
         },err => this.errorText= "Usuario o contraseña incorrecta");
               

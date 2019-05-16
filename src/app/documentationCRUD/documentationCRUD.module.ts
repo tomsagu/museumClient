@@ -10,7 +10,6 @@ import { HttpModule } from '@angular/http';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 
-
 const routes: Routes = [
   {
     path: '',
