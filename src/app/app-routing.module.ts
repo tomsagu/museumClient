@@ -10,7 +10,8 @@ import { PieceCRUDModule } from './pieceCRUD/pieceCRUD.module';
 import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
 import { UserProvider } from 'src/providers/UserProvider';
-import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
+import { CRUDModule } from './crud/crud.module';
+import { CollectionCRUDModule } from './collectionCRUD/collectionCRUD.module';
 
 const routes: Routes = [
   {
@@ -43,9 +44,9 @@ const routes: Routes = [
     loadChildren: () => LoginModule
   },
   {
-    path: 'documentationCRUD',
-    loadChildren: () => DocumentationCRUDModule,
-    canActivate: [AdminGuard] 
+    path: 'indexCRUD',
+    loadChildren: () => CRUDModule,
+    canActivate: [AdminGuard]
   },
   {
     path: 'collection/:id',

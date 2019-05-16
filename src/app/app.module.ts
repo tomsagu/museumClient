@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
 import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
+import { CRUDModule } from './crud/crud.module';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,7 @@ import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.m
     CollectionModule,
     ArticleModule,
     LoginModule,
-    DocumentationCRUDModule
-    
-    
+    CRUDModule
   ],
   providers: [UserProvider],
   bootstrap: [AppComponent]
