@@ -33,7 +33,7 @@ img.grande{
 .leftcolumn { 
   float: left;
   width: 25%;
-  padding-left: 10%;
+  padding-left: 1.5%;
 }
 
 /* Right column */
@@ -41,7 +41,7 @@ img.grande{
   float: left;
   width: 75%;
   padding-left: 20px;
-  padding-right: 10%;
+  padding-right: 1.5%;
 }
 
 /* Clear floats after the columns */

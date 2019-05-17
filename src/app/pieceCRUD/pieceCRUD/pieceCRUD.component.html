@@ -1,0 +1,38 @@
+<main class="mt-5 pt-5">
+  <div class="container">    
+      <div class="input-group mb-3 searchPadding">
+          <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+              aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
+          <div class="input-group-append">
+              <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+          </div>
+      </div>
+      <div class="grid-container1">
+        <div class="item1 title">{{pieces.length}} resultados encontrados</div>
+        <div class="item2"><button (click)="goToCreatePiece()" type="button" id="button-addon2">Crear Pieza</button></div>
+    </div> 
+      <div class="noPieces" style="text-align: center;">
+          <br/>
+          <br/>
+          <h2>No hay piezas que mostrar.</h2>
+          <br/>
+          <br/>
+      </div>
+      <div class="pieceList">
+      <mat-nav-list *ngFor="let piece of pieces">        
+              <div class="grid-container hover">                  
+                  <div class="item1">
+                      <p class="title">{{piece.name}}</p>
+                  </div> 
+                  <div class="item2">
+                    <a (onclick)="goToEditPiece(piece)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
+                    &nbsp;
+                    <a (onclick)="doDelete(piece)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
+                </div>  
+                         
+              </div>         
+      </mat-nav-list> 
+  </div> 
+  </div>
+</main>
+<!--Main layout-->
