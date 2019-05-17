@@ -40,15 +40,15 @@ export class DocumentProvider implements HttpMethodsInterface {
     }
     put(id: String, document: Document): Observable<Document> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: false});
-        return this.http.put(this.basicUrl + '/' + id , document).pipe(map(response => { return response.json()._embedded.documents }));
+        return this.http.put(this.basicUrl + '/' + id , document).pipe(map(response => { return response.json()}));
     }
     post(document: Document): Observable<Document> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.post(this.basicUrl, document).pipe(map(response => { return response.json()._embedded.documents }));
+        return this.http.post(this.basicUrl, document).pipe(map(response => { return response.json()}));
     }
     delete(id: String): Observable<Document> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.delete(this.basicUrl+ '/' + id).pipe(map(response => { return response.json()._embedded.documents }));
+        return this.http.delete(this.basicUrl+ '/' + id).pipe(map(response => { return response.json()}));
     }
 
     count(): Observable<Document> {

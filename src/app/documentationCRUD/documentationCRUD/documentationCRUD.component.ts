@@ -75,7 +75,12 @@ export class DocumentationCRUDComponent implements OnInit {
 
   //delete a certain document
   doDelete(document) {
-    //TODO
+    var link = document._links.self.href.split("/");
+    var id = link[link.length - 1];
+    this.documentProvider.delete(id).subscribe(result => {
+    });
+    location.reload();
+    
 
   }
   
