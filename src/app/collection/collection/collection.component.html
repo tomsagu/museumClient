@@ -35,6 +35,7 @@
             <div class="form-group">
                 <h3><b>Marca de la pieza</b></h3>
                 <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
+                    <option [ngValue]="">Ninguna</option>
                     <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
                 </select>
             </div>

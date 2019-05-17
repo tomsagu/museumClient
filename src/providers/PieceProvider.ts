@@ -52,6 +52,18 @@ export class PieceProvider implements HttpMethodsInterface {
 
     }
 
+    getByYearAndTypes(minyear: String, maxyear: String, types: String[]): Observable<Piece[]> {
+        let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
+        return this.http.get(this.basicUrl + '/search/findByYearBetweenAndTypesContains?minyear=' + minyear + '&maxyear=' + maxyear + '&types=' + types).pipe(map(response => { return response.json()._embedded.pieces }));
+
+    }
+
+    getByYearAndBrandName(minyear: String, maxyear: String, brand: String): Observable<Piece[]> {
+        let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
+        return this.http.get(this.basicUrl + '/search/findByYearBetweenAndBrandLike?minyear=' + minyear + '&maxyear=' + maxyear + '&brandname=' + brand).pipe(map(response => { return response.json()._embedded.pieces }));
+
+    }
+
     getByBrandName(brand: String): Observable<Piece[]> {
         let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
         return this.http.get(this.basicUrl + '/search/findByBrand?brandname=' + brand).pipe(map(response => { return response.json()._embedded.pieces }));
