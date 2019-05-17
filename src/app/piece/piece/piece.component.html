@@ -9,18 +9,18 @@
 
     <div class="leftcolumn">
       <!--GALERY-->
-      <div class="card border-light mb-3" style=" padding: 10px; margin-top: 20px;margin-left: 100px;margin-right: 5%">
+      <div class="card border-light mb-3" style=" padding: 10px; margin-top: 20px;margin-right: 5%">
 
         <h2 style="text-align:center">Galeria</h2>
 
         
           <div class="mySlides">
             <div class="numbertext">1/{{size}}</div>
-            <img src="http://gsoillab.uma.es/fotos/marca_uma.jpg" style="width:80%;height:240px; margin-left: 10%">
+            <img src="http://gsoillab.uma.es/fotos/marca_uma.jpg" style="width:80%;height:290px; margin-left: 10%">
           </div>
           <div class="mySlides" *ngFor="let pic of images; let i = index">
             <div class="numbertext">{{i+2}} / {{size}}</div>
-            <img src="{{pic}}" style="width:80%;height:240px;margin-left: 10%">
+            <img src="{{pic}}" style="width:80%;height:290px;margin-left: 10%">
           </div>
 
           <a class="prev" (click)="plusSlides(-1)">❮</a>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="rightcolumn">
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;height:90% ; margin-right: 15%">
+        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;height:90%">
          
         <h2><b>Datos de la Pieza:</b></h2>
         <h3><b>Fabricante: </b>{{piece.brand}}</h3>
@@ -59,7 +59,7 @@
 
   </div>
   <hr>
-  <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;margin-left:10% ;margin-right: 10%">
+  <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px">
   <h5><b>Descripción de la pieza:</b></h5>
   <p>{{piece.text}}</p>
   <h5>Pieza donada por: {{piece.donor}}</h5>
