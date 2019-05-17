@@ -5,6 +5,7 @@ import { CRUDRoutingModule } from './crud-routing.module';
 import { IndexCRUDComponent } from './indexCRUD/indexCRUD.component';
 import { DocumentationCRUDModule } from '../documentationCRUD/documentationCRUD.module';
 import { CollectionCRUDModule } from '../collectionCRUD/collectionCRUD.module';
+import { PieceCRUDModule } from '../pieceCRUD/pieceCRUD.module';
 import { HeaderCRUDComponent } from '../headerCRUD/headerCRUD.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -18,7 +19,8 @@ import { FooterComponent } from '../footer/footer.component';
     CommonModule,
     CRUDRoutingModule,
     DocumentationCRUDModule,
-    CollectionCRUDModule
+    CollectionCRUDModule,
+    PieceCRUDModule
   ],
   exports: [
     IndexCRUDComponent

@@ -58,6 +58,8 @@ export class CollectionComponent implements OnInit {
         this.selectedBrand = brand.name;
         this.doSearchByBrandName();
       });
+    }else{
+      this.selectedBrand = 'Ninguna';
     }
 
     this.pieceProvider.all().subscribe(pieces => {
@@ -102,9 +104,23 @@ export class CollectionComponent implements OnInit {
   }
 
   doSearch() {
-    this.pieceProvider.getByYearAndTypesAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions, this.selectedBrand).subscribe(pieces => {
-      this.pieces = pieces;
-    });
+    if(this.selectedOptions.length==0 && this.selectedBrand=='Ninguna'){
+      this.pieceProvider.getByYear(this.minYear.toString(), this.maxYear.toString()).subscribe(pieces => {
+        this.pieces = pieces;
+      });
+    }else if(this.selectedOptions.length==0){
+      this.pieceProvider.getByYearAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedBrand).subscribe(pieces => {
+        this.pieces = pieces;
+      });
+    }else if(this.selectedBrand=='Ninguna') {
+      this.pieceProvider.getByYearAndTypes(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions).subscribe(pieces => {
+        this.pieces = pieces;
+      });
+    }else{
+      this.pieceProvider.getByYearAndTypesAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions, this.selectedBrand).subscribe(pieces => {
+        this.pieces = pieces;
+      });
+    }
   }
 
   doSearchByBrandName(){
