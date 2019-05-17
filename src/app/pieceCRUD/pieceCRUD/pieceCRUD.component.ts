@@ -43,7 +43,7 @@ export class PieceCRUDComponent implements OnInit {
   doSearch() {
     var pieceListDiv = document.getElementsByClassName("pieceList") as HTMLCollectionOf<HTMLElement>;
     var noPiecesDiv = document.getElementsByClassName("noPieces") as HTMLCollectionOf<HTMLElement>;
-    this.pieceProvider.getByName(this.inputSearchValue).subscribe(pieces => {
+    this.pieceProvider.getByWord(this.inputSearchValue).subscribe(pieces => {
       this.pieces = pieces;
       noPiecesDiv[0].style.display = "none";
       if (pieces.length == 0) {
