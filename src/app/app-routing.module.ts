@@ -11,7 +11,7 @@ import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
 import { UserProvider } from 'src/providers/UserProvider';
 import { CRUDModule } from './crud/crud.module';
-import { CollectionCRUDModule } from './collectionCRUD/collectionCRUD.module';
+import { BrandCRUDModule } from './brandCRUD/brandCRUD.module';
 
 const routes: Routes = [
   {
@@ -55,6 +55,11 @@ const routes: Routes = [
   {
     path: 'pieceCRUD',
     loadChildren: () => PieceCRUDModule,
+    canActivate: [AdminGuard] 
+  },
+  {
+    path: 'brandCRUD',
+    loadChildren: () => BrandCRUDModule,
     canActivate: [AdminGuard] 
   }
 ];
