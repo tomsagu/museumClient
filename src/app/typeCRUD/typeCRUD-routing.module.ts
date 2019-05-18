@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CollectionCRUDComponent } from './collectionCRUD/collectionCRUD.component';
+import { TypeCRUDComponent } from './typeCRUD/typeCRUD.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CollectionCRUDComponent
+    component: TypeCRUDComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CollectionCRUDRoutingModule { }
+export class TypeCRUDRoutingModule { }

@@ -15,7 +15,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
-
 import { CRUDModule } from './crud/crud.module';
 
 @NgModule({

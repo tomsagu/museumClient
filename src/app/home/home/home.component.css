@@ -1,3 +1,12 @@
 .containerTextCarousel {
     background-color: #383636;
+    opacity: 0.7;
  }
+ .container-fluid {
+    height: 90%;
+    width: 100%;
+  }
+  
+  .carousel-inner img {
+    height: 500px;
+  }
