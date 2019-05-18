@@ -3,37 +3,36 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { MaintenanceDocumentationRoutingModule } from './maintenanceDocumentation-routing.module';
-import { MaintenanceDocumentationComponent } from './maintenanceDocumentation/maintenanceDocumentation.component';
+import { MaintenanceArticleDialogRoutingModule } from './maintenanceArticleDialog-routing.module';
+import { MaintenanceArticleDialogComponent } from './maintenanceArticleDialog/maintenanceArticleDialog.component';
 import { DocumentProvider } from 'src/providers/DocumentProvider';
 import { HttpModule } from '@angular/http';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 
-
 const routes: Routes = [
   {
     path: '',
-    component: MaintenanceDocumentationComponent
+    component: MaintenanceArticleDialogComponent
   }
 ];
 
 @NgModule({
-  declarations: [MaintenanceDocumentationComponent],
+  declarations: [MaintenanceArticleDialogComponent],
   providers: [DocumentProvider],
   imports: [
     CommonModule,
     FormsModule,
     MatListModule,
     MatGridListModule,
-    MaintenanceDocumentationRoutingModule,
+    MaintenanceArticleDialogRoutingModule,
     HttpModule,
     MatDialogModule,
     RouterModule.forChild(routes)
   ],
   exports: [
-    MaintenanceDocumentationComponent
+    MaintenanceArticleDialogComponent
   ]
 })
-export class MaintenanceDocumentationModule { }
+export class MaintenanceArticleDialogModule { }

@@ -34,7 +34,7 @@
         <label class="title" style="text-align: center;">Artículos</label>
           <div class="grid-container2">
               <div class="item1 title">{{articles.length}} resultados encontrados</div>
-              <div class="item2"><button class="btn btn-primary mb-2" (click)="goToArticle()" type="button" id="button-addon2">Crear Artículo</button></div>
+              <div class="item2"><button class="btn btn-primary mb-2" (click)="createArticle()" type="button" id="button-addon2">Crear Artículo</button></div>
           </div> 
             <div class="noArticles" style="text-align: center;">
                 <br/>
@@ -50,7 +50,7 @@
                           <p class="title">{{article.name}}</p>
                       </div> 
                       <div class="item2">
-                        <a (click)="goToEditDocument(article)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
+                        <a (click)="editArticle(article)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
                         &nbsp;
                         <a (click)="doDelete(article)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
                     </div>  
@@ -61,9 +61,17 @@
     </div>  
              
   </div>  
-  <div id="buttons" style="padding-left: 75%;">
-    <button id="createButton" class="btn btn-primary mb-2" (click)="doCreate()" type="button" style="display:none;">Crear Documento</button>
-    <button id="editButton" class="btn btn-primary mb-2" (click)="doEdit()" type="button" style="display:none;">Editar Documento</button>
+  <div id="buttons">
+    <table>
+      <tr>
+        <td style="width: 69%;"></td>
+        <td><button id="returnButton" class="btn btn-primary mb-2" (click)="doReturn()" type="button">Volver</button></td>    
+      <td><button id="createButton" class="btn btn-primary mb-2" (click)="doCreate()" type="button" style="display:none;">Crear Documento</button>
+        <button id="editButton" class="btn btn-primary mb-2" (click)="doEdit()" type="button" style="display:none;">Editar Documento</button></td>
+      </tr>
+    </table>
+    
+    
 </div>
        
   </div>
