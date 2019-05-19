@@ -20,24 +20,11 @@ export class DocumentationComponent implements OnInit {
 
   //OnInit show all the documents
   ngOnInit() {
-    var documentListDiv = document.getElementsByClassName("documentList") as HTMLCollectionOf<HTMLElement>;
-    var noDocumentsDiv = document.getElementsByClassName("noDocuments") as HTMLCollectionOf<HTMLElement>;
     this.documentProvider.all().subscribe(documents => {
       this.documents = documents;
-      noDocumentsDiv[0].style.display = "none";
-      if (documents.length == 0) {
-        documentListDiv[0].style.display = "none";
-        noDocumentsDiv[0].style.display = "block";
-      }
+      this.displayList(documents);
     });
-
-    noDocumentsDiv[0].style.display = "none";
-
-    if (this.documents.length == 0) {
-      documentListDiv[0].style.display = "none";
-      noDocumentsDiv[0].style.display = "block";
-    }
-
+    this.displayList(this.documents);
   }
   //go to Article Component and show the articles of the document clicked
   goToArticle(document) {
@@ -53,19 +40,23 @@ export class DocumentationComponent implements OnInit {
   }
   //show the documents which contain in their names or texts the word searched
   doSearch() {
-    var documentListDiv = document.getElementsByClassName("documentList") as HTMLCollectionOf<HTMLElement>;
-    var noDocumentsDiv = document.getElementsByClassName("noDocuments") as HTMLCollectionOf<HTMLElement>;
     this.documentProvider.getByWord(this.inputSearchValue).subscribe(documents => {
       this.documents = documents;
-      noDocumentsDiv[0].style.display = "none";
+      this.displayList(documents);
+    });
+  }
+
+  //if there isn't any item in the list, show a message
+  displayList(documents){
+    var documentListDiv = document.getElementsByClassName("documentList") as HTMLCollectionOf<HTMLElement>;
+    var noDocumentsDiv = document.getElementsByClassName("noDocuments") as HTMLCollectionOf<HTMLElement>;
+    noDocumentsDiv[0].style.display = "none";
       if (documents.length == 0) {
+        documentListDiv[0].style.display = "none";
         noDocumentsDiv[0].style.display = "block";
-      } else {
+      }else{      
         documentListDiv[0].style.display = "block";
       }
-    });
-
-
   }
 
 }

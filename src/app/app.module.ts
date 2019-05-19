@@ -15,8 +15,12 @@ import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { MaintenanceArticleDialogModule } from './maintenanceArticleDialog/maintenanceArticleDialog.module';
+import { ConfirmDeleteDialogModule } from './confirmDeleteDialog/confirmDeleteDialog.module';
+
+
 import { CRUDModule } from './crud/crud.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -37,7 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CRUDModule,
     MaintenanceDocumentationModule,
     MaintenanceArticleDialogModule,
-    BrowserAnimationsModule
+    ConfirmDeleteDialogModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserProvider],
   bootstrap: [AppComponent]

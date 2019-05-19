@@ -19,7 +19,7 @@
                   <input id="inputImage" type="text" class="form-control" style="width: 55%;" placeholder="Imágenes" aria-label="Imágenes"
                       aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
                       &nbsp;
-                      <button class="btn btn-primary mb-2" (click)="addImage()"  type="button" id="button-addon2">Añadir</button>
+                      <button class="btn btn-primary btn-md" (click)="addImage()"  type="button" id="button-addon2">Añadir</button>
                 </div>  
                 <div id="documentImageDiv" class="form-inline" style="display: none;"> 
                  <img class="imageAdded" src="{{documentImage}}"/>
@@ -34,22 +34,22 @@
         <label class="title" style="text-align: center;">Artículos</label>
           <div class="grid-container2">
               <div class="item1 title">{{articles.length}} resultados encontrados</div>
-              <div class="item2"><button class="btn btn-primary mb-2" (click)="createArticle()" type="button" id="button-addon2">Crear Artículo</button></div>
+              <div class="item2"><button class="btn btn-primary btn-md" (click)="createArticle()" type="button" id="button-addon2">Crear Artículo</button></div>
           </div> 
-            <div class="noArticles" style="text-align: center;">
+            <div class="noArticles" style="text-align: center; display: block;">
                 <br/>
                 <br/>
                 <h2>No hay artículos que mostrar.</h2>
                 <br/>
                 <br/>
             </div>
-        <div class="articlesList">
+        <div class="articlesList" style="display: none;">
           <mat-nav-list *ngFor="let article of articles">        
                   <div class="grid-container1 hover">                  
                       <div class="item1">
                           <p class="title">{{article.name}}</p>
                       </div> 
-                      <div class="item2">
+                      <div class="item2 ">
                         <a (click)="editArticle(article)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
                         &nbsp;
                         <a (click)="doDelete(article)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
@@ -61,17 +61,10 @@
     </div>  
              
   </div>  
-  <div id="buttons">
-    <table>
-      <tr>
-        <td style="width: 69%;"></td>
-        <td><button id="returnButton" class="btn btn-primary mb-2" (click)="doReturn()" type="button">Volver</button></td>    
-      <td><button id="createButton" class="btn btn-primary mb-2" (click)="doCreate()" type="button" style="display:none;">Crear Documento</button>
-        <button id="editButton" class="btn btn-primary mb-2" (click)="doEdit()" type="button" style="display:none;">Editar Documento</button></td>
-      </tr>
-    </table>
-    
-    
+  <div id="buttons" class="d-flex float-right">
+    <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>  
+    <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button" style="display:none;">Crear Documento</button>
+    <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button" style="display:none;">Editar Documento</button>
 </div>
        
   </div>
