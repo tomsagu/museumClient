@@ -54,20 +54,25 @@ export class PieceCRUDComponent implements OnInit {
     });
   }
 
-  //go to create document view
+  //go to create piece view
   goToCreatePiece() {
-    //TODO
+    var id = "null";
+    var inMode = "create";
+    this.router.navigate(['indexCRUD/maintenancePiece/' + id + '/' + inMode]);
+  }
+
+  //go to edit piece view
+  goToEditPiece(piece) {
+    console.log("hola");
+    var link = piece._links.self.href.split("/");
+    var id = link[link.length - 1];  
+    var inMode = "edit";
+    this.router.navigate(['indexCRUD/maintenancePiece/' + id + '/' + inMode]);
 
   }
 
-  //go to edit document view
-  goToEditPiece(document) {
-    //TODO
-
-  }
-
-  //delete a certain document
-  doDelete(document) {
+  //delete a certain piece
+  doDelete(piece) {
     //TODO
 
   }

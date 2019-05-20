@@ -1,0 +1,55 @@
+<main class="mt-5 pt-5">
+  <div class="container">    
+
+    <h3><strong>{{mainTitle}}</strong></h3>
+    
+    <div class="row">
+      <!--Left Column-->
+      <div class="leftcolumn">
+
+          <label class="title" for="name">Nombre</label>
+          <input type="text" class="form-control partial" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>  
+
+          <label class="title" for="text">Descripción</label>
+          <input type="text" class="form-control partial" style="height:150px" id="text" placeholder="Descripción" required [(ngModel)]='inputTextValue'>  
+
+          <label class="title" for="year">Año</label>
+          <input type="text" class="form-control partial" id="year" placeholder="Año" required [(ngModel)]='inputYearValue'>  
+
+          <label class="title" for="qr">Qr (NO SEGURO)</label>
+          <input type="text" class="form-control partial" id="qr" placeholder="Qr" required [(ngModel)]='inputQrValue'> 
+          
+          <label class="title" for="room">Sala</label>
+          <select name="selectedItem" [(ngModel)]="inputRoomValue" class="form-control partial" id="room">
+              <option *ngFor="let r of rooms" [ngValue]="">{{r.name}}</option>
+          </select>
+
+          <label class="title" for="marca">Marca</label>
+          <select name="selectedItem" [(ngModel)]="inputBrandValue" class="form-control partial" id="marca">
+              <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
+          </select>
+
+          <label class="title" for="donor">Pieza donada por:</label>
+          <input type="text" class="form-control partial" id="donor" placeholder="Donante" required [(ngModel)]='inputDonorValue'> 
+
+
+      </div>
+      <!--Right Column-->
+      <div class="rightcolumn">
+
+         
+        
+      </div>
+    </div>
+
+
+    <!--Buttons-->
+    <div id="buttons" class="d-flex float-right">
+      <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>  
+      <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button" style="display:none;">Crear Pieza</button>
+      <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button" style="display:none;">Editar Pieza</button>
+  </div>
+
+  </div>
+</main>
+<!--Main layout-->

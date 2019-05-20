@@ -6,6 +6,7 @@ import { CollectionModule } from './collection/collection.module';
 import { ArticleModule } from './article/article.module';
 import { PieceModule } from './piece/piece.module';
 import { PieceCRUDModule } from './pieceCRUD/pieceCRUD.module';
+import { MaintenancePieceModule } from './maintenancePiece/maintenancePiece.module';
 
 import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
@@ -56,6 +57,11 @@ const routes: Routes = [
     path: 'pieceCRUD',
     loadChildren: () => PieceCRUDModule,
     canActivate: [AdminGuard] 
+  },
+  {
+    path: 'indexCRUD/maintenancePiece/:id/:inMode',
+    loadChildren: () => MaintenancePieceModule,
+    canActivate: [AdminGuard]
   }
 ];
 
