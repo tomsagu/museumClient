@@ -1,0 +1,19 @@
+<h2 mat-dialog-title></h2>
+
+
+<mat-dialog-content >
+
+   <h5>¿Estás seguro de que quieres borrar este {{infoName}}?</h5>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button class="btn btn-basic btn-md" (click)="close()">
+        Cancelar
+    </button>
+
+    <button class="btn btn-danger btn-md" (click)="delete()">
+        Borrar
+    </button>
+
+</mat-dialog-actions>
