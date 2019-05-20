@@ -32,6 +32,25 @@
           <label class="title" for="donor">Pieza donada por:</label>
           <input type="text" class="form-control partial" id="donor" placeholder="Donante" required [(ngModel)]='inputDonorValue'> 
 
+          
+        <label class="title" for="image">Imágenes</label>
+        <div class="form-inline">
+          
+          <input id="inputImage" type="text" class="form-control" style="width: 50%;" placeholder="Imágenes" aria-label="Imágenes"
+              aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
+              &nbsp;
+              <button class="btn btn-primary btn-sm" (click)="addImage()"  type="button" id="button-addon2">Añadir</button>
+        </div>  
+        <div  id="pieceImageDiv" class="form-inline" style="display: none;"> 
+         <div *ngFor="let image of inputImagesValues"> 
+            <img class="imageAdded" src="{{image}}"/>
+              &nbsp;
+          <a (click)="doDeleteImage(image)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
+         </div>
+        
+        </div> 
+
+
 
       </div>
       <!--Right Column-->

@@ -9,6 +9,9 @@ import { Brand } from './../../../models/Brand';
 import { Room } from 'src/models/Room';
 import { Type } from 'src/models/Type';
 
+import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+
 
 @Component({
   selector: 'app-maintenancePiece',
@@ -45,7 +48,8 @@ export class MaintenancePieceComponent implements OnInit {
      private pieceProvider: PieceProvider,
      private brandProvider: BrandProvider,
      private roomProvider: RoomProvider,
-     private typeProvider: TypeProvider
+     private typeProvider: TypeProvider,
+     private toastr: ToastrService
      ) { }
 
   //OnInit show all the pieces
@@ -130,6 +134,55 @@ export class MaintenancePieceComponent implements OnInit {
 
   doReturn(){
     this.router.navigate(['/indexCRUD']);
+  }
+
+
+    //add an image to article images list
+    addImage() {
+      if (this.inputImageValue != null && this.inputImageValue != "") {
+        this.inputImagesValues[this.inputImagesValues.length] = this.inputImageValue;
+  
+      } else {
+        this.showToaster("Introduce una imagen correcta.", "error");
+      }
+  
+      this.displayImage();
+      this.inputImageValue = "";
+    }
+  
+    //delete an image of an article
+    doDeleteImage(image) {
+      var n = this.inputImagesValues.indexOf(image);
+      this.inputImagesValues.splice(n, 1);
+    }
+  
+
+      //hide delete button if there isn't any image
+  displayImage() {
+    var pieceImageDiv = document.getElementById("pieceImageDiv");
+    if (this.inputImagesValues != null && this.inputImagesValues.length != 0) {
+      pieceImageDiv.style.display = "block";
+    } else {
+      pieceImageDiv.style.display = "none";
+    }
+  }
+
+  //show a toaster with information of a current action
+  showToaster(message:string,type:string){
+    switch(type) { 
+      case "success": { 
+        this.toastr.success(message); 
+         break; 
+      } 
+      case "warning": { 
+        this.toastr.warning(message); 
+         break; 
+      } 
+      default: { 
+        this.toastr.error(message); 
+         break; 
+      } 
+    }
   }
 
   
