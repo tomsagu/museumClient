@@ -37,7 +37,7 @@ export class RoomProvider implements HttpMethodsInterface {
 
     getByWord(word: String): Observable<Room[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.documents}));
+        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.rooms}));
     }
 
     put(id: string, room: Room): Observable<Room> {

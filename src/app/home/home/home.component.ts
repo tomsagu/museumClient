@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
       this.brand3 = brands[randomNumbersBrand[2]];
 
       this.pieceProvider.getByBrandName(this.brand1.name).subscribe(pieces => {
-        this.piece1ByBrand = pieces[0];;
+        this.piece1ByBrand = pieces[0];
       });
       this.pieceProvider.getByBrandName(this.brand2.name).subscribe(pieces => {
         this.piece2ByBrand = pieces[0];
@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
     while (arr.length < 3) {
       var r = Math.floor(Math.random() * this.brands.length - 1) + 1;
       if (arr.indexOf(r) === -1) arr.push(r);
-      console.log(arr);
     }
     return arr;
   }

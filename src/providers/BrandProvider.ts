@@ -30,17 +30,17 @@ export class BrandProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.brands }));
     }
 
-    get(id: string): Observable<Brand> {
+    get(id: String): Observable<Brand> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
     }
     
     getByWord(word: String): Observable<Brand[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.documents}));
+        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.brands}));
     }
 
-    put(id: string, brand: Brand): Observable<Brand> {
+    put(id: String, brand: Brand): Observable<Brand> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.put(this.basicUrl + '/'  + id, brand).pipe(map(response => { return response.json() }));
     }
@@ -48,7 +48,7 @@ export class BrandProvider implements HttpMethodsInterface {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.post(this.basicUrl, brand).pipe(map(response => { return response.json() }));
     }
-    delete(id: string): Observable<Brand> {
+    delete(id: String): Observable<Brand> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.delete(this.basicUrl + '/'  + id).pipe(map(response => { return response.json() }));
     }

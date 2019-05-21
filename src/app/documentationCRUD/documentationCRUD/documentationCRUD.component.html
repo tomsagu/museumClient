@@ -4,12 +4,12 @@
           <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
               aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
           <div class="input-group-append">
-              <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+              <button  (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
           </div>
       </div>
       <div class="grid-container1">
         <div class="item1 title">{{documents.length}} resultados encontrados</div>
-        <div class="item2"><button (click)="goToCreateDocument()" type="button" id="button-addon2">Crear Documento</button></div>
+        <div class="item2"><button class="btn btn-primary btn-md" (click)="goToCreateDocument()" type="button" id="button-addon2">Crear Documento</button></div>
     </div> 
       <div class="noDocuments" style="text-align: center;">
           <br/>
@@ -25,9 +25,9 @@
                       <p class="title">{{document.name}}</p>
                   </div> 
                   <div class="item2">
-                    <a (onclick)="goToEditDocument(document)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
+                    <a (click)="goToEditDocument(document)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
                     &nbsp;
-                    <a (onclick)="doDelete(document)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
+                    <a (click)="doDelete(document)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
                 </div>  
                          
               </div>         
