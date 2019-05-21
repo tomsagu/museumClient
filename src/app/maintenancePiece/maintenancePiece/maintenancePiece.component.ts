@@ -54,6 +54,7 @@ export class MaintenancePieceComponent implements OnInit {
 
   //OnInit show all the pieces
   ngOnInit() {
+    //PARAMS TOOK
     this.pieceID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
     let inMode = this.route.snapshot.paramMap.get('inMode').toString(); //get the id from url param
 
@@ -69,19 +70,19 @@ export class MaintenancePieceComponent implements OnInit {
     });
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
-      console.log(rooms);
     });
 
 
-
+//Create or EDIT Mode
     if(inMode == 'create'){
       this.mainTitle = "Crear Pieza";
       createButton.style.display = "block";
-
+      this.inputVisitsValue="0";
+      let dateTime = new Date();
+      this.inputCreatedateValue=dateTime;
     }else{
       this.mainTitle = "Editar Pieza";
       editButton.style.display = "block";
-
       if(this.pieceID != null && this.pieceID.localeCompare("")){
         this.pieceProvider.get(this.pieceID).subscribe(piece => {
           this.piece = piece;
@@ -89,47 +90,52 @@ export class MaintenancePieceComponent implements OnInit {
           this.inputTextValue =piece.text;
           this.inputYearValue = piece.year; 
           this.inputCreatedateValue = piece.createdate;
-          this.inputQrValue = piece.qr;
           this.inputRoomValue = piece.room;
           this.inputBrandValue = piece.brand;
           this.inputVisitsValue = piece.visits;
           this.inputDonorValue = piece.donor;
           this.inputImagesValues= piece.images;
           this.inputTypesValues = piece.types;
+          this.displayImage();
+          this.displayType();
         });
       }
-
     }
+
+
   }
 
   doCreate(){
-    /*
     if(this.inputNameValue != null && this.inputNameValue.localeCompare("")!=0){
-      var document = new Document(this.inputNameValue,this.inputNameValue,this.inputDescriptionValue,this.documentImage,this.articles);
-      this.documentProvider.post(document).subscribe(documentPost=>{
-        document = documentPost;
-      },err => this.showToaster("Se ha producido un error al crear el documento.", "error"));
+      this.inputQrValue ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+"http://localhost:4200/collection/piece/"+this.inputNameValue;
+      var piece = new Piece(this.inputNameValue,this.inputNameValue,this.inputTextValue,this.inputYearValue,
+         this.inputCreatedateValue,this.inputQrValue, this.inputRoomValue,this.inputBrandValue,this.inputVisitsValue,
+         this.inputDonorValue,this.inputImagesValues, this.inputTypesValues);
+      this.pieceProvider.post(piece).subscribe(piecePost=>{
+        piece = piecePost;
+      },err => this.showToaster("Se ha producido un error al crear la pieza.", "error"));
       this.router.navigate(['/indexCRUD']);
-      this.showToaster("Documento creado con éxito.", "success");
+      this.showToaster("Pieza creada con éxito.", "success");
     }else{
       this.showToaster("Introduce un nombre.", "error");
     }
-    */
+    
   }
 
   doEdit(){
-    /*
     if(this.inputNameValue != null && this.inputNameValue.localeCompare("")!=0){
-      var document = new Document(this.documentID,this.inputNameValue,this.inputDescriptionValue,this.documentImage,this.articles);
-      this.documentProvider.put(this.documentID, document).subscribe(documentPut => {
+      this.inputQrValue ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+"http://localhost:4200/collection/piece/"+this.inputNameValue;
+      var piece = new Piece(this.inputNameValue,this.inputNameValue,this.inputTextValue,this.inputYearValue,
+        this.inputCreatedateValue,this.inputQrValue, this.inputRoomValue,this.inputBrandValue,this.inputVisitsValue,
+        this.inputDonorValue,this.inputImagesValues, this.inputTypesValues);
+      this.pieceProvider.put(this.pieceID, piece).subscribe(piecePut => {
 
-      },err => this.showToaster("Se ha producido un error al actualizar el documento.", "error"));
+      },err => this.showToaster("Se ha producido un error al actualizar la pieza.", "error"));
       this.router.navigate(['/indexCRUD']);
-      this.showToaster("Documento modificado con éxito.", "success");
+      this.showToaster("Pieza modificado con éxito.", "success");
     }else{
       this.showToaster("Introduce un nombre.", "error");
     }
-    */
   }
 
   doReturn(){
@@ -137,20 +143,18 @@ export class MaintenancePieceComponent implements OnInit {
   }
 
 
-    //add an image to article images list
+    //add an image to piece images list
     addImage() {
       if (this.inputImageValue != null && this.inputImageValue != "") {
         this.inputImagesValues[this.inputImagesValues.length] = this.inputImageValue;
-  
       } else {
         this.showToaster("Introduce una imagen correcta.", "error");
       }
-  
       this.displayImage();
       this.inputImageValue = "";
     }
   
-    //delete an image of an article
+    //delete an image of a piece
     doDeleteImage(image) {
       var n = this.inputImagesValues.indexOf(image);
       this.inputImagesValues.splice(n, 1);
@@ -166,6 +170,38 @@ export class MaintenancePieceComponent implements OnInit {
       pieceImageDiv.style.display = "none";
     }
   }
+
+
+    //add an type to article images list
+    addType() {
+      if (this.inputTypeValue != null && this.inputTypeValue != "") {
+        this.inputTypesValues[this.inputTypesValues.length] = this.inputTypeValue;
+  
+      } else {
+        this.showToaster("Introduce un tipo correcto correcta.", "error");
+      }
+  
+      this.displayType();
+      this.inputImageValue = "";
+    }
+  
+    //delete an type of a piece
+    doDeleteType(type) {
+      var n = this.inputTypesValues.indexOf(type);
+      this.inputTypesValues.splice(n, 1);
+    }
+  
+
+      //hide delete button if there isn't any image
+  displayType() {
+    var pieceTypeDiv = document.getElementById("pieceTypeDiv");
+    if (this.inputTypesValues != null && this.inputTypesValues.length != 0) {
+      pieceTypeDiv.style.display = "block";
+    } else {
+      pieceTypeDiv.style.display = "none";
+    }
+  }
+
 
   //show a toaster with information of a current action
   showToaster(message:string,type:string){
