@@ -6,11 +6,13 @@ import { CollectionModule } from './collection/collection.module';
 import { ArticleModule } from './article/article.module';
 import { PieceModule } from './piece/piece.module';
 import { PieceCRUDModule } from './pieceCRUD/pieceCRUD.module';
+import { MaintenancePieceModule } from './maintenancePiece/maintenancePiece.module';
 
 import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
 import { UserProvider } from 'src/providers/UserProvider';
 import { CRUDModule } from './crud/crud.module';
+import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { BrandCRUDModule } from './brandCRUD/brandCRUD.module';
 
 const routes: Routes = [
@@ -49,6 +51,11 @@ const routes: Routes = [
     canActivate: [AdminGuard]
   },
   {
+    path: 'indexCRUD/maintenanceDocumentation/:id/:inMode',
+    loadChildren: () => MaintenanceDocumentationModule,
+    canActivate: [AdminGuard]
+  },
+  {
     path: 'collection/:id',
     loadChildren: () => CollectionModule
   },
@@ -56,6 +63,11 @@ const routes: Routes = [
     path: 'pieceCRUD',
     loadChildren: () => PieceCRUDModule,
     canActivate: [AdminGuard] 
+  },
+  {
+    path: 'indexCRUD/maintenancePiece/:id/:inMode',
+    loadChildren: () => MaintenancePieceModule,
+    canActivate: [AdminGuard]
   },
   {
     path: 'brandCRUD',

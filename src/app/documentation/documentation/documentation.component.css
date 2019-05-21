@@ -1,21 +1,26 @@
-.item1 { grid-area: menu; }
-        .item2 { grid-area: main; }
-        .item3 { grid-area: right; }
+        .item1 
+          { grid-area: menu; 
+           text-align: left;}
+        .item2 
+        { grid-area: main;
+          text-align: center;}
+        .item3 
+        { grid-area: right; 
+          text-align: center;}
         
         
         .grid-container {
           display: grid;
           grid-template-areas:
             
-            'menu menu main main main main'
-            'menu menu right right right right';
+            'menu main'
+            'menu right';
           grid-gap:5px;
           
           padding: 5px;
         }
         
-        .grid-container > div {          
-          text-align: center;
+        .grid-container > div {               
           padding: 10px 20px;
           font-size: 30px;
         }

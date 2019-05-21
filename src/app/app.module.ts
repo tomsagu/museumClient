@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{HttpClientModule} from '@angular/common/http'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
@@ -14,7 +13,15 @@ import { FooterComponent } from './footer/footer.component';
 
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
+import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
+import { MaintenanceArticleDialogModule } from './maintenanceArticleDialog/maintenanceArticleDialog.module';
+import { ConfirmDeleteDialogModule } from './confirmDeleteDialog/confirmDeleteDialog.module';
+
+
 import { CRUDModule } from './crud/crud.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +38,12 @@ import { CRUDModule } from './crud/crud.module';
     CollectionModule,
     ArticleModule,
     LoginModule,
-    CRUDModule
+    CRUDModule,
+    MaintenanceDocumentationModule,
+    MaintenanceArticleDialogModule,
+    ConfirmDeleteDialogModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserProvider],
   bootstrap: [AppComponent]

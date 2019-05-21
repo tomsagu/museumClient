@@ -64,20 +64,20 @@ export class CollectionComponent implements OnInit {
 
     this.pieceProvider.all().subscribe(pieces => {
       this.pieces = pieces;
-      // console.log(pieces);
+
     });
     this.brandProvider.all().subscribe(brands => {
       this.brands = brands;
-      // console.log(brands);
+
     });
     this.typeProvider.all().subscribe(types => {
       this.types = types;
       this.initoptions();
-      // console.log(this.types);
+
     });
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
-      // console.log(rooms);
+
     });
 
 
