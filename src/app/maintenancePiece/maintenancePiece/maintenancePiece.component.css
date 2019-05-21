@@ -1,0 +1,54 @@
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn { 
+  float: left;
+  width: 50%;
+  padding-left: 1.5%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 50%;
+  /*padding-left: 20px;*/
+  padding-right: 1.5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn,.card2{ 
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.partial{
+  width: 80%;
+}
+
+
+/* CSS Added from Documents */
+
+.title {
+  font-weight: bold;
+  font-size: 75%;
+  text-align: left;
+}
+
+.imageButton{
+  width: 40px;
+  height: 40px; 
+}
+.imageAdded{
+width: 100px;
+height: 100px; 
+}
+  

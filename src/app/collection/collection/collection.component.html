@@ -9,10 +9,10 @@
 
         <!--FORM-->
         <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h2><b>¿Buscas una pieza?</b></h2>
+            <h3><b>¿Buscas una pieza?</b></h3>
             <!--Multicheckbox-->
             <div class="form-group">
-                <h3><b>Tipos de Piezas</b></h3>
+                <h4><b>Tipos de Piezas</b></h4>
                 <div *ngFor="let option of optionsCheckbox">
                     <label>
                         <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" />
@@ -23,7 +23,7 @@
             <!--END Multicheckbox-->
             <!-- Range Slider-->
             <div data-role="header">
-                <h3><b>Año de la pieza</b></h3>
+                <h4><b>Año de la pieza</b></h4>
             </div>
             <div class="custom-slider">
                 <p>Año minimo: <input type="number" step="{{options.step}}" [(ngModel)]="minYear"></p>
@@ -33,7 +33,7 @@
             <!-- END Range Slider-->
             <!--Select Brand-->
             <div class="form-group">
-                <h3><b>Marca de la pieza</b></h3>
+                <h4><b>Marca de la pieza</b></h4>
                 <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
                     <option [ngValue]="">Ninguna</option>
                     <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
@@ -54,7 +54,7 @@
     <div class="rightcolumn">
 
         <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h2><b>Coincidencias:</b> {{pieces.length>0 ? pieces.length : 'No hay piezas que coincidan con esos criterios'}} </h2>
+            <h4><b>Coincidencias:</b> </h4> <p>{{pieces.length>0 ? pieces.length : 'No hay piezas que coincidan con esos criterios'}} </p>
             <div class="card-columns">
                 <div class="card border-info mb-3" *ngFor="let piece of pieces" (click)="goToPiece(piece)">
                     <img class="card-img-top" src="{{piece.images[0]}}" alt="Card No image">

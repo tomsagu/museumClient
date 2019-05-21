@@ -30,7 +30,7 @@ export class PieceProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.pieces }));
     }
 
-    get(id: string): Observable<Piece> {
+    get(id: String): Observable<Piece> {
         let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
         return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
     }
