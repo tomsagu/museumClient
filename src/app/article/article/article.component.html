@@ -25,7 +25,7 @@
           <hr>
           <div *ngFor="let article of articles">
             <ul id="myUL" class="pagination">
-              <li class="page-item"><a class="page-link" (click)="viewArticle(article)">{{article.name}}</a></li>
+              <li class="page-item"><a id="{{article.name}}" class="page-link" style="font-weight: normal;" (click)="viewArticle(article)">{{article.name}}</a></li>
             </ul>
           </div>
         </div>
