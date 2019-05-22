@@ -1,0 +1,29 @@
+<main class="mt-5 pt-5">
+  <div class="container">    
+    <h3><strong>{{mainTitle}}</strong></h3>
+    <hr>
+
+    <div class="grid-container">                  
+      <div class="item1">
+            <div class="formPadding">
+                <label class="title" for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>                
+ 
+                <label class="title" for="description">Descripción</label>
+                <textarea class="form-control" style="height: 150px;" id="description" placeholder="Descripción" 
+                  [(ngModel)]='inputDescriptionValue'></textarea>               
+ 
+                <label class="title" for="location">Localización</label>
+                <input type="text" class="form-control" id="location" placeholder="Localización" required [(ngModel)]='inputLocationValue'> 
+              </div>     
+      </div>         
+  </div>  
+  <div id="buttons" class="d-flex float-right">
+    <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>  
+    <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button" style="display:none;">Crear Sala</button>
+    <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button" style="display:none;">Editar Sala</button>
+</div>
+       
+  </div>
+</main>
+<!--Main layout-->

@@ -30,7 +30,7 @@ export class RoomProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.rooms }));
     }
 
-    get(id: string): Observable<Room> {
+    get(id: String): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
     }
@@ -40,7 +40,7 @@ export class RoomProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.rooms}));
     }
 
-    put(id: string, room: Room): Observable<Room> {
+    put(id: String, room: Room): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.put(this.basicUrl + '/'  + id, room).pipe(map(response => { return response.json() }));
     }
@@ -48,7 +48,7 @@ export class RoomProvider implements HttpMethodsInterface {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.post(this.basicUrl, room).pipe(map(response => { return response.json() }));
     }
-    delete(id: string): Observable<Room> {
+    delete(id: String): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.delete(this.basicUrl + '/'  + id).pipe(map(response => { return response.json() }));
     }

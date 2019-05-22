@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { RoomProvider } from 'src/providers/RoomProvider';
 import { Room } from '../../../models/room';
 
+import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
+import { ToastrService } from 'ngx-toastr';
+import {MatDialog,MatDialogConfig} from '@angular/material';
+
 @Component({
   selector: 'app-roomCRUD',
   templateUrl: './roomCRUD.component.html',
@@ -15,61 +19,71 @@ export class RoomCRUDComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private roomProvider: RoomProvider
+    private roomProvider: RoomProvider,
+    public dialog: MatDialog,
+    private toastr: ToastrService
   ) { }
 
-  //OnInit show all the rooms
+    //OnInit show all the rooms
   ngOnInit() {
-    var roomListDiv = document.getElementsByClassName("roomList") as HTMLCollectionOf<HTMLElement>;
-    var noRoomsDiv = document.getElementsByClassName("noRooms") as HTMLCollectionOf<HTMLElement>;
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
-      noRoomsDiv[0].style.display = "none";
-      if (rooms.length == 0) {
-        roomListDiv[0].style.display = "none";
-        noRoomsDiv[0].style.display = "block";
-      }
     });
-
-    noRoomsDiv[0].style.display = "none";
-
-    if (this.rooms.length == 0) {
-      roomListDiv[0].style.display = "none";
-      noRoomsDiv[0].style.display = "block";
-    }
-
+    this.displayList(this.rooms);
   }
+
   //show the rooms which contain in their names or texts the word searched
   doSearch() {
-    var roomListDiv = document.getElementsByClassName("roomList") as HTMLCollectionOf<HTMLElement>;
-    var noRoomsDiv = document.getElementsByClassName("noRooms") as HTMLCollectionOf<HTMLElement>;
     this.roomProvider.getByWord(this.inputSearchValue).subscribe(rooms => {
       this.rooms = rooms;
-      noRoomsDiv[0].style.display = "none";
-      if (rooms.length == 0) {
-        noRoomsDiv[0].style.display = "block";
-      } else {
-        roomListDiv[0].style.display = "block";
-      }
+     this.displayList(rooms);
     });
   }
 
   //go to create room view
   goToCreateRoom() {
-    //TODO
-
+    var id = "null";
+    var inMode = "create";
+    this.router.navigate(['indexCRUD/maintenanceRoom/' + id + '/' + inMode]);
   }
 
   //go to edit room view
   goToEditRoom(room) {
-    //TODO
-
+    var link = room._links.self.href.split("/");
+    var id = link[link.length - 1];
+    var inMode = "edit";
+    this.router.navigate(['indexCRUD/maintenanceRoom/' + id + '/' + inMode]);
   }
 
   //delete a certain room
   doDelete(room) {
-    //TODO
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = { name: "sala" };
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result != null && result) {
+          var link = room._links.self.href.split("/");
+          var id = link[link.length - 1];
+          this.roomProvider.delete(id).subscribe();
+          location.reload();
+        }
+      });
   }
-  
+   //if there isn't any item in the list, show a message
+   displayList(rooms){
+    var roomListDiv = document.getElementsByClassName("roomList") as HTMLCollectionOf<HTMLElement>;
+    var noRoomsDiv = document.getElementsByClassName("noRooms") as HTMLCollectionOf<HTMLElement>;
+    noRoomsDiv[0].style.display = "none";
+      if (rooms!= null && rooms.length == 0) {
+        roomListDiv[0].style.display = "none";
+        noRoomsDiv[0].style.display = "block";
+      }else{      
+        roomListDiv[0].style.display = "block";
+      }
+}
+
 }

@@ -60,7 +60,7 @@ export class TypeCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { name: "marca" };
+    dialogConfig.data = { name: "tipo" };
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
