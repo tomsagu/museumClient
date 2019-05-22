@@ -80,6 +80,8 @@ export class MaintenancePieceComponent implements OnInit {
       this.inputVisitsValue="0";
       let dateTime = new Date();
       this.inputCreatedateValue=dateTime;
+      this.inputTypesValues=[];
+      this.inputImagesValues=[];
     }else{
       this.mainTitle = "Editar Pieza";
       editButton.style.display = "block";
@@ -90,6 +92,7 @@ export class MaintenancePieceComponent implements OnInit {
           this.inputTextValue =piece.text;
           this.inputYearValue = piece.year; 
           this.inputCreatedateValue = piece.createdate;
+          this.inputQrValue=piece.qr;
           this.inputRoomValue = piece.room;
           this.inputBrandValue = piece.brand;
           this.inputVisitsValue = piece.visits;
@@ -124,12 +127,10 @@ export class MaintenancePieceComponent implements OnInit {
 
   doEdit(){
     if(this.inputNameValue != null && this.inputNameValue.localeCompare("")!=0){
-      this.inputQrValue ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+"http://localhost:4200/collection/piece/"+this.inputNameValue;
       var piece = new Piece(this.inputNameValue,this.inputNameValue,this.inputTextValue,this.inputYearValue,
         this.inputCreatedateValue,this.inputQrValue, this.inputRoomValue,this.inputBrandValue,this.inputVisitsValue,
         this.inputDonorValue,this.inputImagesValues, this.inputTypesValues);
       this.pieceProvider.put(this.pieceID, piece).subscribe(piecePut => {
-
       },err => this.showToaster("Se ha producido un error al actualizar la pieza.", "error"));
       this.router.navigate(['/indexCRUD']);
       this.showToaster("Pieza modificado con éxito.", "success");

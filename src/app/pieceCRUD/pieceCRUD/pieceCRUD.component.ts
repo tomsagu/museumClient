@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { PieceProvider } from 'src/providers/PieceProvider';
 import { Piece } from '../../../models/piece';
 
+import {MatDialog,MatDialogConfig} from '@angular/material';
+import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
+
 @Component({
   selector: 'app-pieceCRUD',
   templateUrl: './pieceCRUD.component.html',
@@ -15,7 +18,8 @@ export class PieceCRUDComponent implements OnInit {
 
   constructor( 
      private router: Router,
-     private pieceProvider: PieceProvider
+     private pieceProvider: PieceProvider,
+     public dialog: MatDialog,
      ) { }
 
   //OnInit show all the pieces
@@ -73,7 +77,21 @@ export class PieceCRUDComponent implements OnInit {
 
   //delete a certain piece
   doDelete(piece) {
-    //TODO
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {name : "piece"};
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent,dialogConfig);
+    
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if(result!= null && result){
+          var link = piece._links.self.href.split("/");
+          var id = link[link.length - 1];
+          this.pieceProvider.delete(id).subscribe();
+          location.reload();       
+        }       
+    }); 
 
   }
 
