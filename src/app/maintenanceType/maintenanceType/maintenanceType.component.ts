@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TypeProvider } from 'src/providers/TypeProvider';
 import { Type } from '../../../models/type';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { MaintenanceArticleDialogComponent } from 'src/app/maintenanceArticleDialog/maintenanceArticleDialog/maintenanceArticleDialog.component';
-import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
+import { MatDialog } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
 import { Piece } from 'src/models/Piece';
 import { PieceProvider } from 'src/providers/PieceProvider';
@@ -24,8 +22,6 @@ export class MaintenanceTypeComponent implements OnInit {
   typeID: String = "";
   typeName: String = "";
   private pieces: Piece[] = [];
-  private pieceNew: Piece;
-  private piece: Piece;
 
   constructor(
     private router: Router,
