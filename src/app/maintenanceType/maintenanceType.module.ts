@@ -3,34 +3,37 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { BrandCRUDRoutingModule } from './brandCRUD-routing.module';
-import { BrandCRUDComponent } from './brandCRUD/brandCRUD.component';
-import { BrandProvider } from 'src/providers/BrandProvider';
+import { MaintenanceTypeRoutingModule } from './maintenanceType-routing.module';
+import { MaintenanceTypeComponent } from './maintenanceType/maintenanceType.component';
 import { HttpModule } from '@angular/http';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TypeProvider } from 'src/providers/TypeProvider';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: BrandCRUDComponent
+    component: MaintenanceTypeComponent
   }
 ];
 
 @NgModule({
-  declarations: [BrandCRUDComponent],
-  providers: [BrandProvider],
+  declarations: [MaintenanceTypeComponent],
+  providers: [TypeProvider],
   imports: [
     CommonModule,
-    BrandCRUDRoutingModule,
     FormsModule,
     MatListModule,
     MatGridListModule,
+    MaintenanceTypeRoutingModule,
     HttpModule,
+    MatDialogModule,
     RouterModule.forChild(routes)
   ],
   exports: [
-    BrandCRUDComponent
+    MaintenanceTypeComponent
   ]
 })
-export class BrandCRUDModule { }
+export class MaintenanceTypeModule { }

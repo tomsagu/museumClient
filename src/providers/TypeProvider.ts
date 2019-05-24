@@ -30,17 +30,17 @@ export class TypeProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.types }));
     }
 
-    get(id: string): Observable<Type> {
+    get(id: String): Observable<Type> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
     }
 
     getByWord(word: String): Observable<Type[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.documents}));
+        return this.http.get(this.basicUrl + '/search/findByNameLike?word=' + word).pipe(map(response => { return response.json()._embedded.types}));
     }
 
-    put(id: string, Type: Type): Observable<Type> {
+    put(id: String, Type: Type): Observable<Type> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.put(this.basicUrl + '/'  + id, Type).pipe(map(response => { return response.json() }));
     }
@@ -48,7 +48,7 @@ export class TypeProvider implements HttpMethodsInterface {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.post(this.basicUrl, Type).pipe(map(response => { return response.json() }));
     }
-    delete(id: string): Observable<Type> {
+    delete(id: String): Observable<Type> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
         return this.http.delete(this.basicUrl + '/'  + id).pipe(map(response => { return response.json() }));
     }

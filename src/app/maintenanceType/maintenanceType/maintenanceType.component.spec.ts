@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FooterComponent } from './footer.component';
+import { MaintenanceTypeComponent } from './maintenanceType.component';
 
-describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+describe('MaintenanceTypeComponent', () => {
+  let component: MaintenanceTypeComponent;
+  let fixture: ComponentFixture<MaintenanceTypeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [MaintenanceTypeComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(MaintenanceTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,9 +8,9 @@ describe('RoomCRUDComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoomCRUDComponent ]
+      declarations: [RoomCRUDComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

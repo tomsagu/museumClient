@@ -14,6 +14,12 @@ import { UserProvider } from 'src/providers/UserProvider';
 import { CRUDModule } from './crud/crud.module';
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { BrandCRUDModule } from './brandCRUD/brandCRUD.module';
+import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module';
+import { TypeCRUDModule } from './typeCRUD/typeCRUD.module';
+import { RoomCRUDModule } from './roomCRUD/roomCRUD.module';
+import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
+import { MaintenanceBrandModule } from './maintenanceBrand/maintenanceBrand.module';
+
 
 const routes: Routes = [
   {
@@ -73,6 +79,31 @@ const routes: Routes = [
     path: 'brandCRUD',
     loadChildren: () => BrandCRUDModule,
     canActivate: [AdminGuard] 
+  },
+  {
+    path: 'indexCRUD/maintenanceBrand/:id/:inMode',
+    loadChildren: () => MaintenanceBrandModule,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'typeCRUD',
+    loadChildren: () => TypeCRUDModule,
+    canActivate: [AdminGuard] 
+  },
+  {
+    path: 'indexCRUD/maintenanceType/:id/:inMode',
+    loadChildren: () => MaintenanceTypeModule,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'roomCRUD',
+    loadChildren: () => RoomCRUDModule,
+    canActivate: [AdminGuard] 
+  },
+  {
+    path: 'indexCRUD/maintenanceRoom/:id/:inMode',
+    loadChildren: () => MaintenanceRoomModule,
+    canActivate: [AdminGuard]
   }
 ];
 
