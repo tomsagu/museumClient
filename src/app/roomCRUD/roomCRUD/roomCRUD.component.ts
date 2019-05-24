@@ -5,7 +5,7 @@ import { Room } from '../../../models/room';
 
 import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
 import { ToastrService } from 'ngx-toastr';
-import {MatDialog,MatDialogConfig} from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-roomCRUD',
@@ -24,7 +24,7 @@ export class RoomCRUDComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
-    //OnInit show all the rooms
+  //OnInit show all the rooms
   ngOnInit() {
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
@@ -36,7 +36,7 @@ export class RoomCRUDComponent implements OnInit {
   doSearch() {
     this.roomProvider.getByWord(this.inputSearchValue).subscribe(rooms => {
       this.rooms = rooms;
-     this.displayList(rooms);
+      this.displayList(rooms);
     });
   }
 
@@ -73,17 +73,17 @@ export class RoomCRUDComponent implements OnInit {
         }
       });
   }
-   //if there isn't any item in the list, show a message
-   displayList(rooms){
+  //if there isn't any item in the list, show a message
+  displayList(rooms) {
     var roomListDiv = document.getElementsByClassName("roomList") as HTMLCollectionOf<HTMLElement>;
     var noRoomsDiv = document.getElementsByClassName("noRooms") as HTMLCollectionOf<HTMLElement>;
     noRoomsDiv[0].style.display = "none";
-      if (rooms!= null && rooms.length == 0) {
-        roomListDiv[0].style.display = "none";
-        noRoomsDiv[0].style.display = "block";
-      }else{      
-        roomListDiv[0].style.display = "block";
-      }
-}
+    if (rooms != null && rooms.length == 0) {
+      roomListDiv[0].style.display = "none";
+      noRoomsDiv[0].style.display = "block";
+    } else {
+      roomListDiv[0].style.display = "block";
+    }
+  }
 
 }

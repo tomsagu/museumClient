@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MaintenanceBrandRoutingModule } from './maintenanceBrand-routing.module';
 import { MaintenanceBrandComponent } from './maintenanceBrand/maintenanceBrand.component';
 import { HttpModule } from '@angular/http';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrandProvider } from 'src/providers/BrandProvider';
 
 

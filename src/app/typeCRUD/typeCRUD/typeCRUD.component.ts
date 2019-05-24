@@ -5,7 +5,7 @@ import { Type } from '../../../models/type';
 
 import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
 import { ToastrService } from 'ngx-toastr';
-import {MatDialog,MatDialogConfig} from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-typeCRUD',
@@ -36,7 +36,7 @@ export class TypeCRUDComponent implements OnInit {
   doSearch() {
     this.typeProvider.getByWord(this.inputSearchValue).subscribe(types => {
       this.types = types;
-     this.displayList(types);
+      this.displayList(types);
     });
   }
 
@@ -73,17 +73,17 @@ export class TypeCRUDComponent implements OnInit {
         }
       });
   }
-   //if there isn't any item in the list, show a message
-   displayList(types){
+  //if there isn't any item in the list, show a message
+  displayList(types) {
     var typeListDiv = document.getElementsByClassName("typeList") as HTMLCollectionOf<HTMLElement>;
     var noTypesDiv = document.getElementsByClassName("noTypes") as HTMLCollectionOf<HTMLElement>;
     noTypesDiv[0].style.display = "none";
-      if (types!= null && types.length == 0) {
-        typeListDiv[0].style.display = "none";
-        noTypesDiv[0].style.display = "block";
-      }else{      
-        typeListDiv[0].style.display = "block";
-      }
-}
+    if (types != null && types.length == 0) {
+      typeListDiv[0].style.display = "none";
+      noTypesDiv[0].style.display = "block";
+    } else {
+      typeListDiv[0].style.display = "block";
+    }
+  }
 
 }

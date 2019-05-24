@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    
+
     //script to active nav-item
     $(document).ready(function () {
       //Click event handler for nav-items
@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //Login administration page
   doLogIn() {
     if (sessionStorage.getItem("userId") != null) {
       this.router.navigate(['indexCRUD']);
@@ -43,10 +44,13 @@ export class HeaderComponent implements OnInit {
     this.ngOnInit();
   }
 
+  //Logout administration page
   doSignOut() {
     sessionStorage.removeItem("userId");
     this.ngOnInit();
   }
+
+  //Go home
   goInicio() {
     this.router.navigate(['home']);
   }

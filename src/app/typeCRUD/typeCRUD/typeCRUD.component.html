@@ -1,5 +1,5 @@
 <main class="mt-5 pt-5">
-    <div class="container">    
+    <div class="container">
         <div class="input-group mb-3 searchPadding">
             <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
                 aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
@@ -8,31 +8,34 @@
             </div>
         </div>
         <div class="grid-container1">
-          <div class="item1 title">{{types.length}} resultados encontrados</div>
-          <div class="item2"><button class="btn btn-primary btn-md" (click)="goToCreateType()" type="button" id="button-addon2">Crear Tipo</button></div>
-      </div> 
+            <div class="item1 title">{{types.length}} resultados encontrados</div>
+            <div class="item2"><button class="btn btn-primary btn-md" (click)="goToCreateType()" type="button"
+                    id="button-addon2">Crear Tipo</button></div>
+        </div>
         <div class="noTypes" style="text-align: center;">
-            <br/>
-            <br/>
+            <br />
+            <br />
             <h2>No hay tipos que mostrar.</h2>
-            <br/>
-            <br/>
+            <br />
+            <br />
         </div>
         <div class="typeList">
-        <mat-nav-list *ngFor="let type of types">        
-                <div class="grid-container hover">                  
+            <mat-nav-list *ngFor="let type of types">
+                <div class="grid-container hover">
                     <div class="item1">
                         <p class="title">{{type.name}}</p>
-                    </div> 
+                    </div>
                     <div class="item2">
-                      <a (click)="goToEditType(type)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
-                      &nbsp;
-                      <a (click)="doDelete(type)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
-                  </div>  
-                           
-                </div>         
-        </mat-nav-list> 
-    </div> 
+                        <a (click)="goToEditType(type)"><img class="imageButton"
+                                src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
+                        &nbsp;
+                        <a (click)="doDelete(type)"><img class="imageButton"
+                                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+                    </div>
+
+                </div>
+            </mat-nav-list>
+        </div>
     </div>
-  </main>
-  <!--Main layout-->
+</main>
+<!--Main layout-->

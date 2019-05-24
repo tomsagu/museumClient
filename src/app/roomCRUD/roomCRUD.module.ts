@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { RoomCRUDRoutingModule } from './roomCRUD-routing.module';
 import { RoomCRUDComponent } from './roomCRUD/roomCRUD.component';
 import { HttpModule } from '@angular/http';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { RoomProvider } from 'src/providers/RoomProvider';
 
 const routes: Routes = [
@@ -29,7 +29,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forChild(routes)
   ],
-  exports:[
+  exports: [
     RoomCRUDComponent
   ]
 })

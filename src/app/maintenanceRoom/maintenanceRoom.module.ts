@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MaintenanceRoomRoutingModule } from './maintenanceRoom-routing.module';
 import { MaintenanceRoomComponent } from './maintenanceRoom/maintenanceRoom.component';
 import { HttpModule } from '@angular/http';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RoomProvider } from 'src/providers/RoomProvider';
 
 const routes: Routes = [

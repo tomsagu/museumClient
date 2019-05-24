@@ -1,27 +1,29 @@
 <main class="mt-5 pt-5">
-  <div class="container">    
+  <div class="container">
     <h3><strong>{{mainTitle}}</strong></h3>
     <hr>
 
-    <div class="grid-container">                  
+    <div class="grid-container">
       <div class="item1">
-            <div class="formPadding">
-                <label class="title" for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>                
- 
-                <label class="title" for="description">Descripción</label>
-                <textarea class="form-control" style="height: 150px;" id="description" placeholder="Descripción" 
-                  [(ngModel)]='inputDescriptionValue'></textarea>               
+        <div class="formPadding">
+          <label class="title" for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>
 
-              </div>     
-      </div>         
-  </div>  
-  <div id="buttons" class="d-flex float-right">
-    <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>  
-    <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button" style="display:none;">Crear Marca</button>
-    <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button" style="display:none;">Editar Marca</button>
-</div>
-       
+          <label class="title" for="description">Descripción</label>
+          <textarea class="form-control" style="height: 150px;" id="description" placeholder="Descripción"
+            [(ngModel)]='inputDescriptionValue'></textarea>
+
+        </div>
+      </div>
+    </div>
+    <div id="buttons" class="d-flex float-right">
+      <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>
+      <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button"
+        style="display:none;">Crear Marca</button>
+      <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button"
+        style="display:none;">Editar Marca</button>
+    </div>
+
   </div>
 </main>
 <!--Main layout-->

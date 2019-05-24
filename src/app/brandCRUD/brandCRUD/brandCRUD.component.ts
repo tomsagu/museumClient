@@ -5,7 +5,7 @@ import { Brand } from '../../../models/brand';
 
 import { ConfirmDeleteDialogComponent } from 'src/app/confirmDeleteDialog/confirmDeleteDialog/confirmDeleteDialog.component';
 import { ToastrService } from 'ngx-toastr';
-import {MatDialog,MatDialogConfig} from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-brandCRUD',
@@ -90,17 +90,17 @@ export class BrandCRUDComponent implements OnInit {
       });
 
   }
-   //if there isn't any item in the list, show a message
-   displayList(brands){
+  //if there isn't any item in the list, show a message
+  displayList(brands) {
     var brandListDiv = document.getElementsByClassName("brandList") as HTMLCollectionOf<HTMLElement>;
     var noBrandsDiv = document.getElementsByClassName("noBrands") as HTMLCollectionOf<HTMLElement>;
     noBrandsDiv[0].style.display = "none";
-      if (brands!= null && brands.length == 0) {
-        brandListDiv[0].style.display = "none";
-        noBrandsDiv[0].style.display = "block";
-      }else{      
-        brandListDiv[0].style.display = "block";
-      }
-}
+    if (brands != null && brands.length == 0) {
+      brandListDiv[0].style.display = "none";
+      noBrandsDiv[0].style.display = "block";
+    } else {
+      brandListDiv[0].style.display = "block";
+    }
+  }
 
 }

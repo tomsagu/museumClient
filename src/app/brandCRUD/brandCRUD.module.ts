@@ -7,8 +7,8 @@ import { BrandCRUDRoutingModule } from './brandCRUD-routing.module';
 import { BrandCRUDComponent } from './brandCRUD/brandCRUD.component';
 import { BrandProvider } from 'src/providers/BrandProvider';
 import { HttpModule } from '@angular/http';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const routes: Routes = [
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forChild(routes)
   ],
-  exports:[
+  exports: [
     BrandCRUDComponent
   ]
 })

@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MaintenanceTypeRoutingModule } from './maintenanceType-routing.module';
 import { MaintenanceTypeComponent } from './maintenanceType/maintenanceType.component';
 import { HttpModule } from '@angular/http';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TypeProvider } from 'src/providers/TypeProvider';
 
 
