@@ -1,54 +1,39 @@
 <main class="mt-5 pt-5">
-  <div class="container">    
+  <div class="container">
 
     <h3><strong>{{mainTitle}}</strong></h3>
-    
+
     <div class="row">
       <!--Left Column-->
       <div class="leftcolumn">
+        <!--forms-->
+        <label class="title" for="name">Nombre</label>
+        <input type="text" class="form-control partial" id="name" placeholder="Nombre" required
+          [(ngModel)]='inputNameValue'>
 
-          <label class="title" for="name">Nombre</label>
-          <input type="text" class="form-control partial" id="name" placeholder="Nombre" required [(ngModel)]='inputNameValue'>  
+        <label class="title" for="text">Descripción</label>
+        <input type="text" class="form-control partial" style="height:150px" id="text" placeholder="Descripción"
+          required [(ngModel)]='inputTextValue'>
 
-          <label class="title" for="text">Descripción</label>
-          <input type="text" class="form-control partial" style="height:150px" id="text" placeholder="Descripción" required [(ngModel)]='inputTextValue'>  
+        <label class="title" for="year">Año</label>
+        <input type="text" class="form-control partial" id="year" placeholder="Año" required
+          [(ngModel)]='inputYearValue'>
 
-          <label class="title" for="year">Año</label>
-          <input type="text" class="form-control partial" id="year" placeholder="Año" required [(ngModel)]='inputYearValue'>  
 
-          <label class="title" for="qr">Qr (NO SEGURO)</label>
-          <input type="text" class="form-control partial" id="qr" placeholder="Qr" required [(ngModel)]='inputQrValue'> 
-          
-          <label class="title" for="room">Sala</label>
-          <select name="selectedItem" [(ngModel)]="inputRoomValue" class="form-control partial" id="room">
-              <option *ngFor="let r of rooms" [ngValue]="">{{r.name}}</option>
-          </select>
+        <label class="title" for="room">Sala</label>
+        <select name="selectedItem" [(ngModel)]="inputRoomValue" class="form-control partial" id="room">
+          <option *ngFor="let r of rooms" [ngValue]="r.name">{{r.name}}</option>
+        </select>
 
-          <label class="title" for="marca">Marca</label>
-          <select name="selectedItem" [(ngModel)]="inputBrandValue" class="form-control partial" id="marca">
-              <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
-          </select>
+        <label class="title" for="marca">Marca</label>
+        <select name="selectedItem" [(ngModel)]="inputBrandValue" class="form-control partial" id="marca">
+          <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
+        </select>
 
-          <label class="title" for="donor">Pieza donada por:</label>
-          <input type="text" class="form-control partial" id="donor" placeholder="Donante" required [(ngModel)]='inputDonorValue'> 
+        <label class="title" for="donor">Pieza donada por:</label>
+        <input type="text" class="form-control partial" id="donor" placeholder="Donante" required
+          [(ngModel)]='inputDonorValue'>
 
-          
-        <label class="title" for="image">Imágenes</label>
-        <div class="form-inline">
-          
-          <input id="inputImage" type="text" class="form-control" style="width: 50%;" placeholder="Imágenes" aria-label="Imágenes"
-              aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
-              &nbsp;
-              <button class="btn btn-primary btn-sm" (click)="addImage()"  type="button" id="button-addon2">Añadir</button>
-        </div>  
-        <div  id="pieceImageDiv" class="form-inline" style="display: none;"> 
-         <div *ngFor="let image of inputImagesValues"> 
-            <img class="imageAdded" src="{{image}}"/>
-              &nbsp;
-          <a (click)="doDeleteImage(image)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
-         </div>
-        
-        </div> 
 
 
 
@@ -56,18 +41,59 @@
       <!--Right Column-->
       <div class="rightcolumn">
 
-         
-        
+        <!--Images-->
+        <label class="title" for="image">Imágenes</label>
+        <div class="form-inline">
+
+          <input id="inputImage" type="text" class="form-control" style="width: 50%;" placeholder="Imágenes"
+            aria-label="Imágenes" aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
+          &nbsp;
+          <button class="btn btn-primary btn-sm" (click)="addImage()" type="button" id="button-addon2">Añadir</button>
+        </div>
+        <div id="pieceImageDiv" class="form-inline" style="display: none;">
+          <div *ngFor="let image of inputImagesValues">
+            <img class="imageAdded" src="{{image}}" />
+            &nbsp;
+            <a (click)="doDeleteImage(image)"><img class="imageButton"
+                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+          </div>
+
+        </div>
+        <!--Images-->
+
+        <!--Types-->
+        <label class="title" for="type">Tipos</label>
+        <div class="form-inline">
+          <select name="selectedItem" [(ngModel)]="inputTypeValue" class="form-control" id="inputSelectType">
+            <option *ngFor="let t of types" [ngValue]="t.name">{{t.name}}</option>
+          </select>
+          &nbsp;
+          <button class="btn btn-primary btn-sm" (click)="addType()" type="button" id="button-addon2">Añadir</button>
+        </div>
+        <div id="pieceTypeDiv" class="form-inline" style="display: none;">
+          <div class="card border-light mb-3" style="width: 70%">
+            <ul>
+              <div *ngFor="let type of inputTypesValues">
+                <li class="typeAdded"> {{type}} <a (click)="doDeleteType(type)"><img class="imageButton"
+                      src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a> </li>
+                &nbsp;
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!--Types-->
       </div>
     </div>
 
 
     <!--Buttons-->
     <div id="buttons" class="d-flex float-right">
-      <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>  
-      <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button" style="display:none;">Crear Pieza</button>
-      <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button" style="display:none;">Editar Pieza</button>
-  </div>
+      <button id="returnButton" class="btn btn-basic btn-md" (click)="doReturn()" type="button">Volver</button>
+      <button id="createButton" class="btn btn-primary btn-md" (click)="doCreate()" type="button"
+        style="display:none;">Crear Pieza</button>
+      <button id="editButton" class="btn btn-primary btn-md" (click)="doEdit()" type="button"
+        style="display:none;">Editar Pieza</button>
+    </div>
 
   </div>
 </main>

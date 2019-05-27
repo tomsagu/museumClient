@@ -35,8 +35,8 @@ export class Piece {
         this.qr = qr || '';
         this.room = room || '';
         this.brand = brand || '';
-        this.visits = brand || '';
-        this.donor = brand || '';
+        this.visits = visits || '';
+        this.donor = donor || '';
         this.images = images || null;
         this.types = types || null;
 

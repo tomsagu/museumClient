@@ -10,7 +10,6 @@ import { Room } from 'src/models/Room';
 import { Type } from 'src/models/Type';
 
 import { ToastrService } from 'ngx-toastr';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 
 
 @Component({
@@ -25,41 +24,44 @@ export class MaintenancePieceComponent implements OnInit {
   brands: Brand[] = [];
   rooms: Room[] = [];
 
-  mainTitle : String;
-  pieceID : String;
+  mainTitle: String;
+  pieceID: String;
+  pieceBrand: String;
+  pieceName: String;
 
-  inputNameValue : String;
-  inputTextValue : String;
-  inputYearValue : String;
+  inputNameValue: String;
+  inputTextValue: String;
+  inputYearValue: String;
   inputCreatedateValue: Date;
-  inputQrValue : String;
-  inputRoomValue : String;
-  inputBrandValue : String;
-  inputVisitsValue : String;
-  inputDonorValue : String;
-  inputImagesValues : String[];
-  inputImageValue : String = "";
-  inputTypesValues : String[];
-  inputTypeValue : String = "";
+  inputQrValue: String;
+  inputRoomValue: String;
+  inputBrandValue: String;
+  inputVisitsValue: String;
+  inputDonorValue: String;
+  inputImagesValues: String[];
+  inputImageValue: String = "";
+  inputTypesValues: String[];
+  inputTypeValue: String = "";
 
-  constructor( 
-     private router: Router,
-     private route: ActivatedRoute,
-     private pieceProvider: PieceProvider,
-     private brandProvider: BrandProvider,
-     private roomProvider: RoomProvider,
-     private typeProvider: TypeProvider,
-     private toastr: ToastrService
-     ) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private pieceProvider: PieceProvider,
+    private brandProvider: BrandProvider,
+    private roomProvider: RoomProvider,
+    private typeProvider: TypeProvider,
+    private toastr: ToastrService
+  ) { }
 
   //OnInit show all the pieces
   ngOnInit() {
+    //PARAMS TOOK
     this.pieceID = this.route.snapshot.paramMap.get('id').toString(); //get the id from url param
     let inMode = this.route.snapshot.paramMap.get('inMode').toString(); //get the id from url param
 
     var createButton = document.getElementById("createButton");
     var editButton = document.getElementById("editButton");
-    
+
     //Chargue of Rooms,Brands and Types values
     this.brandProvider.all().subscribe(brands => {
       this.brands = brands;
@@ -69,95 +71,137 @@ export class MaintenancePieceComponent implements OnInit {
     });
     this.roomProvider.all().subscribe(rooms => {
       this.rooms = rooms;
-      console.log(rooms);
     });
 
 
-
-    if(inMode == 'create'){
+    //Create or EDIT Mode
+    if (inMode == 'create') {
       this.mainTitle = "Crear Pieza";
       createButton.style.display = "block";
-
-    }else{
+      this.inputVisitsValue = "0";
+      let dateTime = new Date();
+      this.inputCreatedateValue = dateTime;
+      this.inputTypesValues = [];
+      this.inputImagesValues = [];
+    } else {
       this.mainTitle = "Editar Pieza";
       editButton.style.display = "block";
-
-      if(this.pieceID != null && this.pieceID.localeCompare("")){
+      if (this.pieceID != null && this.pieceID.localeCompare("")) {
         this.pieceProvider.get(this.pieceID).subscribe(piece => {
           this.piece = piece;
           this.inputNameValue = piece.name;
-          this.inputTextValue =piece.text;
-          this.inputYearValue = piece.year; 
+          this.pieceName = piece.name;
+          this.inputTextValue = piece.text;
+          this.inputYearValue = piece.year;
           this.inputCreatedateValue = piece.createdate;
           this.inputQrValue = piece.qr;
           this.inputRoomValue = piece.room;
           this.inputBrandValue = piece.brand;
+          this.pieceBrand = piece.brand;
           this.inputVisitsValue = piece.visits;
           this.inputDonorValue = piece.donor;
-          this.inputImagesValues= piece.images;
+          this.inputImagesValues = piece.images;
           this.inputTypesValues = piece.types;
+          this.displayImage();
+          this.displayType();
         });
       }
-
     }
+
+
   }
 
-  doCreate(){
-    /*
-    if(this.inputNameValue != null && this.inputNameValue.localeCompare("")!=0){
-      var document = new Document(this.inputNameValue,this.inputNameValue,this.inputDescriptionValue,this.documentImage,this.articles);
-      this.documentProvider.post(document).subscribe(documentPost=>{
-        document = documentPost;
-      },err => this.showToaster("Se ha producido un error al crear el documento.", "error"));
+  doCreate() {
+    //create the piece
+    if (this.inputNameValue != null && this.inputNameValue.localeCompare("") != 0) {
+      this.inputQrValue = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + "http://localhost:4200/collection/piece/" + this.inputNameValue;
+      var piece = new Piece(this.inputNameValue, this.inputNameValue, this.inputTextValue, this.inputYearValue,
+        this.inputCreatedateValue, this.inputQrValue, this.inputRoomValue, this.inputBrandValue, this.inputVisitsValue,
+        this.inputDonorValue, this.inputImagesValues, this.inputTypesValues);
+      this.pieceProvider.post(piece).subscribe(piecePost => {
+        piece = piecePost;
+      }, err => this.showToaster("Se ha producido un error al crear la pieza.", "error"));
+      //Update Brand
+      for (let b of this.brands) {
+        if (b.name == this.inputBrandValue) {
+          b.pieces[b.pieces.length] = this.inputNameValue;
+          var idb = this.getId(b);
+          this.brandProvider.put(idb, b).subscribe(brandPut => {
+          }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+          break;
+        }
+      }
+      //redirect
       this.router.navigate(['/indexCRUD']);
-      this.showToaster("Documento creado con éxito.", "success");
-    }else{
+      this.showToaster("Pieza creada con éxito.", "success");
+    } else {
       this.showToaster("Introduce un nombre.", "error");
     }
-    */
+
   }
-
-  doEdit(){
-    /*
-    if(this.inputNameValue != null && this.inputNameValue.localeCompare("")!=0){
-      var document = new Document(this.documentID,this.inputNameValue,this.inputDescriptionValue,this.documentImage,this.articles);
-      this.documentProvider.put(this.documentID, document).subscribe(documentPut => {
-
-      },err => this.showToaster("Se ha producido un error al actualizar el documento.", "error"));
+  doEdit() {
+    if (this.inputNameValue != null && this.inputNameValue.localeCompare("") != 0) {
+      var piece = new Piece(this.inputNameValue, this.inputNameValue, this.inputTextValue, this.inputYearValue,
+        this.inputCreatedateValue, this.inputQrValue, this.inputRoomValue, this.inputBrandValue, this.inputVisitsValue,
+        this.inputDonorValue, this.inputImagesValues, this.inputTypesValues);
+      this.pieceProvider.put(this.pieceID, piece).subscribe(piecePut => {
+      }, err => this.showToaster("Se ha producido un error al actualizar la pieza.", "error"));
+      //if brand changue
+      if (this.inputBrandValue != this.pieceBrand) {
+        //Add the piece to the new brand
+        for (let b of this.brands) {
+          if (b.name == this.inputBrandValue) {
+            b.pieces[b.pieces.length] = this.inputNameValue;
+            var idb = this.getId(b);
+            this.brandProvider.put(idb, b).subscribe(brandPut => {
+            }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+            break;
+          }
+        }
+        //Remove the piece from the initial brand
+        for (let b of this.brands) {
+          if (b.name == this.pieceBrand) {
+            var index = b.pieces.indexOf(this.pieceName);
+            b.pieces.splice(index, 1)
+            var idb = this.getId(b);
+            this.brandProvider.put(idb, b).subscribe(brandPut => {
+            }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+            break;
+          }
+        }
+      }
+      //Redirect to the crud page
       this.router.navigate(['/indexCRUD']);
-      this.showToaster("Documento modificado con éxito.", "success");
-    }else{
+      this.showToaster("Pieza modificado con éxito.", "success");
+    } else {
       this.showToaster("Introduce un nombre.", "error");
     }
-    */
   }
 
-  doReturn(){
+  doReturn() {
     this.router.navigate(['/indexCRUD']);
   }
 
 
-    //add an image to article images list
-    addImage() {
-      if (this.inputImageValue != null && this.inputImageValue != "") {
-        this.inputImagesValues[this.inputImagesValues.length] = this.inputImageValue;
-  
-      } else {
-        this.showToaster("Introduce una imagen correcta.", "error");
-      }
-  
-      this.displayImage();
-      this.inputImageValue = "";
+  //add an image to piece images list
+  addImage() {
+    if (this.inputImageValue != null && this.inputImageValue != "") {
+      this.inputImagesValues[this.inputImagesValues.length] = this.inputImageValue;
+    } else {
+      this.showToaster("Introduce una imagen correcta.", "error");
     }
-  
-    //delete an image of an article
-    doDeleteImage(image) {
-      var n = this.inputImagesValues.indexOf(image);
-      this.inputImagesValues.splice(n, 1);
-    }
-  
+    this.displayImage();
+    this.inputImageValue = "";
+  }
 
-      //hide delete button if there isn't any image
+  //delete an image of a piece
+  doDeleteImage(image) {
+    var n = this.inputImagesValues.indexOf(image);
+    this.inputImagesValues.splice(n, 1);
+  }
+
+
+  //hide delete button if there isn't any image
   displayImage() {
     var pieceImageDiv = document.getElementById("pieceImageDiv");
     if (this.inputImagesValues != null && this.inputImagesValues.length != 0) {
@@ -167,24 +211,61 @@ export class MaintenancePieceComponent implements OnInit {
     }
   }
 
-  //show a toaster with information of a current action
-  showToaster(message:string,type:string){
-    switch(type) { 
-      case "success": { 
-        this.toastr.success(message); 
-         break; 
-      } 
-      case "warning": { 
-        this.toastr.warning(message); 
-         break; 
-      } 
-      default: { 
-        this.toastr.error(message); 
-         break; 
-      } 
+
+  //add an type to article images list
+  addType() {
+    if (this.inputTypeValue != null && this.inputTypeValue != "") {
+      this.inputTypesValues[this.inputTypesValues.length] = this.inputTypeValue;
+
+    } else {
+      this.showToaster("Introduce un tipo correcto correcta.", "error");
+    }
+
+    this.displayType();
+    this.inputImageValue = "";
+  }
+
+  //delete an type of a piece
+  doDeleteType(type) {
+    var n = this.inputTypesValues.indexOf(type);
+    this.inputTypesValues.splice(n, 1);
+  }
+
+
+  //hide delete button if there isn't any image
+  displayType() {
+    var pieceTypeDiv = document.getElementById("pieceTypeDiv");
+    if (this.inputTypesValues != null && this.inputTypesValues.length != 0) {
+      pieceTypeDiv.style.display = "block";
+    } else {
+      pieceTypeDiv.style.display = "none";
     }
   }
 
-  
+
+  //show a toaster with information of a current action
+  showToaster(message: string, type: string) {
+    switch (type) {
+      case "success": {
+        this.toastr.success(message);
+        break;
+      }
+      case "warning": {
+        this.toastr.warning(message);
+        break;
+      }
+      default: {
+        this.toastr.error(message);
+        break;
+      }
+    }
+  }
+
+  getId(brand): String {
+    var link = brand._links.self.href.split("/");
+    var id = link[link.length - 1];
+    return id;
+  }
+
 
 }
