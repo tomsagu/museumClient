@@ -60,7 +60,7 @@ export class RoomCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { name: "sala" };
+    dialogConfig.data = { name: "esta sala" };
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(

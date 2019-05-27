@@ -65,7 +65,7 @@ export class DocumentationCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {name : "documento"};
+    dialogConfig.data = {name : "este documento"};
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent,dialogConfig);
     
     dialogRef.afterClosed().subscribe(
