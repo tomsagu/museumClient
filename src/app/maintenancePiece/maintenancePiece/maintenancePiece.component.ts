@@ -10,8 +10,6 @@ import { Room } from 'src/models/Room';
 import { Type } from 'src/models/Type';
 
 import { ToastrService } from 'ngx-toastr';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -28,7 +26,7 @@ export class MaintenancePieceComponent implements OnInit {
 
   mainTitle: String;
   pieceID: String;
-  pieceBrand:String;
+  pieceBrand: String;
   pieceName: String;
 
   inputNameValue: String;
@@ -99,7 +97,7 @@ export class MaintenancePieceComponent implements OnInit {
           this.inputQrValue = piece.qr;
           this.inputRoomValue = piece.room;
           this.inputBrandValue = piece.brand;
-          this.pieceBrand=piece.brand;
+          this.pieceBrand = piece.brand;
           this.inputVisitsValue = piece.visits;
           this.inputDonorValue = piece.donor;
           this.inputImagesValues = piece.images;
@@ -127,7 +125,7 @@ export class MaintenancePieceComponent implements OnInit {
       for (let b of this.brands) {
         if (b.name == this.inputBrandValue) {
           b.pieces[b.pieces.length] = this.inputNameValue;
-          var idb= this.getId(b);
+          var idb = this.getId(b);
           this.brandProvider.put(idb, b).subscribe(brandPut => {
           }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
           break;
@@ -148,13 +146,13 @@ export class MaintenancePieceComponent implements OnInit {
         this.inputDonorValue, this.inputImagesValues, this.inputTypesValues);
       this.pieceProvider.put(this.pieceID, piece).subscribe(piecePut => {
       }, err => this.showToaster("Se ha producido un error al actualizar la pieza.", "error"));
-      //if brand changu
-      if(this.inputBrandValue!=this.pieceBrand){
+      //if brand changue
+      if (this.inputBrandValue != this.pieceBrand) {
         //Add the piece to the new brand
         for (let b of this.brands) {
           if (b.name == this.inputBrandValue) {
             b.pieces[b.pieces.length] = this.inputNameValue;
-            var idb= this.getId(b);
+            var idb = this.getId(b);
             this.brandProvider.put(idb, b).subscribe(brandPut => {
             }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
             break;
@@ -164,8 +162,8 @@ export class MaintenancePieceComponent implements OnInit {
         for (let b of this.brands) {
           if (b.name == this.pieceBrand) {
             var index = b.pieces.indexOf(this.pieceName);
-            b.pieces.splice(index,1)
-            var idb= this.getId(b);
+            b.pieces.splice(index, 1)
+            var idb = this.getId(b);
             this.brandProvider.put(idb, b).subscribe(brandPut => {
             }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
             break;
@@ -263,9 +261,9 @@ export class MaintenancePieceComponent implements OnInit {
     }
   }
 
-  getId(brand): String{
+  getId(brand): String {
     var link = brand._links.self.href.split("/");
-    var id = link[link.length - 1];  
+    var id = link[link.length - 1];
     return id;
   }
 

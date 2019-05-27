@@ -6,7 +6,7 @@
     <div class="row">
       <!--Left Column-->
       <div class="leftcolumn">
-
+        <!--forms-->
         <label class="title" for="name">Nombre</label>
         <input type="text" class="form-control partial" id="name" placeholder="Nombre" required
           [(ngModel)]='inputNameValue'>
@@ -19,12 +19,10 @@
         <input type="text" class="form-control partial" id="year" placeholder="Año" required
           [(ngModel)]='inputYearValue'>
 
-        <label class="title" for="qr">Qr (NO SEGURO)</label>
-        <input type="text" class="form-control partial" id="qr" placeholder="Qr" required [(ngModel)]='inputQrValue'>
 
         <label class="title" for="room">Sala</label>
         <select name="selectedItem" [(ngModel)]="inputRoomValue" class="form-control partial" id="room">
-          <option *ngFor="let r of rooms" [ngValue]="">{{r.name}}</option>
+          <option *ngFor="let r of rooms" [ngValue]="r.name">{{r.name}}</option>
         </select>
 
         <label class="title" for="marca">Marca</label>
@@ -42,28 +40,28 @@
       </div>
       <!--Right Column-->
       <div class="rightcolumn">
-     
-           <!--Images-->
-           <label class="title" for="image">Imágenes</label>
-           <div class="form-inline">
-   
-             <input id="inputImage" type="text" class="form-control" style="width: 50%;" placeholder="Imágenes"
-               aria-label="Imágenes" aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
-             &nbsp;
-             <button class="btn btn-primary btn-sm" (click)="addImage()" type="button" id="button-addon2">Añadir</button>
-           </div>
-           <div id="pieceImageDiv" class="form-inline" style="display: none;">
-             <div *ngFor="let image of inputImagesValues">
-               <img class="imageAdded" src="{{image}}" />
-               &nbsp;
-               <a (click)="doDeleteImage(image)"><img class="imageButton"
-                   src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
-             </div>
-   
-           </div>
-           <!--Images-->
 
-             <!--Types-->
+        <!--Images-->
+        <label class="title" for="image">Imágenes</label>
+        <div class="form-inline">
+
+          <input id="inputImage" type="text" class="form-control" style="width: 50%;" placeholder="Imágenes"
+            aria-label="Imágenes" aria-describedby="button-addon2" [(ngModel)]='inputImageValue'>
+          &nbsp;
+          <button class="btn btn-primary btn-sm" (click)="addImage()" type="button" id="button-addon2">Añadir</button>
+        </div>
+        <div id="pieceImageDiv" class="form-inline" style="display: none;">
+          <div *ngFor="let image of inputImagesValues">
+            <img class="imageAdded" src="{{image}}" />
+            &nbsp;
+            <a (click)="doDeleteImage(image)"><img class="imageButton"
+                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+          </div>
+
+        </div>
+        <!--Images-->
+
+        <!--Types-->
         <label class="title" for="type">Tipos</label>
         <div class="form-inline">
           <select name="selectedItem" [(ngModel)]="inputTypeValue" class="form-control" id="inputSelectType">
