@@ -1,38 +1,41 @@
 <main class="mt-5 pt-5">
-        <div class="container">    
-            <div class="input-group mb-3 searchPadding">
-                <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                    aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
-                <div class="input-group-append">
-                    <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
-                </div>
+    <div class="container">
+        <div class="input-group mb-3 searchPadding">
+            <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
+            <div class="input-group-append">
+                <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
             </div>
-            <div class="grid-container1">
-              <div class="item1 title">{{brands.length}} resultados encontrados</div>
-              <div class="item2"><button (click)="goToCreateBrand()" type="button" id="button-addon2">Crear Marca</button></div>
-          </div> 
-            <div class="noBrands" style="text-align: center;">
-                <br/>
-                <br/>
-                <h2>No hay marcas que mostrar.</h2>
-                <br/>
-                <br/>
-            </div>
-            <div class="brandList">
-            <mat-nav-list *ngFor="let brand of brands">        
-                    <div class="grid-container hover">                  
-                        <div class="item1">
-                            <p class="title">{{brand.name}}</p>
-                        </div> 
-                        <div class="item2">
-                          <a (onclick)="goToEditBrand(brand)"><img class="imageButton" src="https://image.flaticon.com/icons/png/512/61/61776.png"/></a>
-                          &nbsp;
-                          <a (onclick)="doDelete(brand)"><img class="imageButton" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png"/></a>
-                      </div>  
-                               
-                    </div>         
-            </mat-nav-list> 
-        </div> 
         </div>
-      </main>
-      <!--Main layout-->
+        <div class="grid-container1">
+            <div class="item1 title">{{brands.length}} resultados encontrados</div>
+            <div class="item2"><button class="btn btn-primary btn-md" (click)="goToCreateBrand()" type="button"
+                    id="button-addon2">Crear Marca</button></div>
+        </div>
+        <div class="noBrands" style="text-align: center;">
+            <br />
+            <br />
+            <h2>No hay marcas que mostrar.</h2>
+            <br />
+            <br />
+        </div>
+        <div class="brandList">
+            <mat-nav-list *ngFor="let brand of brands">
+                <div class="grid-container hover">
+                    <div class="item1">
+                        <p class="title">{{brand.name}}</p>
+                    </div>
+                    <div class="item2">
+                        <a (click)="goToEditBrand(brand)"><img class="imageButton"
+                                src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
+                        &nbsp;
+                        <a (click)="doDelete(brand)"><img class="imageButton"
+                                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+                    </div>
+
+                </div>
+            </mat-nav-list>
+        </div>
+    </div>
+</main>
+<!--Main layout-->

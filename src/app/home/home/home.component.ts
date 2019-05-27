@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     private brandProvider: BrandProvider) { }
 
   ngOnInit() {
-
+    //Get 3 random pieces for the carousel
     this.pieceProvider.all().subscribe(pieces => {
       this.pieces = pieces;
 
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       this.piece2 = pieces[randomNumbers[1]];
       this.piece3 = pieces[randomNumbers[2]];
     });
-
+    //Get 3 random brand for the three cards
     this.brandProvider.all().subscribe(brands => {
       this.brands = brands;
 
@@ -41,8 +41,9 @@ export class HomeComponent implements OnInit {
       this.brand2 = brands[randomNumbersBrand[1]];
       this.brand3 = brands[randomNumbersBrand[2]];
 
+      //Get 3 pieces by each brand got before
       this.pieceProvider.getByBrandName(this.brand1.name).subscribe(pieces => {
-        this.piece1ByBrand = pieces[0];;
+        this.piece1ByBrand = pieces[0];
       });
       this.pieceProvider.getByBrandName(this.brand2.name).subscribe(pieces => {
         this.piece2ByBrand = pieces[0];
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  //Get 3 random numbers for pieces
   get3RandomDifferentNumbers() {
     var arr = []
     while (arr.length < 3) {
@@ -62,12 +64,12 @@ export class HomeComponent implements OnInit {
     return arr;
   }
 
+  //Get 3 random numbers for brands
   get3RandomDifferentNumbersBrand() {
     var arr = []
     while (arr.length < 3) {
       var r = Math.floor(Math.random() * this.brands.length - 1) + 1;
       if (arr.indexOf(r) === -1) arr.push(r);
-      console.log(arr);
     }
     return arr;
   }
@@ -75,14 +77,15 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  //Go to search page when click in a card
   goToSearch(brand) {
     var link = brand._links.self.href.split("/");
     var id = link[link.length - 1];
 
     this.router.navigate(['collection/' + id]);
-
   }
 
+  //Go to piece page when click in a photo of the carousel
   goToPiece(piece) {
     var link = piece._links.self.href.split("/");
     var id = link[link.length - 1];

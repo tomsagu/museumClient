@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,14 +13,16 @@ import { FooterComponent } from './footer/footer.component';
 
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
+import { CRUDModule } from './crud/crud.module';
+
+
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { MaintenanceArticleDialogModule } from './maintenanceArticleDialog/maintenanceArticleDialog.module';
 import { ConfirmDeleteDialogModule } from './confirmDeleteDialog/confirmDeleteDialog.module';
-
-
-import { CRUDModule } from './crud/crud.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module';
+import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     CRUDModule,
     MaintenanceDocumentationModule,
     MaintenanceArticleDialogModule,
+    MaintenanceTypeModule,
+    MaintenanceRoomModule,
     ConfirmDeleteDialogModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
