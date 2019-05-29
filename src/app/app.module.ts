@@ -23,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module';
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
-
+import { DonationsModule } from './donations/donations.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,7 @@ import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module'
     MaintenanceRoomModule,
     ConfirmDeleteDialogModule,
     BrowserAnimationsModule,
+    DonationsModule,
     ToastrModule.forRoot()
   ],
   providers: [UserProvider],
