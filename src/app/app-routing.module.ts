@@ -19,7 +19,7 @@ import { TypeCRUDModule } from './typeCRUD/typeCRUD.module';
 import { RoomCRUDModule } from './roomCRUD/roomCRUD.module';
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { MaintenanceBrandModule } from './maintenanceBrand/maintenanceBrand.module';
-
+import { DonationsModule } from './donations/donations.module';
 
 const routes: Routes = [
   {
@@ -104,6 +104,10 @@ const routes: Routes = [
     path: 'indexCRUD/maintenanceRoom/:id/:inMode',
     loadChildren: () => MaintenanceRoomModule,
     canActivate: [AdminGuard]
+  },
+  {
+    path: 'donations',
+    loadChildren: () => DonationsModule
   }
 ];
 
