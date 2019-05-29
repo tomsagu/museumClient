@@ -16,7 +16,7 @@
         
           <div class="mySlides">
             <div class="numbertext">1/{{size}}</div>
-            <img src="http://gsoillab.uma.es/fotos/marca_uma.jpg" style="width:80%;height:290px; margin-left: 10%">
+            <img src="{{piece.qr}}" style="width:60%;height:60%; padding-left: 17%; margin-left: 10%">
           </div>
           <div class="mySlides" *ngFor="let pic of images; let i = index">
             <div class="numbertext">{{i+2}} / {{size}}</div>
