@@ -8,9 +8,9 @@ describe('HeaderCRUDComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderCRUDComponent ]
+      declarations: [HeaderCRUDComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

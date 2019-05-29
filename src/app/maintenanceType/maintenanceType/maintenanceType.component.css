@@ -1,0 +1,94 @@
+.item1 { grid-area: left; }
+        .item2 { grid-area: right; }
+        
+        
+        
+        .grid-container {
+          display: grid;
+          grid-template-areas:
+            
+            'left left left right right right'
+            'left left left right right right';
+          grid-gap:5px;
+          
+          padding: 5px;
+        }
+        
+        .grid-container > div {          
+          text-align: center;
+          padding: 10px 20px;
+          font-size: 30px;
+        }
+
+        .grid-container1 {
+          display: grid;
+          grid-template-areas:
+            
+            'left left left left right'
+            'left left left left right';
+          grid-gap:5px;
+          
+          padding: 5px;
+        }
+        
+        .grid-container1 > div {          
+          
+         
+          font-size: 25px;
+        }
+
+        .grid-container2 {
+          display: grid;
+          grid-template-areas:
+            
+            'left left left left right'
+            'left left left left right';
+          grid-gap:5px;
+          
+          padding: 5px;
+        }
+        
+        .grid-container2 > div {          
+          
+          padding: 10px 20px;
+          font-size: 15px;
+          
+        }
+
+        .text {
+            font-size: 50%;
+          }
+
+          .title {
+            font-weight: bold;
+            font-size: 75%;
+            text-align: left;
+          }
+
+          .formPadding{
+              padding-right: 30%;
+          }
+          .buttonsPadding{
+            padding-left: 10%;
+        }
+          .imageButton{
+            width: 30px;
+            height: 30px; 
+         }
+         .imageAdded{
+          width: 100px;
+          height: 100px; 
+         }
+
+         .card {
+          background-color: white;
+          padding: 20px;
+          margin-top: 20px;
+       }
+     
+       .cardmenu {
+         background-color: rgba(206, 206, 206, 0.336);
+         padding: 20px;
+         margin-top: 20px;
+         
+      }

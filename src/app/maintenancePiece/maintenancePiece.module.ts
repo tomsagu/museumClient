@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MaintenancePieceRoutingModule } from './maintenancePiece-routing.module';
 import { MaintenancePieceComponent } from './maintenancePiece/maintenancePiece.component';
 import { PieceProvider } from 'src/providers/PieceProvider';
+import { BrandProvider } from 'src/providers/BrandProvider';
 import { HttpModule } from '@angular/http';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -19,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [MaintenancePieceComponent],
-  providers: [PieceProvider],
+  providers: [PieceProvider,BrandProvider],
   imports: [
     CommonModule,
     FormsModule,

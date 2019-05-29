@@ -40,6 +40,11 @@ export class PieceProvider implements HttpMethodsInterface {
         return this.http.get(this.basicUrl + '/search/findByTypesContains?types=' + types).pipe(map(response => { return response.json()._embedded.pieces }));
     }
 
+    getByRoomName(roomName: String): Observable<Piece[]> {
+        let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
+        return this.http.get(this.basicUrl + '/search/findByRoom?room=' + roomName).pipe(map(response => { return response.json()._embedded.pieces }));
+    }
+
     getByYear(minyear: String, maxyear: String): Observable<Piece[]> {
         let options = new RequestOptions({ headers: this.obtainHeaders(), withCredentials: true });
         return this.http.get(this.basicUrl + '/search/findByYearBetween?minyear=' + minyear + '&maxyear=' + maxyear).pipe(map(response => { return response.json()._embedded.pieces }));
@@ -76,7 +81,7 @@ export class PieceProvider implements HttpMethodsInterface {
     }
   
     put(id: String, piece: Piece): Observable<Piece> {
-        let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
+        let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: false});
         return this.http.put(this.basicUrl + '/'  + id, piece).pipe(map(response => { return response.json() }));
     }
   
