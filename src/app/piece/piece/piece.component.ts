@@ -32,10 +32,10 @@ export class PieceComponent implements OnInit {
         this.piece = piece;
         this.images=piece.images;
         this.size=this.images.length+1;
+        this.aumentarVisitas(piece);
       });
     }
     this.showSlides(this.slideIndex);
-
     }
 
     showSlides(n) {
@@ -65,13 +65,25 @@ export class PieceComponent implements OnInit {
     }
     
 
-    aumentarVisitas(){
-      /*
-      console.log(Number(this.piece.visits));
-      this.piece.visits=String((Number(this.piece.visits)+1));
-      this.pieceProvider.put(this.piece.id,this.piece);
-      console.log(this.piece1);
-      this.pieceProvider.post(this.piece1);
-      */
+    aumentarVisitas(p){
+    console.log("hola");
+     p.visits=String((Number(p.visits)+1));
+    this.pieceProvider.put(this.route.snapshot.paramMap.get('id').toString(), p).subscribe(piecePut => {
+    });
+
+     console.log(p.visits);
     }
+
+    /**
+     * 
+     *   aumentarVisitas(){
+      console.log(this.pieceIDGeneral);
+      var varpiece = new Piece(this.pieceIDGeneral, this.name, this.text, this.year,
+        this.createdate, this.qr, this.room, this.brand, String((Number(this.visits)+1)),
+        this.donor, this.images, this.types);
+      this.pieceProvider.put(this.pieceIDGeneral, varpiece).subscribe(piecePut => {
+      });
+      console.log(this.visits);
+    }
+     */
 }
