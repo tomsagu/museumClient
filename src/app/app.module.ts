@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module';
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { DonationsModule } from './donations/donations.module';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DonationsModule } from './donations/donations.module';
     ConfirmDeleteDialogModule,
     BrowserAnimationsModule,
     DonationsModule,
+    AboutModule,
     ToastrModule.forRoot()
   ],
   providers: [UserProvider],

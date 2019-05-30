@@ -20,6 +20,7 @@ import { RoomCRUDModule } from './roomCRUD/roomCRUD.module';
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { MaintenanceBrandModule } from './maintenanceBrand/maintenanceBrand.module';
 import { DonationsModule } from './donations/donations.module';
+import { AboutModule } from './about/about.module';
 
 const routes: Routes = [
   {
@@ -108,6 +109,10 @@ const routes: Routes = [
   {
     path: 'donations',
     loadChildren: () => DonationsModule
+  },
+  {
+    path: 'about',
+    loadChildren: () => AboutModule
   }
 ];
 
