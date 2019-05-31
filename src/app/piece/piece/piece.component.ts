@@ -18,6 +18,7 @@ export class PieceComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private pieceProvider: PieceProvider
     
@@ -32,7 +33,7 @@ export class PieceComponent implements OnInit {
         this.piece = piece;
         this.images=piece.images;
         this.size=this.images.length+1;
-        this.aumentarVisitas(piece);
+        this.incrementVisits(piece);
       });
     }
     this.showSlides(this.slideIndex);
@@ -65,7 +66,7 @@ export class PieceComponent implements OnInit {
     }
     
 
-    aumentarVisitas(p){
+    incrementVisits(p){
     console.log("hola");
      p.visits=String((Number(p.visits)+1));
     this.pieceProvider.put(this.route.snapshot.paramMap.get('id').toString(), p).subscribe(piecePut => {
@@ -74,16 +75,7 @@ export class PieceComponent implements OnInit {
      console.log(p.visits);
     }
 
-    /**
-     * 
-     *   aumentarVisitas(){
-      console.log(this.pieceIDGeneral);
-      var varpiece = new Piece(this.pieceIDGeneral, this.name, this.text, this.year,
-        this.createdate, this.qr, this.room, this.brand, String((Number(this.visits)+1)),
-        this.donor, this.images, this.types);
-      this.pieceProvider.put(this.pieceIDGeneral, varpiece).subscribe(piecePut => {
-      });
-      console.log(this.visits);
+    doReturn(){
+        this.router.navigate(['/collection']);
     }
-     */
 }
