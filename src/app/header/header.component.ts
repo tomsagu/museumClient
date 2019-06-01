@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
   //Login administration page
   doLogIn() {
     if (sessionStorage.getItem("userId") != null) {
-      this.router.navigate(['indexCRUD']);
+      this.router.navigate(['/documentationCRUD']);
     } else {
       this.router.navigate(['login']);
     }

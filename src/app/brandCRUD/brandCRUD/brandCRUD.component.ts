@@ -58,7 +58,7 @@ export class BrandCRUDComponent implements OnInit {
   goToCreateBrand() {
     var id = "null";
     var inMode = "create";
-    this.router.navigate(['indexCRUD/maintenanceBrand/' + id + '/' + inMode]);
+    this.router.navigate(['brandCRUD/maintenanceBrand/' + id + '/' + inMode]);
 
   }
 
@@ -67,7 +67,7 @@ export class BrandCRUDComponent implements OnInit {
     var link = brand._links.self.href.split("/");
     var id = link[link.length - 1];
     var inMode = "edit";
-    this.router.navigate(['indexCRUD/maintenanceBrand/' + id + '/' + inMode]);
+    this.router.navigate(['brandCRUD/maintenanceBrand/' + id + '/' + inMode]);
 
   }
 

@@ -11,7 +11,6 @@ import { MaintenancePieceModule } from './maintenancePiece/maintenancePiece.modu
 import { LoginModule } from './login/login.module';
 import { AdminGuard } from 'src/guards/AdminGuard';
 import { UserProvider } from 'src/providers/UserProvider';
-import { CRUDModule } from './crud/crud.module';
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { BrandCRUDModule } from './brandCRUD/brandCRUD.module';
 import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module';
@@ -20,22 +19,23 @@ import { RoomCRUDModule } from './roomCRUD/roomCRUD.module';
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { MaintenanceBrandModule } from './maintenanceBrand/maintenanceBrand.module';
 import { DonationsModule } from './donations/donations.module';
+import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-   },
-   {
-     path: 'home',
-     loadChildren: () => HomeModule 
-   },
-   {
-    path: 'documentation',
-    loadChildren: () => DocumentationModule 
   },
-   {
+  {
+    path: 'home',
+    loadChildren: () => HomeModule
+  },
+  {
+    path: 'documentation',
+    loadChildren: () => DocumentationModule
+  },
+  {
     path: 'collection',
     loadChildren: () => CollectionModule
   },
@@ -48,60 +48,60 @@ const routes: Routes = [
     loadChildren: () => PieceModule
   },
   {
+    path: 'documentationCRUD',
+    loadChildren: () => DocumentationCRUDModule,
+    canActivate: [AdminGuard]
+  },
+  {
     path: 'login',
     loadChildren: () => LoginModule
-  },
-  {
-    path: 'indexCRUD',
-    loadChildren: () => CRUDModule,
-    canActivate: [AdminGuard]
-  },
-  {
-    path: 'indexCRUD/maintenanceDocumentation/:id/:inMode',
-    loadChildren: () => MaintenanceDocumentationModule,
-    canActivate: [AdminGuard]
   },
   {
     path: 'collection/:id',
     loadChildren: () => CollectionModule
   },
   {
-    path: 'pieceCRUD',
-    loadChildren: () => PieceCRUDModule,
-    canActivate: [AdminGuard] 
+    path: 'documentationCRUD/maintenanceDocumentation/:id/:inMode',
+    loadChildren: () => MaintenanceDocumentationModule,
+    canActivate: [AdminGuard]
   },
   {
-    path: 'indexCRUD/maintenancePiece/:id/:inMode',
+    path: 'pieceCRUD',
+    loadChildren: () => PieceCRUDModule,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'pieceCRUD/maintenancePiece/:id/:inMode',
     loadChildren: () => MaintenancePieceModule,
     canActivate: [AdminGuard]
   },
   {
     path: 'brandCRUD',
     loadChildren: () => BrandCRUDModule,
-    canActivate: [AdminGuard] 
+    canActivate: [AdminGuard]
   },
   {
-    path: 'indexCRUD/maintenanceBrand/:id/:inMode',
+    path: 'brandCRUD/maintenanceBrand/:id/:inMode',
     loadChildren: () => MaintenanceBrandModule,
     canActivate: [AdminGuard]
   },
   {
     path: 'typeCRUD',
     loadChildren: () => TypeCRUDModule,
-    canActivate: [AdminGuard] 
+    canActivate: [AdminGuard]
   },
   {
-    path: 'indexCRUD/maintenanceType/:id/:inMode',
+    path: 'typeCRUD/maintenanceType/:id/:inMode',
     loadChildren: () => MaintenanceTypeModule,
     canActivate: [AdminGuard]
   },
   {
     path: 'roomCRUD',
     loadChildren: () => RoomCRUDModule,
-    canActivate: [AdminGuard] 
+    canActivate: [AdminGuard]
   },
   {
-    path: 'indexCRUD/maintenanceRoom/:id/:inMode',
+    path: 'roomCRUD/maintenanceRoom/:id/:inMode',
     loadChildren: () => MaintenanceRoomModule,
     canActivate: [AdminGuard]
   },
@@ -114,6 +114,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers : [UserProvider,AdminGuard]
+  providers: [UserProvider, AdminGuard]
 })
 export class AppRoutingModule { }
