@@ -67,7 +67,8 @@ export class MaintenanceTypeComponent implements OnInit {
       this.typeProvider.post(type).subscribe(typePost => {
         type = typePost;
       }, err => this.showToaster("Se ha producido un error al crear el tipo.", "error"));
-      this.router.navigate(['indexCRUD']);
+      this.ngOnInit();
+      this.router.navigate(['/typeCRUD']);
       this.showToaster("Tipo creado con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -100,8 +101,9 @@ export class MaintenanceTypeComponent implements OnInit {
         }
 
       });
-
-      this.router.navigate(['/indexCRUD']);
+      this.ngOnInit();
+      //Redirect to previous page
+      this.router.navigate(['/typeCRUD']);
       this.showToaster("Tipo modificado con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -109,7 +111,7 @@ export class MaintenanceTypeComponent implements OnInit {
   }
 
   doReturn() {
-    this.router.navigate(['indexCRUD']);
+    this.router.navigate(['typeCRUD']);
   }
 
   //show a toaster with information of a current action

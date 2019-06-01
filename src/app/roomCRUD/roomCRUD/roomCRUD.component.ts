@@ -44,7 +44,7 @@ export class RoomCRUDComponent implements OnInit {
   goToCreateRoom() {
     var id = "null";
     var inMode = "create";
-    this.router.navigate(['indexCRUD/maintenanceRoom/' + id + '/' + inMode]);
+    this.router.navigate(['roomCRUD/maintenanceRoom/' + id + '/' + inMode]);
   }
 
   //go to edit room view
@@ -52,7 +52,7 @@ export class RoomCRUDComponent implements OnInit {
     var link = room._links.self.href.split("/");
     var id = link[link.length - 1];
     var inMode = "edit";
-    this.router.navigate(['indexCRUD/maintenanceRoom/' + id + '/' + inMode]);
+    this.router.navigate(['roomCRUD/maintenanceRoom/' + id + '/' + inMode]);
   }
 
   //delete a certain room
@@ -60,7 +60,7 @@ export class RoomCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { name: "sala" };
+    dialogConfig.data = { name: "esta sala" };
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(

@@ -1,24 +1,27 @@
 .container{
-    padding-left: 20%;
-    padding-right: 20%;
-    text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
 }
 
 .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  .errorText{
-    color: red;
-  }
+.errorText{
+  color: red;
+}
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
   }
+}
+.mt-5.pt-5{
+  padding-bottom: 0px;
+}
