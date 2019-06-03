@@ -12,7 +12,10 @@ img.grande{
  width: 200px; height: 200px;
 }
 
-
+/*Margin with the nav*/
+.mt-5{
+  margin-top: -1rem !important;
+}
 
 /* Header/Blog Title */
 .card {
@@ -22,10 +25,11 @@ img.grande{
 
 /* Header/Blog Title */
 .header {
-  padding: 30px;
+  padding: 20px;
   font-size: 40px;
   text-align: center;
-  background: white;
+  background-color: white;
+  margin-top: 20px;
 }
 
 /* Create two unequal columns that floats next to each other */

@@ -14,8 +14,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
 import { JWTProvider } from 'src/providers/JWTProvider';
-import { CRUDModule } from './crud/crud.module';
-
 
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { MaintenanceArticleDialogModule } from './maintenanceArticleDialog/maintenanceArticleDialog.module';
@@ -42,7 +40,6 @@ import { AboutModule } from './about/about.module';
     CollectionModule,
     ArticleModule,
     LoginModule,
-    CRUDModule,
     MaintenanceDocumentationModule,
     MaintenanceArticleDialogModule,
     MaintenanceTypeModule,

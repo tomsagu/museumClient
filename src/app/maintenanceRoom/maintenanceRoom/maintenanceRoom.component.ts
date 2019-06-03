@@ -70,7 +70,8 @@ export class MaintenanceRoomComponent implements OnInit {
       this.roomProvider.post(room).subscribe(roomPost => {
         room = roomPost;
       }, err => this.showToaster("Se ha producido un error al crear la sala.", "error"));
-      this.router.navigate(['indexCRUD']);
+      this.ngOnInit();
+      this.router.navigate(['/roomCRUD']);
       this.showToaster("Sala creada con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -97,9 +98,9 @@ export class MaintenanceRoomComponent implements OnInit {
           }, err => this.showToaster("Se ha producido un error al actualizar la sala de la pieza.", "error"));
         }
       });
-
+      this.ngOnInit();
       //Redirect
-      this.router.navigate(['/indexCRUD']);
+      this.router.navigate(['/roomCRUD']);
       this.showToaster("Sala modificada con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -107,7 +108,7 @@ export class MaintenanceRoomComponent implements OnInit {
   }
 
   doReturn() {
-    this.router.navigate(['indexCRUD']);
+    this.router.navigate(['/roomCRUD']);
   }
 
   //show a toaster with information of a current action

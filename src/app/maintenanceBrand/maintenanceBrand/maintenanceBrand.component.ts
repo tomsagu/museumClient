@@ -80,7 +80,8 @@ export class MaintenanceBrandComponent implements OnInit {
       this.brandProvider.post(brand).subscribe(brandPost => {
         brand = brandPost;
       }, err => this.showToaster("Se ha producido un error al crear la marca.", "error"));
-      this.router.navigate(['indexCRUD']);
+      this.ngOnInit();
+      this.router.navigate(['/brandCRUD']);
       this.showToaster("Marca creada con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -108,7 +109,8 @@ export class MaintenanceBrandComponent implements OnInit {
       });
 
       //Redirect
-      this.router.navigate(['/indexCRUD']);
+      this.ngOnInit();
+      this.router.navigate(['/brandCRUD']);
       this.showToaster("Marca modificada con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -116,7 +118,7 @@ export class MaintenanceBrandComponent implements OnInit {
   }
 
   doReturn() {
-    this.router.navigate(['indexCRUD']);
+    this.router.navigate(['/brandCRUD']);
   }
 
   //show a toaster with information of a current action

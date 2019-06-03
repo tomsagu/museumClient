@@ -131,8 +131,9 @@ export class MaintenancePieceComponent implements OnInit {
           break;
         }
       }
+      this.ngOnInit();
       //redirect
-      this.router.navigate(['/indexCRUD']);
+      this.router.navigate(['/pieceCRUD']);
       this.showToaster("Pieza creada con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -170,8 +171,9 @@ export class MaintenancePieceComponent implements OnInit {
           }
         }
       }
+      this.ngOnInit();
       //Redirect to the crud page
-      this.router.navigate(['/indexCRUD']);
+      this.router.navigate(['/pieceCRUD']);
       this.showToaster("Pieza modificado con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
@@ -179,7 +181,7 @@ export class MaintenancePieceComponent implements OnInit {
   }
 
   doReturn() {
-    this.router.navigate(['/indexCRUD']);
+    this.router.navigate(['/pieceCRUD']);
   }
 
 
