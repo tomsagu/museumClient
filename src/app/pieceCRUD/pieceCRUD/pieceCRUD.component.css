@@ -5,12 +5,7 @@
 
 .grid-container {
 display: grid;
-grid-template-areas:
-  
-  'menu menu menu menu right'
-  'menu menu menu menu right';
 grid-gap:5px;
-
 padding: 5px;
 }
 
