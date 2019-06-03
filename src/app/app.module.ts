@@ -24,6 +24,7 @@ import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module'
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { DonationsModule } from './donations/donations.module';
 import { AboutModule } from './about/about.module';
+import { ManualModule } from './manual/manual.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AboutModule } from './about/about.module';
     BrowserAnimationsModule,
     DonationsModule,
     AboutModule,
+    ManualModule,
     ToastrModule.forRoot()
   ],
   providers: [UserProvider,JWTProvider],

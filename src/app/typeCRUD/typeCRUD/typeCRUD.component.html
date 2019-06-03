@@ -36,17 +36,24 @@
         <div class="typeList">
             <mat-nav-list *ngFor="let type of types">
                 <div class="grid-container hover">
-                    <div class="item1">
-                        <p class="title">{{type.name}}</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="item1">
+                                    <p class="title">{{type.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col col-lg-2">
+                                <div class="item2">
+                                    <a (click)="goToEditType(type)"><img class="imageButton"
+                                            src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
+                                    &nbsp;
+                                    <a (click)="doDelete(type)"><img class="imageButton"
+                                            src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item2">
-                        <a (click)="goToEditType(type)"><img class="imageButton"
-                                src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
-                        &nbsp;
-                        <a (click)="doDelete(type)"><img class="imageButton"
-                                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
-                    </div>
-
                 </div>
             </mat-nav-list>
         </div>

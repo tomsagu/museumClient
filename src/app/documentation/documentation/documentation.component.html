@@ -1,5 +1,5 @@
 <main class="mt-5 pt-5">
-    <div class="container">    
+    <div class="container">
         <div class="input-group mb-3 searchPadding">
             <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
                 aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
@@ -12,23 +12,27 @@
             <h2>No hay documentos que mostrar.</h2>
         </div>
         <div class="documentList">
-        <mat-nav-list *ngFor="let document of documents">
-            <a (click)="goToArticle(document)">               
-                <div class="container hover margins">
-                    <div class="row">
-                      <div class="col-sm-2">
-                        <img class="imageStyle" src="{{document.imagedoc}}" alt="{{document.name}}">
-                      </div>
-                      <div class="col-sm-10 toppadding">
-                        <label class="title">{{document.name}}</label>
-                        <br/>
-                        <label class="text">{{document.text}}</label>
-                      </div>
+            <mat-nav-list *ngFor="let document of documents">
+                <a (click)="goToArticle(document)">
+                    <div class="container hover margins">
+                        <div class="row">
+                            <div class="col-2">
+                                <img class="imageStyle" src="{{document.imagedoc}}" alt="{{document.name}}">
+                            </div>
+                            <div class="col-10">
+                                <div class="col">
+                                    <label class="title">{{document.name}}</label>
+                                </div>
+                                <div class="col">
+                                    <br />
+                                    <label class="text">{{document.text}}</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>   
-            </a>
-        </mat-nav-list> 
-    </div> 
+                </a>
+            </mat-nav-list>
+        </div>
 
     </div>
 </main>
