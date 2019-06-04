@@ -16,7 +16,7 @@ export class JWTProvider {
         var headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin' , '*');
         headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-        headers.append('Access-Control-Allow-Headers', '*');
+        headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization');
         headers.append('Content-type','application/json;charset=utf-8');
         headers.append('Accept','application/json');
         return headers;
