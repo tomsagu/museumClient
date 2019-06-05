@@ -13,8 +13,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
    
-    this.jwtProvider.login().subscribe(response => {
-      sessionStorage.removeItem("token");     
+    this.jwtProvider.login().subscribe(response => { 
       sessionStorage.setItem("token",response.headers.get('Authorization'));
     });
   }
