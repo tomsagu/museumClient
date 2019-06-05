@@ -73,7 +73,7 @@ export class PieceCRUDComponent implements OnInit {
   goToCreatePiece() {
     var id = "null";
     var inMode = "create";
-    this.router.navigate(['indexCRUD/maintenancePiece/' + id + '/' + inMode]);
+    this.router.navigate(['pieceCRUD/maintenancePiece/' + id + '/' + inMode]);
   }
 
   //go to edit piece view
@@ -81,7 +81,7 @@ export class PieceCRUDComponent implements OnInit {
     var link = piece._links.self.href.split("/");
     var id = link[link.length - 1];
     var inMode = "edit";
-    this.router.navigate(['indexCRUD/maintenancePiece/' + id + '/' + inMode]);
+    this.router.navigate(['pieceCRUD/maintenancePiece/' + id + '/' + inMode]);
 
   }
 

@@ -13,7 +13,6 @@ import { FooterComponent } from './footer/footer.component';
 
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
-import { CRUDModule } from './crud/crud.module';
 
 
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
@@ -25,6 +24,7 @@ import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module'
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { DonationsModule } from './donations/donations.module';
 import { AboutModule } from './about/about.module';
+import { ManualModule } from './manual/manual.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,6 @@ import { AboutModule } from './about/about.module';
     CollectionModule,
     ArticleModule,
     LoginModule,
-    CRUDModule,
     MaintenanceDocumentationModule,
     MaintenanceArticleDialogModule,
     MaintenanceTypeModule,
@@ -50,6 +49,7 @@ import { AboutModule } from './about/about.module';
     BrowserAnimationsModule,
     DonationsModule,
     AboutModule,
+    ManualModule,
     ToastrModule.forRoot()
   ],
   providers: [UserProvider],

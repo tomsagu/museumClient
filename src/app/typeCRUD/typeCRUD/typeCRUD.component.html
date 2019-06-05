@@ -1,5 +1,19 @@
+<div class="container">
+    <ul class="tabrow">
+        <li class="doc"><a [routerLink]="['/documentationCRUD']">Documentaci&oacute;n</a></li>
+
+        <li class="co"><a [routerLink]="['/pieceCRUD']">Colecci&oacute;n</a></li>
+
+        <li class=""><a [routerLink]="['/brandCRUD']">Marca</a></li>
+
+        <li class="selected"><a [routerLink]="['/typeCRUD']">Tipo</a></li>
+
+        <li class=""><a [routerLink]="['/roomCRUD']">Sala</a></li>
+    </ul>
+</div>
 <main class="mt-5 pt-5">
     <div class="container">
+
         <div class="input-group mb-3 searchPadding">
             <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
                 aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
@@ -22,17 +36,24 @@
         <div class="typeList">
             <mat-nav-list *ngFor="let type of types">
                 <div class="grid-container hover">
-                    <div class="item1">
-                        <p class="title">{{type.name}}</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="item1">
+                                    <p class="title">{{type.name}}</p>
+                                </div>
+                            </div>
+                            <div class="col col-lg-2">
+                                <div class="item2">
+                                    <a (click)="goToEditType(type)"><img class="imageButton"
+                                            src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
+                                    &nbsp;
+                                    <a (click)="doDelete(type)"><img class="imageButton"
+                                            src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item2">
-                        <a (click)="goToEditType(type)"><img class="imageButton"
-                                src="https://image.flaticon.com/icons/png/512/61/61776.png" /></a>
-                        &nbsp;
-                        <a (click)="doDelete(type)"><img class="imageButton"
-                                src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465__340.png" /></a>
-                    </div>
-
                 </div>
             </mat-nav-list>
         </div>

@@ -1,40 +1,67 @@
-        .margins{
-          padding: 10px;
-          padding-right: 30px;
-          text-align: center;
-        }
-        .toppadding{
-          padding-top: 20px;
-        }
-        .title {
-            font-weight: bold;
-            font-size: larger;
-          }
+.margins{
+  padding: 10px;
+  padding-right: 30px;
+  text-align: center;
+}
+.toppadding{
+  padding-top: 20px;
+}
+.title {
+    font-weight: bold;
+    font-size: larger;
+  }
 
-        .text {
-            font-size: medium;
-          } 
-          .textbold {
-            font-weight: bold;
-            font-size: small;
-          }
-          .imageStyle {
-            width: 150px;
-            height: 150px;       
-          } 
-          .searchPadding{
-              padding-left: 30%;
-              padding-right: 30%;
-          }
-         .hover{
-            background-color: rgba(156, 156, 156, 0.425);
-         }
-         .hover:hover{
-            background-color: rgba(156, 156, 156, 0.658);
-         }
-         .noDocuments{
-           padding-top: 200px;
-           padding-bottom: 50px;
-           text-align: center;
-         }
+.text {
+    font-size: medium;
+  } 
+  .textbold {
+    font-weight: bold;
+    font-size: small;
+  }
+  .imageStyle {
+    width: 150px;
+    height: 150px;       
+  } 
+  .searchPadding{
+      padding-left: 30%;
+      padding-right: 30%;
+  }
+ .hover{
+    background-color: rgba(156, 156, 156, 0.425);
+ }
+ .hover:hover{
+    background-color: rgba(156, 156, 156, 0.658);
+ }
+ .noDocuments{
+   padding-top: 100px;
+   padding-bottom: 0px;
+   text-align: center;
+ }
+ .mt-5.pt-5{
+  padding-bottom: 100px;
+ }
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .title { font-size: 14px; }
+  .text {
+    font-size: 12px;
+  }
+  .imageStyle{
+    width: 100px;
+    height: 100px; 
+  }
+} 
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 768px) and (min-width: 600px) {
+  .title { font-size: 14px; }
+  .text {
+    font-size: 12px;
+  }
+  .imageStyle{
+    width: 100px;
+    height: 100px; 
+  }
+}
           

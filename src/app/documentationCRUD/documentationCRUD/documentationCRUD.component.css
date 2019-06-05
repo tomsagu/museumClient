@@ -1,70 +1,154 @@
-        .item1 { grid-area: menu; 
-            text-align: left;}
-        .item2 { grid-area: right; 
-                text-align: right;}
+.item1 { grid-area: menu; 
+  text-align: left;}
+.item2 { grid-area: right; 
+      text-align: right;}
 
-        
-        
-        
-        .grid-container {
-          display: grid;
-          grid-template-areas:
-            
-            'menu menu menu menu right'
-            'menu menu menu menu right';
-          grid-gap:5px;
-          
-          padding: 5px;
-        }
-        
-        .grid-container > div {          
-          
-          padding: 10px 20px;
-          font-size: 30px;
-        }
+.grid-container {
+display: grid;
+grid-gap:5px;
+padding: 5px;
+}
 
-        .grid-container1 {
-            display: grid;
-            grid-template-areas:
-              
-              'menu menu menu menu right'
-              'menu menu menu menu right';
-            grid-gap:5px;
-            
-            padding: 5px;
-          }
-          
-          .grid-container1 > div {          
-            
-            padding: 10px 20px;
-            
-          }
- 
-        .title {
-            font-weight: bold;
-            font-size: 75%;
-          }
+.grid-container > div {          
 
-        .text {
-            font-size: 50%;
-          } 
-          .imageStyle {
-            width: 150px;
-            height: 150px;       
-          } 
-          .searchPadding{
-              padding-left: 30%;
-              padding-right: 30%;
-          }
-         .hover{
-            background-color: rgba(156, 156, 156, 0.425);
-         }
-         .hover:hover{
-            background-color: rgba(156, 156, 156, 0.658);
-         }
-         .imageButton{
-            width: 40px;
-            height: 40px; 
-         }
-         
-          
+padding: 10px 20px;
+font-size: 30px;
+}
+
+.grid-container1 {
+  display: grid;
+  grid-template-areas:
+    
+    'menu menu menu menu right'
+    'menu menu menu menu right';
+  grid-gap:5px;
+  
+  padding: 5px;
+}
+
+.grid-container1 > div {          
+  
+  padding: 10px 20px;
+  
+}
+
+.title {
+  font-weight: bold;
+  font-size: 75%;
+}
+
+.text {
+  font-size: 50%;
+} 
+.imageStyle {
+  width: 150px;
+  height: 150px;       
+} 
+.searchPadding{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+.hover{
+  background-color: rgba(156, 156, 156, 0.425);
+}
+.hover:hover{
+  background-color: rgba(156, 156, 156, 0.658);
+}
+.imageButton{
+  width: 40px;
+  height: 40px; 
+}
+.mt-5.pt-5{
+  padding-bottom: 117px;
+ }
+
+/*TABS*/  
+.tabrow {
+  text-align: left;
+  list-style: none;
+  margin: 0px 0 20px;
+  padding: 0;
+  line-height: 35px;
+  height: 37px;
+  overflow: hidden;
+  font-size: 14px;
+  position: relative;
+}
+/*Names tabs colors 
+.tabrow a {
+  color: #555;
+  text-decoration: none;
+}*/
+.tabrow:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #AAA;
+  z-index: 1;
+}
+.tabrow:before {
+  z-index: 1;
+}
+.tabrow li {
+  margin: 0 10px;
+  padding: 0 10px;
+  border: 1px solid #AAA;
+  background: #ECECEC;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: linear-gradient(to bottom, #ECECEC 50%, #D1D1D1 100%);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+  text-shadow: 0 1px #FFF;
+  margin: 0 -5px;
+  padding: 0 30px;
+}
+
+.tabrow li:before,
+.tabrow li:after {
+  position: absolute;
+  bottom: -1px;
+  width: 6px;
+  height: 6px;
+  content: " ";
+  border: 1px solid #AAA;
+}
+.tabrow li:before {
+  left: -7px;
+  border-bottom-right-radius: 6px;
+  border-width: 0 1px 1px 0;
+  box-shadow: 2px 2px 0 #ECECEC;
+}
+.tabrow li:after {
+  right: -7px;
+  border-bottom-left-radius: 6px;
+  border-width: 0 0 1px 1px;
+  box-shadow: -2px 2px 0 #ECECEC;
+}
+
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+  z-index: 2;
+  border-bottom-color: #FFF;
+}
+.tabrow li.selected:before {
+  box-shadow: 2px 2px 0 #FFF;
+}
+.tabrow li.selected:after {
+  box-shadow: -2px 2px 0 #FFF;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .tabrow li { width: 20%; }
+  .tabrow li.selected{ width: 27%; }
+  .tabrow li.co{ width: 22%; }
+  .tabrow {
+    font-size: 12px;
+  }
+} 

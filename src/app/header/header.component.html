@@ -20,23 +20,29 @@
                 <!-- Left -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link waves-effect" [routerLink]="['home']">Inicio
+                        <a class="nav-link waves-effect" [routerLink]="['home']"><label class="title">Inicio</label>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" [routerLink]="['/documentation']">Documentaci&oacute;n
+                        <a class="nav-link waves-effect" [routerLink]="['/documentation']"><label
+                                class="title">Documentaci&oacute;n</label>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" [routerLink]="['/collection']">Colecci&oacute;n
+                        <a class="nav-link waves-effect" [routerLink]="['/collection']"><label
+                                class="title">Colecci&oacute;n</label>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" [routerLink]="['/donations']">Donaciones</a>
+                        <a class="nav-link waves-effect" [routerLink]="['/donations']"><label
+                                class="title">Donaciones</label>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect" [routerLink]="['/about']">Acerca de</a>
+                        <a class="nav-link waves-effect" [routerLink]="['/about']"><label class="title">Acerca
+                                de</label>
+                        </a>
                     </li>
                 </ul>
 
@@ -66,16 +72,20 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link border border-light rounded waves-effect" (click)="doLogIn()">
-                            <i class="fas fa-user-cog"></i>Administración
+                            <i class="fas fa-user-cog"></i><label class="title">Administraci&oacute;n</label>
                         </a>
                     </li>
-                    <li id="signout" class="nav-item" style="display:none;">
+                    <li id="signout" class="nav-item" style="display:none; background-color:#c62828">
                         <a href="home" class="nav-link border border-light rounded waves-effect" (click)="doSignOut()">
-                            <i class="fas fa-user-cog"></i>Cerrar Sesión
+                            <i class="fas fa-sign-out-alt"></i><label class="title">Cerrar Sesi&oacute;n</label>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/manual']" class="nav-link waves-effect">
+                            <i class="far fa-question-circle"></i>
                         </a>
                     </li>
                 </ul>
-
             </div>
 
         </div>

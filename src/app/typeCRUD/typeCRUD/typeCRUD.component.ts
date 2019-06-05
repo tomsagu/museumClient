@@ -44,7 +44,7 @@ export class TypeCRUDComponent implements OnInit {
   goToCreateType() {
     var id = "null";
     var inMode = "create";
-    this.router.navigate(['indexCRUD/maintenanceType/' + id + '/' + inMode]);
+    this.router.navigate(['typeCRUD/maintenanceType/' + id + '/' + inMode]);
   }
 
   //go to edit type view
@@ -52,7 +52,7 @@ export class TypeCRUDComponent implements OnInit {
     var link = type._links.self.href.split("/");
     var id = link[link.length - 1];
     var inMode = "edit";
-    this.router.navigate(['indexCRUD/maintenanceType/' + id + '/' + inMode]);
+    this.router.navigate(['typeCRUD/maintenanceType/' + id + '/' + inMode]);
   }
 
   //delete a certain type
@@ -60,7 +60,7 @@ export class TypeCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { name: "tipo" };
+    dialogConfig.data = { name: "este tipo" };
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
