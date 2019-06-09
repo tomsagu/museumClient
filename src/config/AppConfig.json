@@ -1,9 +1,0 @@
-{
-    "Endpoints": {
-        "museumServer": {
-            "Piece": "http://localhost:8080/pieces",
-            "Document": "http://localhost:8080/documents",
-            "Article" : "http://localhost:8080/articles"
-        }
-    }
-}
