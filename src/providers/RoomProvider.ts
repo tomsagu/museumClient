@@ -15,11 +15,12 @@ export class RoomProvider implements HttpMethodsInterface {
     constructor(private http: Http) {}
 
     private obtainHeaders() {
+        const token = sessionStorage.getItem("token");
         var headers = new Headers();
         headers.append('Access-Control-Allow-Origin' , '*');
-        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        headers.append('Content-type','application/json;charset=utf-8');
         headers.append('Accept','application/json');
-        headers.append('content-type','application/json;charset=utf-8');
+        headers.append('Authorization',token);
 
         return headers;
     }
@@ -27,35 +28,35 @@ export class RoomProvider implements HttpMethodsInterface {
     all(): Observable<Room[]> {
         
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl).pipe(map(response => { return response.json()._embedded.rooms }));
+        return this.http.get(this.basicUrl,options).pipe(map(response => { return response.json()._embedded.rooms }));
     }
 
     get(id: String): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/' + id).pipe(map(response => { return response.json() }));
+        return this.http.get(this.basicUrl + '/' + id,options).pipe(map(response => { return response.json() }));
     }
 
     getByWord(word: String): Observable<Room[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeIgnoreCaseOrTextLikeIgnoreCase?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.rooms}));
+        return this.http.get(this.basicUrl + '/search/findByNameLikeIgnoreCaseOrTextLikeIgnoreCase?word=' + word + "&word1=" + word,options).pipe(map(response => { return response.json()._embedded.rooms}));
     }
 
     put(id: String, room: Room): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.put(this.basicUrl + '/'  + id, room).pipe(map(response => { return response.json() }));
+        return this.http.put(this.basicUrl + '/'  + id, room,options).pipe(map(response => { return response.json() }));
     }
     post(room: Room): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.post(this.basicUrl, room).pipe(map(response => { return response.json() }));
+        return this.http.post(this.basicUrl, room,options).pipe(map(response => { return response.json() }));
     }
     delete(id: String): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.delete(this.basicUrl + '/'  + id).pipe(map(response => { return response.json() }));
+        return this.http.delete(this.basicUrl + '/'  + id,options).pipe(map(response => { return response.json() }));
     }
 
     count(): Observable<Room> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + 'count').pipe(map(response => { return response.json() }));
+        return this.http.get(this.basicUrl + 'count',options).pipe(map(response => { return response.json() }));
     }
 
 }

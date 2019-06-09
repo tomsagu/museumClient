@@ -13,7 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { LoginModule } from './login/login.module';
 import { UserProvider } from 'src/providers/UserProvider';
-
+import { JWTProvider } from 'src/providers/JWTProvider';
 
 import { MaintenanceDocumentationModule } from './maintenanceDocumentation/maintenanceDocumentation.module';
 import { MaintenanceArticleDialogModule } from './maintenanceArticleDialog/maintenanceArticleDialog.module';
@@ -52,7 +52,7 @@ import { ManualModule } from './manual/manual.module';
     ManualModule,
     ToastrModule.forRoot()
   ],
-  providers: [UserProvider],
+  providers: [UserProvider,JWTProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
