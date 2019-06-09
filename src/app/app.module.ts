@@ -24,7 +24,9 @@ import { MaintenanceTypeModule } from './maintenanceType/maintenanceType.module'
 import { MaintenanceRoomModule } from './maintenanceRoom/maintenanceRoom.module';
 import { DonationsModule } from './donations/donations.module';
 import { AboutModule } from './about/about.module';
+import {MapModule} from './map/map.module';
 import { ManualModule } from './manual/manual.module';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { ManualModule } from './manual/manual.module';
     BrowserAnimationsModule,
     DonationsModule,
     AboutModule,
+    MapModule,
     ManualModule,
     ToastrModule.forRoot()
   ],
