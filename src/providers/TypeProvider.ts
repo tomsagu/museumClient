@@ -35,8 +35,8 @@ export class TypeProvider implements HttpMethodsInterface {
     }
 
     getByWord(word: String): Observable<Type[]> {
-        let options = new RequestOptions({headers: this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLike?word=' + word,options).pipe(map(response => { return response.json()._embedded.types}));
+        let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
+        return this.http.get(this.basicUrl + '/search/findByNameLikeIgnoreCase?word=' + word,options).pipe(map(response => { return response.json()._embedded.types}));
     }
 
     put(id: String, Type: Type): Observable<Type> {

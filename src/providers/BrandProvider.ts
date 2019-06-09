@@ -38,7 +38,7 @@ export class BrandProvider implements HttpMethodsInterface {
     
     getByWord(word: String): Observable<Brand[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word,options).pipe(map(response => { return response.json()._embedded.brands}));
+        return this.http.get(this.basicUrl + '/search/findByNameLikeIgnoreCaseOrTextLikeIgnoreCase?word=' + word + "&word1=" + word,options).pipe(map(response => { return response.json()._embedded.brands}));
     }
 
     put(id: String, brand: Brand): Observable<Brand> {
