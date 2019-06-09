@@ -77,7 +77,7 @@ export class PieceProvider implements HttpMethodsInterface {
 
     getByWord(word: String): Observable<Piece[]> {
         let options = new RequestOptions({ headers:this.obtainHeaders(),withCredentials: true});
-        return this.http.get(this.basicUrl + '/search/findByNameLikeOrTextLike?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.pieces}));
+        return this.http.get(this.basicUrl + '/search/findByNameLikeIgnoreCaseOrTextLikeIgnoreCase?word=' + word + "&word1=" + word).pipe(map(response => { return response.json()._embedded.pieces}));
     }
   
     put(id: String, piece: Piece): Observable<Piece> {
