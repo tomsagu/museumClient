@@ -90,7 +90,7 @@ export class ArticleComponent implements OnInit {
 
     }
     var currentArticle = document.getElementById(this.articleSelected.name.toString());
-    currentArticle.style.color = "blue";
+    currentArticle.style.color = "#cd0067";
     currentArticle.style.fontWeight = "bold";
     
     
