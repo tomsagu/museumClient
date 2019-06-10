@@ -17,6 +17,7 @@
   .textbold {
     font-weight: bold;
     font-size: small;
+    color: #0099cc;
   }
   .imageStyle {
     width: 150px;
@@ -31,6 +32,7 @@
  }
  .hover:hover{
     background-color: rgba(156, 156, 156, 0.658);
+    /*background-color: #0099cc;*/
  }
  .noDocuments{
    padding-top: 100px;
@@ -53,6 +55,16 @@
   }
 } 
 
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/*Margin with the nav*/
+.mt-5{
+  margin-top: -1.5rem !important;
+}
  /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 768px) and (min-width: 600px) {
   .title { font-size: 14px; }
