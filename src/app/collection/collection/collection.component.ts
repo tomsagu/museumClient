@@ -29,8 +29,8 @@ export class CollectionComponent implements OnInit {
   /**Values of the form (checkbox)*/
   optionsCheckbox = [];
   /**Slider */
-  minYear: number = 1950;
-  maxYear: number = 1990;
+  minYear: number = 1900;
+  maxYear: number = 2019;
   options: Options = {
     floor: 1900,
     ceil: 2019,

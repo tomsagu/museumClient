@@ -1,0 +1,27 @@
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+/*Margin with the nav*/
+.mt-5{
+    margin-top: -1.5rem !important;
+  }
+
+.container2{
+  margin-left: 50px;
+}
+.container3{
+  margin-left: 80px;
+}
+hr.style3 {
+  border-top: 1px dashed #8c8b8b;
+}
+hr.style10 {
+	border-top: 1px dotted #8c8b8b;
+	border-bottom: 1px dotted #fff;
+}
+.imageButton {
+  width:30px;
+  height:30px;
+}

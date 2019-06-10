@@ -26,6 +26,20 @@ export class HeaderComponent implements OnInit {
     });
     //End script
 
+    //script to active nav-item when click on name
+    $(document).ready(function () {
+      //Click event handler for navbar-brand
+      $('.navbar-brand').on('click', function () {
+
+        //Remove any previous active classes
+        $('.nav-item').removeClass('active');
+
+        //Add active class to the home item
+        $('.home').addClass('active');
+      });
+    });
+    //End script
+    
     var signout = document.getElementById("signout");
     if (sessionStorage.getItem("userId") != null) {
       signout.style.display = "block";

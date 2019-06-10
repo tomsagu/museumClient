@@ -1,79 +1,111 @@
 <main class="mt-5 pt-5">
-        <div class="container">
-<div class="header">
-    <h2><b>Colecci&oacute;n de Piezas</b></h2>
-</div>
-<div class="row">
-    <!-- COLUMNA IZQUIERDA-->
-    <div class="leftcolumn">
-
-        <!--FORM-->
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-            <h4><b>¿Buscas una pieza?</b></h4>
-            <!--Multicheckbox-->
-            <div class="form-group">
-                <h4><b>Tipos de Piezas</b></h4>
-                <div *ngFor="let option of optionsCheckbox">
-                    <label>
-                        <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" />
-                        {{option.name}}
-                    </label>
+    <div class="container">
+        <div class="card border-light mb-3">
+            <div class="header">
+                <div class="card mb-3 mdb-color darken-2">
+                    <div
+                        style="font-family: 'Titillium Web', sans-serif; font-size: 40px; color: #ffffff; margin-top: 10px; margin-bottom: 10px;">
+                        <b>Colecci&oacute;n de Piezas</b></div>
                 </div>
             </div>
-            <!--END Multicheckbox-->
-            <!-- Range Slider-->
-            <div data-role="header">
-                <h4><b>Año de la pieza</b></h4>
-            </div>
-            <div class="custom-slider">
-                <p>Año minimo: <input type="number" step="{{options.step}}" [(ngModel)]="minYear"></p>
-                <p>Año maximo: <input type="number" step="{{options.step}}" [(ngModel)]="maxYear"></p>
-                <ng5-slider [(value)]="minYear" [(highValue)]="maxYear" [options]="options"></ng5-slider>
-            </div>
-            <!-- END Range Slider-->
-            <!--Select Brand-->
-            <div class="form-group">
-                <h4><b>Marca de la pieza</b></h4>
-                <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control" id="exampleSelect1">
-                    <option [ngValue]="">Ninguna</option>
-                    <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
-                </select>
-            </div>
-            <!--END Select Brand-->
-            <p><b>Valores Seleccionados: </b></p>
-            <p><b>Tipos: </b> {{(selectedOptions=='') ? 'No ha elegido ningun tipo' : ''}} {{selectedOptions}}</p>
-            <p><b>Rango de Tiempo: </b>[{{minYear}},{{maxYear}}]</p>
-            <p><b>Marca: </b>{{(selectedBrand=='') ? 'No ha elegido ninguna marca' : ''}} {{selectedBrand}}</p>
-            <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
-        </div>
-        <!--END FORM-->
+            <div class="row">
+                <!-- COLUMNA IZQUIERDA-->
+                <div class="leftcolumn">
 
-    </div>
-
-
-    <div class="rightcolumn">
-
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
-           <h4><b>Coincidencias: {{pieces.length>0 ? pieces.length : 'No hay piezas que coincidan con esos criterios'}} </b> </h4> 
-            <div class="card-columns">
-                <div class="card border-info mb-3" *ngFor="let piece of pieces" (click)="goToPiece(piece)">
-                    <img class="card-img-top" src="{{piece.images[0]}}" alt="Card No image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{piece.name}}</h5>
-                        <p class="card-text">{{ (piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}
-                        </p>
+                    <!--FORM-->
+                    <div style=" padding: 20px; margin-top: 20px;">
+                        <div style="font-family: 'Titillium Web', sans-serif; font-size: 24px; color: #003366;">¿Buscas
+                            una pieza?</div>
+                        <hr>
+                        <!--Multicheckbox-->
+                        <div class="form-group">
+                            <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Tipos de
+                                    Piezas</b></div>
+                            <hr>
+                            <div *ngFor="let option of optionsCheckbox">
+                                <label>
+                                    <input type="checkbox" name="options" value="{{option.value}}"
+                                        [(ngModel)]="option.checked" />
+                                    {{option.name}}
+                                </label>
+                            </div>
+                        </div>
+                        <!--END Multicheckbox-->
+                        <!-- Range Slider-->
+                        <div data-role="header">
+                            <hr>
+                            <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Año de la
+                                    pieza</b></div>
+                            <hr>
+                        </div>
+                        <div class="custom-slider ">
+                            <p>Año m&iacute;nimo: <input type="number" step="{{options.step}}" [(ngModel)]="minYear">
+                            </p>
+                            <p>Año m&aacute;ximo: <input type="number" step="{{options.step}}" [(ngModel)]="maxYear">
+                            </p>
+                            <ng5-slider [(value)]="minYear" [(highValue)]="maxYear" [options]="options"></ng5-slider>
+                        </div>
+                        <!-- END Range Slider-->
+                        <!--Select Brand-->
+                        <div class="form-group">
+                            <hr>
+                            <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Marca de la
+                                    pieza</b></div>
+                            <hr>
+                            <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control"
+                                id="exampleSelect1">
+                                <option [ngValue]="">Ninguna</option>
+                                <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
+                            </select>
+                        </div>
+                        <!--END Select Brand-->
+                        <hr>
+                        <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Valores Seleccionados
+                            </b></div>
+                        <hr>
+                        <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Tipos: </b></div>&nbsp;
+                        {{(selectedOptions=='') ? 'No ha elegido ning&uacute;n tipo' : ''}} {{selectedOptions}}
+                        <br />
+                        <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Rango de Tiempo: </b>
+                        </div>&nbsp; [{{minYear}},{{maxYear}}]
+                        <br />
+                        <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Marca: </b></div>
+                        &nbsp;{{(selectedBrand=='') ? 'No ha elegido ninguna marca' : ''}} {{selectedBrand}}
+                        <br />
+                        <br />
+                        <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">{{piece.types}}</small>
+                    <!--END FORM-->
+
+                </div>
+
+                <div class="rightcolumn">
+
+                    <div style=" padding: 20px; margin-top: 20px;">
+                        <div style="font-family: 'Titillium Web', sans-serif; font-size: 22px;color: #0099cc;">
+                            Coincidencias:
+                            {{pieces.length>0 ? pieces.length : 'No hay piezas que coincidan con esos criterios'}}</div>
+                        <hr>
+                        <div class="card-columns">
+                            <div class="card border-info mb-3" *ngFor="let piece of pieces" (click)="goToPiece(piece)">
+                                <img class="card-img-top" src="{{piece.images[0]}}" alt="Card No image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{piece.name}}</h5>
+                                    <p class="card-text">
+                                        {{ (piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{piece.types}}</small>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
-
         </div>
-
     </div>
-</div>
-        </div>
-
 </main>
-        <!--Main layout-->
+<!--Main layout-->
