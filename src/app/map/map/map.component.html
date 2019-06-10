@@ -64,7 +64,7 @@
       </div>
       <!--Right Column-->
       <div class="rightcolumn">
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;">
+        <div class="card border-light mb-3" style=" padding: 12px; margin-top: 20px;">
           <h4><b>{{room!=undefined ? room.name : 'Seleccione una sala'}}</b></h4>
           <hr>
           <h5><b>{{room!=undefined ? "Localizada en la: " + room.location : ''}}</b></h5>
@@ -72,9 +72,9 @@
           <h5 style="font-size: 20px"><b>
               {{room!=undefined ? "Piezas en esta sala: "+ pieces.length : 'Seleccione una sala'}}
             </b> </h5>
-          <div class="documentList">
+          <div class="documentList" style="overflow-y: auto; height: 550px">
             <mat-nav-list *ngFor="let piece of pieces">
-              <div class="card border-light mb-3" style="padding: 3px">
+              <div class="card border-light mb-3" style="padding: 3px; width: 90%">
               <a (click)="goToPiece(piece)">
                 <div class="container hover margins">
                   <div class="row">
