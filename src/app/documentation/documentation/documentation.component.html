@@ -5,7 +5,7 @@
                 <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
                     aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
                 <div class="input-group-append">
-                    <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+                    <button (click)="doSearch()" class="btn btn-basic btn-md" type="button" id="button-addon2" style="color: #ffffff; background-color: #0099cc;">Buscar</button>
                 </div>
             </div>
             <div class="textbold">{{documents.length}} resultados encontrados</div>
@@ -14,7 +14,7 @@
                         documentos que mostrar.
                     </b></div>
             </div>
-            <div class="documentList">
+            <div class="documentList" id="myList">
                 <mat-nav-list *ngFor="let document of documents">
                     <a (click)="goToArticle(document)">
                         <div class="container hover margins">
