@@ -1,71 +1,108 @@
 <main class="mt-5 pt-5">
-    <div class="container">
+  <div class="container">
+    <div class="card border-light mb-3">
+      <div class="header">
+        <div class="card mb-3 mdb-color darken-2">
+          <div
+            style="font-family: 'Titillium Web', sans-serif; font-size: 40px; color: #ffffff; margin-top: 10px; margin-bottom: 10px;">
+            <b>{{piece.name}}</b></div>
+        </div>
+      </div>
 
-  <div class="header">
-    <h2><b>{{piece.name}}</b></h2>
-  </div>
-  
-  <div class="row">
+      <div class="row">
 
-    <div class="leftcolumn">
-      <!--GALERY-->
-      <div class="card border-light mb-3" style=" padding: 10px; margin-top: 20px;margin-right: 5%">
+        <div class="leftcolumn">
+          <!--GALERY-->
+          <div class="card border-light mb-3" style="padding: 10px; margin-top: 20px;">
 
-        <!--<h2 style="text-align:center">Galeria</h2>-->
-
-        
-          <div class="mySlides">
-            <div class="numbertext">1/{{size}}</div>
-            <img src="{{piece.qr}}" style="width:60%;height:60%; padding-left: 17%; margin-left: 10%">
-          </div>
-          <div class="mySlides" *ngFor="let pic of images; let i = index">
-            <div class="numbertext">{{i+2}} / {{size}}</div>
-            <img src="{{pic}}" style="width:80%;height:290px;margin-left: 10%">
-          </div>
-
-          <a class="prev" (click)="plusSlides(-1)">❮</a>
-          <a class="next" (click)="plusSlides(1)">❯</a>
-
-          <div class="row">
-            <div class="column">
-              <img class="demo cursor" src="{{piece.qr}}"
-                style="width:100%; height: 100%;padding-left: 10px;" (click)="currentSlide(1)" alt="The Woods">
+            <div class="mySlides">
+              <div class="numbertext" style="color: #003366;">1/{{size}}</div>
+              <img src="{{piece.qr}}" style="width:60%;height:60%; padding-left: 17%; margin-left: 10%">
             </div>
-            <div class="column" *ngFor="let pic of images; let i = index">
-              <img class="demo cursor" src="{{pic}}" style="width:100% ; height: 100%;padding-left: 10px;padding-right: 10px; padding-right: 5px"
-                (click)="currentSlide(this.images.indexOf(pic)+2)" alt="The Woods">
+            <div class="mySlides" *ngFor="let pic of images; let i = index">
+              <div class="numbertext" style="color: #003366;">{{i+2}} / {{size}}</div>
+              <img src="{{pic}}" style="width:80%;height:290px;margin-left: 10%">
+            </div>
+
+            <a class="prev" (click)="plusSlides(-1)" style="color: #0099cc">❮</a>
+            <a class="next" (click)="plusSlides(1)" style="color: #0099cc">❯</a>
+
+            <div class="row">
+              <div class="column">
+                <img class="demo cursor" src="{{piece.qr}}" style="width:100%; height: 100%;padding-left: 10px;"
+                  (click)="currentSlide(1)" alt="The Woods">
+              </div>
+              <div class="column" *ngFor="let pic of images; let i = index">
+                <img class="demo cursor" src="{{pic}}"
+                  style="width:100% ; height: 100%;padding-left: 10px;padding-right: 10px; padding-right: 5px"
+                  (click)="currentSlide(this.images.indexOf(pic)+2)" alt="The Woods">
+              </div>
             </div>
           </div>
-        
+          <!-- END GALERY-->
+        </div>
+
+        <div class="rightcolumn">
+          <div class="container border-color" style="max-width: 25rem; margin-top: 20px; ">
+            <div class="card mb-3 border border-info">
+              <div class="card-header"
+                style="font-family: 'Titillium Web', sans-serif; font-size: 24px; background-color: #0099cc;  color: #ffffff">
+                Datos de la pieza
+              </div>
+              <div class="card-body text-dark">
+
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Fabricante:
+                  {{piece.brand}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Modelo:
+                  {{piece.name}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Año:
+                  {{piece.year}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Visitas:
+                  {{piece.visits}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Tipos:
+                </h6>
+                <div *ngFor="let type of piece.types">
+                  <h6 class="card-title">
+                    &nbsp;&nbsp;&nbsp;<i class="fas fa-circle fa-xs"
+                      style="font-size: 10px; color: #0099cc;"></i>&nbsp;{{type}}</h6>
+                </div>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Fecha de
+                  Creaci&oacute;n:
+                  {{piece.createdate.substring(0, 10)}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Sala:
+                  {{piece.room}}
+                </h6>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
       </div>
-      <!-- END GALERY-->
-    </div>
-
-    <div class="rightcolumn">
-        <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px;height:90%">
-         
-        <h2><b>Datos de la Pieza:</b></h2>
-        <h3><b>Fabricante: </b>{{piece.brand}}</h3>
-        <h3><b>Modelo: </b>{{piece.name}}</h3>
-        <h3><b>Año: </b>{{piece.year}}</h3>
-        <h3><b>Visitas: </b>{{piece.visits}}</h3>
-        <h3><b>Tipos: </b>{{piece.types}}</h3>
-        <h4><b>Fecha de Creacion: </b>{{piece.createdate.substring(0, 10)}}</h4>
-        <h4><b>Sala: </b>{{piece.room}}</h4>
- 
+      <hr>
+      <div class="container border-color">
+        <div class="card border-dark mb-3">
+          <div class="card-header mdb-color darken-2"
+            style="font-family: 'Titillium Web', sans-serif; font-size: 24px;  color: #ffffff">Descripción de la pieza
+          </div>
+          <div class="card-body text-dark">
+            <h6 class="card-title" style="font-family: 'Titillium Web', sans-serif; font-size: 18px;">{{piece.text}}
+            </h6>
+            <p class="card-text" style="font-family: 'Titillium Web', sans-serif; font-size: 16px;">Pieza donada por:
+              {{piece.donor}}</p>
+          </div>
         </div>
+      </div>
+      <div id="buttons" class="float-right">
+        <button id="returnButton" class="btn btn-basic btn-md float-right"
+          style="color: #ffffff; background-color: #0099cc;" (click)="doReturn()" type="button">Volver</button>
+      </div>
     </div>
-
   </div>
-  <hr>
-  <div class="card border-light mb-3" style=" padding: 20px; margin-top: 20px">
-  <h5><b>Descripción de la pieza:</b></h5>
-  <p>{{piece.text}}</p>
-  <h5>Pieza donada por: {{piece.donor}}</h5>
-  </div>
-  <button id="returnButton" class="btn btn-basic btn-md" style="margin-left: 90%; background-color: bisque" (click)="doReturn()" type="button">Volver</button>
-    </div>
-
 </main>
 <!--Main layout-->

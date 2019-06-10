@@ -82,7 +82,7 @@ export class ArticleComponent implements OnInit {
   }
 
   displayCurrentArticle(){
-    var articleList = document.getElementsByClassName("page-link") as HTMLCollectionOf<HTMLElement>;
+    var articleList = document.getElementsByClassName("page-link-art") as HTMLCollectionOf<HTMLElement>;
     
     for(var i = 0; i < articleList.length; i++){
       articleList[i].style.color = "black";
@@ -90,7 +90,7 @@ export class ArticleComponent implements OnInit {
 
     }
     var currentArticle = document.getElementById(this.articleSelected.name.toString());
-    currentArticle.style.color = "blue";
+    currentArticle.style.color = "#cd0067";
     currentArticle.style.fontWeight = "bold";
     
     

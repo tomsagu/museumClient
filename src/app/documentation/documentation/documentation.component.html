@@ -1,39 +1,50 @@
 <main class="mt-5 pt-5">
     <div class="container">
-        <div class="input-group mb-3 searchPadding">
-            <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
-            <div class="input-group-append">
-                <button (click)="doSearch()" type="button" id="button-addon2">Buscar</button>
+        <div class="card border-light mb-3">
+            <div class="input-group mb-3 searchPadding">
+                <input id="inputSearch" type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                    aria-describedby="button-addon2" [(ngModel)]='inputSearchValue'>
+                <div class="input-group-append">
+                    <button (click)="doSearch()" class="btn btn-basic btn-md" type="button" id="button-addon2" style="color: #ffffff; background-color: #0099cc;">Buscar</button>
+                </div>
             </div>
-        </div>
-        <div class="textbold">{{documents.length}} resultados encontrados</div>
-        <div class="noDocuments">
-            <h2>No hay documentos que mostrar.</h2>
-        </div>
-        <div class="documentList">
-            <mat-nav-list *ngFor="let document of documents">
-                <a (click)="goToArticle(document)">
-                    <div class="container hover margins">
-                        <div class="row">
-                            <div class="col-2">
-                                <img class="imageStyle" src="{{document.imagedoc}}" alt="{{document.name}}">
-                            </div>
-                            <div class="col-10">
-                                <div class="col">
-                                    <label class="title">{{document.name}}</label>
+            <div class="textbold">{{documents.length}} resultados encontrados</div>
+            <div class="noDocuments">
+                <div style="font-family: 'Titillium Web', sans-serif; font-size: 30px; color: #003366;"><b>No hay
+                        documentos que mostrar.
+                    </b></div>
+            </div>
+            <div class="documentList" id="myList">
+                <mat-nav-list *ngFor="let document of documents">
+                    <a (click)="goToArticle(document)">
+                        <div class="container hover margins">
+                            <div class="row">
+                                <div class="col-2">
+                                    <img class="imageStyle" src="{{document.imagedoc}}" alt="{{document.name}}">
                                 </div>
-                                <div class="col">
-                                    <br />
-                                    <label class="text">{{document.text}}</label>
+                                <div class="col-10">
+                                    <div class="col">
+                                        <label class="title">
+                                            <div
+                                                style="font-family: 'Titillium Web', sans-serif; font-size: 20px; color: #003366;">
+                                                <b>{{document.name}}
+                                                </b></div>
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <br />
+                                        <label class="text">
+                                            <div style="font-family: 'Titillium Web', sans-serif; font-size: 14px;"><b>
+                                                </b></div>{{document.text}}
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </mat-nav-list>
+                    </a>
+                </mat-nav-list>
+            </div>
         </div>
-
     </div>
 </main>
 <!--Main layout-->

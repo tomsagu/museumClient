@@ -12,11 +12,12 @@
   }
 
 .text {
-    font-size: medium;
+    font-size: small;
   } 
   .textbold {
     font-weight: bold;
     font-size: small;
+    color: #0099cc;
   }
   .imageStyle {
     width: 150px;
@@ -27,10 +28,13 @@
       padding-right: 30%;
   }
  .hover{
-    background-color: rgba(156, 156, 156, 0.425);
+   /*background-color: rgba(156, 156, 156, 0.425);*/
+    background-color: #b3d7e2;
  }
  .hover:hover{
-    background-color: rgba(156, 156, 156, 0.658);
+    /*background-color: rgba(156, 156, 156, 0.658);*/
+    background-color: #0099cc;
+    color: #ffffff;
  }
  .noDocuments{
    padding-top: 100px;
@@ -53,6 +57,16 @@
   }
 } 
 
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/*Margin with the nav*/
+.mt-5{
+  margin-top: -1.5rem !important;
+}
  /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 768px) and (min-width: 600px) {
   .title { font-size: 14px; }
@@ -63,5 +77,10 @@
     width: 100px;
     height: 100px; 
   }
+}
+
+.btn{
+  margin-top: 0px;
+  margin-left: 2px;
 }
           
