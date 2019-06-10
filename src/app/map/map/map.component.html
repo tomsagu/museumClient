@@ -22,7 +22,7 @@
               style="position:absolute; top:270px; left:110px; width:191px; height:78px;opacity:0; background-color: blueviolet;"
               onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';"
               title="SECRETARIADEINFORMATICA" alt="SECRETARIADEINFORMATICA" target="_self"
-              (click)="doSearch('Secretaria de informática)"></div>
+              (click)="doSearch('Secretaría de informática')"></div>
             <div
               style="position:absolute; top:364px; left:418px; width:149px; height:36px;opacity:0; background-color: blueviolet;"
               onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="ESPACIO4SALA1"
@@ -69,15 +69,16 @@
           <hr>
           <h5><b>{{room!=undefined ? "Localizada en la: " + room.location : ''}}</b></h5>
           <h5><b>{{room!=undefined ? "Descripción: " + room.text : ''}}</b></h5>
-          <h5 style="font-size: 20px"><b>Piezas en la sala:
-              {{pieces.length>0 ? pieces.length : 'No hay piezas en esta sala'}}
+          <h5 style="font-size: 20px"><b>
+              {{room!=undefined ? "Piezas en esta sala: "+ pieces.length : 'Seleccione una sala'}}
             </b> </h5>
           <div class="documentList">
             <mat-nav-list *ngFor="let piece of pieces">
+              <div class="card border-light mb-3" style="padding: 3px">
               <a (click)="goToPiece(piece)">
                 <div class="container hover margins">
                   <div class="row">
-                    <div class="col-3">
+                    <div class="col-3" style="padding-left: 2px; padding-right: 2px">
                       <img class="imageStyle" src="{{piece.images[0]}}" alt="{{piece.name}}">
                     </div>
                     <div class="col-9">
@@ -92,6 +93,7 @@
                   </div>
                 </div>
               </a>
+            </div>
             </mat-nav-list>
           </div>
         </div>
