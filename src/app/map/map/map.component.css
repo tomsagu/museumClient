@@ -8,9 +8,56 @@
 .mt-5{
     margin-top: -1.5rem !important;
 }
+.margins{
+  padding-right: 10px;
+  text-align: center;
+}
+.toppadding{
+  padding-top: 10px;
+}
+.title {
+    font-weight: bold;
+    font-size: medium;
+  }
 
+.text {
+    font-size: small;
+    text-align: left;
+  } 
+  .textbold {
+    font-weight: bold;
+    font-size: small;
+  }
+  .imageStyle {
+    width: 100px;
+    height: 100px;       
+  }
 
+  
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .title { font-size: 14px; }
+  .text {
+    font-size: 12px;
+  }
+  .imageStyle{
+    width: 100px;
+    height: 100px; 
+  }
+} 
 
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 768px) and (min-width: 600px) {
+  .title { font-size: 14px; }
+  .text {
+    font-size: 12px;
+  }
+  .imageStyle{
+    width: 100px;
+    height: 100px; 
+  }
+}
+          
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn { 

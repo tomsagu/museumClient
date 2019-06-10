@@ -23,9 +23,13 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
-    doSearch(room){
-      console.log(room);
-      this.pieceProvider.getByRoomName(room).subscribe(pieces => {
+    doSearch(varroom){
+      console.log(varroom);
+      this.roomProvider.getByName(varroom).subscribe(room=>{
+        this.room=room;
+        console.log(room.name)
+      })
+      this.pieceProvider.getByRoomName(varroom).subscribe(pieces => {
         this.pieces = pieces;
       });
     }
