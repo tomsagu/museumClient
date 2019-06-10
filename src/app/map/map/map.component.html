@@ -1,0 +1,105 @@
+<main class="mt-5 pt-5">
+  <div class="container">
+    <div class="row">
+      <!--Left Column-->
+      <div class="leftcolumn">
+        <div class="card border-light mb-3" style=" padding: 10px; margin-top: 20px;">
+          <div
+            style="position:relative; height:692px; width:670px; background:url(https://i.ibb.co/8BxnntY/mapa.jpg) 0 0 no-repeat;">
+            <div
+              style="position:absolute; top:67px; left:286px; width:137px; height:48px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="SALA2" alt="SALA2"
+              target="_self" (click)="doSearch('Sala 2')"></div>
+            <div
+              style="position:absolute; top:116px; left:239px; width:95px; height:70px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="SALADEGRADOSA"
+              alt="SALADEGRADOSA" target="_self" (click)="doSearch('Sala de grados A')"></div>
+            <div
+              style="position:absolute; top:199px; left:272px; width:195px; height:64px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="BIBLIOTECA"
+              alt="BIBLIOTECA" target="_self" (click)="doSearch('Biblioteca')"></div>
+            <div
+              style="position:absolute; top:270px; left:110px; width:191px; height:78px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';"
+              title="SECRETARIADEINFORMATICA" alt="SECRETARIADEINFORMATICA" target="_self"
+              (click)="doSearch('Secretaría de informática')"></div>
+            <div
+              style="position:absolute; top:364px; left:418px; width:149px; height:36px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="ESPACIO4SALA1"
+              alt="ESPACIO4SALA1" target="_self" (click)="doSearch('Espacio 4 Sala 1')"></div>
+            <div
+              style="position:absolute; top:399px; left:359px; width:157px; height:42px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="ESPACIO4SALA2"
+              alt="ESPACIO4SALA2" target="_self" (click)="doSearch('Espacio 4 sala 2')"></div>
+            <div
+              style="position:absolute; top:445px; left:304px; width:147px; height:32px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="ESPACIO4SALA3"
+              alt="ESPACIO4SALA3" target="_self" (click)="doSearch('Espacio 4 sala 3')"></div>
+            <div
+              style="position:absolute; top:520px; left:86px; width:153px; height:88px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="SALONDEACTOS"
+              alt="SALONDEACTOS" target="_self" (click)="doSearch('Salón de actos')"></div>
+            <div
+              style="position:absolute; top:575px; left:242px; width:49px; height:45px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="CONSERJERIA"
+              alt="CONSERJERIA" target="_self" (click)="doSearch('Conserjería')"></div>
+            <div
+              style="position:absolute; top:578px; left:317px; width:135px; height:45px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="MODULO1" alt="MODULO1"
+              target="_self" (click)="doSearch('Módulo 1')"></div>
+            <div
+              style="position:absolute; top:543px; left:365px; width:148px; height:32px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="MODULO2" alt="MODULO2"
+              target="_self" (click)="doSearch('Módulo 2')"></div>
+            <div
+              style="position:absolute; top:501px; left:420px; width:152px; height:35px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="MODULO3" alt="MODULO3"
+              target="_self" (click)="doSearch('Módulo 3')"></div>
+            <div
+              style="position:absolute; top:499px; left:326px; width:76px; height:29px;opacity:0; background-color: blueviolet;"
+              onmouseover="this.style.opacity='0.2';" onmouseout="this.style.opacity='0';" title="PLANTAPRIMERASALA1"
+              alt="PLANTAPRIMERASALA1" target="_self" (click)="doSearch('Planta primera Sala 1')"></div>
+          </div>
+        </div>
+      </div>
+      <!--Right Column-->
+      <div class="rightcolumn">
+        <div class="card border-light mb-3" style=" padding: 12px; margin-top: 20px;">
+          <h4><b>{{room!=undefined ? room.name : 'Seleccione una sala'}}</b></h4>
+          <hr>
+          <h5><b>{{room!=undefined ? "Localizada en la: " + room.location : ''}}</b></h5>
+          <h5><b>{{room!=undefined ? "Descripción: " + room.text : ''}}</b></h5>
+          <h5 style="font-size: 20px"><b>
+              {{room!=undefined ? "Piezas en esta sala: "+ pieces.length : 'Seleccione una sala'}}
+            </b> </h5>
+          <div class="documentList" style="overflow-y: auto; height: 550px">
+            <mat-nav-list *ngFor="let piece of pieces">
+              <div class="card border-light mb-3" style="padding: 3px; width: 90%">
+              <a (click)="goToPiece(piece)">
+                <div class="container hover margins">
+                  <div class="row">
+                    <div class="col-3" style="padding-left: 2px; padding-right: 2px">
+                      <img class="imageStyle" src="{{piece.images[0]}}" alt="{{piece.name}}">
+                    </div>
+                    <div class="col-9">
+                      <div class="col">
+                        <label class="title" style="margin-bottom: 0%">{{piece.name}}</label>
+                      </div>
+                      <div class="col">
+                        <label
+                          class="text">{{(piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            </mat-nav-list>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>

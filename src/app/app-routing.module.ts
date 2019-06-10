@@ -21,6 +21,7 @@ import { MaintenanceBrandModule } from './maintenanceBrand/maintenanceBrand.modu
 import { DonationsModule } from './donations/donations.module';
 import { DocumentationCRUDModule } from './documentationCRUD/documentationCRUD.module';
 import { AboutModule } from './about/about.module';
+import { MapModule } from './map/map.module';
 import { ManualModule } from './manual/manual.module';
 
 const routes: Routes = [
@@ -114,6 +115,10 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => AboutModule
+  },
+  {
+    path: 'map',
+    loadChildren: () => MapModule
   },
   {
     path: 'manual',
