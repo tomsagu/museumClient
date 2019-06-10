@@ -24,8 +24,8 @@
               <img src="{{pic}}" style="width:80%;height:290px;margin-left: 10%">
             </div>
 
-            <a class="prev" (click)="plusSlides(-1)" style="color: #000000">❮</a>
-            <a class="next" (click)="plusSlides(1)" style="color: #000000">❯</a>
+            <a class="prev" (click)="plusSlides(-1)" style="color: #0099cc">❮</a>
+            <a class="next" (click)="plusSlides(1)" style="color: #0099cc">❯</a>
 
             <div class="row">
               <div class="column">
@@ -43,23 +43,44 @@
         </div>
 
         <div class="rightcolumn">
-          <div class="card text-white mb-3" style="max-width: 25rem; background-color: #0099cc;margin-top: 20px; ">
-            <div class="card-header" style="font-size: 30px;">Datos de la pieza</div>
-            <div class="card-body">
-              <h6 class="card-title" style="font-size: 20px;">Fabricante: {{piece.brand}} </h6>
-              <h6 class="card-title" style="font-size: 20px;">Modelo: {{piece.name}} </h6>
-              <h6 class="card-title" style="font-size: 20px;">Año: {{piece.year}} </h6>
-              <h6 class="card-title" style="font-size: 20px;">Visitas: {{piece.visits}} </h6>
-              <h6 class="card-title" style="font-size: 20px;">Tipos:</h6>
-              <div *ngFor="let type of piece.types">
-                <h6 class="card-title" style="font-size: 20px;">&nbsp;&nbsp;&nbsp;<i class="fas fa-circle fa-xs"
-                    style="font-size: 10px;"></i>&nbsp;{{type}}</h6>
+          <div class="container border-color" style="max-width: 25rem; margin-top: 20px; ">
+            <div class="card mb-3 border border-info">
+              <div class="card-header"
+                style="font-family: 'Titillium Web', sans-serif; font-size: 24px; background-color: #0099cc;  color: #ffffff">
+                Datos de la pieza
               </div>
-              <h6 class="card-title" style="font-size: 20px;">Fecha de Creaci&oacute;n:
-                {{piece.createdate.substring(0, 10)}}</h6>
-              <h6 class="card-title" style="font-size: 20px;">Sala: {{piece.room}} </h6>
+              <div class="card-body text-dark">
+
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Fabricante:
+                  {{piece.brand}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Modelo:
+                  {{piece.name}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Año:
+                  {{piece.year}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Visitas:
+                  {{piece.visits}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Tipos:
+                </h6>
+                <div *ngFor="let type of piece.types">
+                  <h6 class="card-title">
+                    &nbsp;&nbsp;&nbsp;<i class="fas fa-circle fa-xs"
+                      style="font-size: 10px; color: #0099cc;"></i>&nbsp;{{type}}</h6>
+                </div>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Fecha de
+                  Creaci&oacute;n:
+                  {{piece.createdate.substring(0, 10)}}
+                </h6>
+                <h6 class="card-title"><i class="fas fa-chevron-right" style="color: #cd0067;"></i> Sala:
+                  {{piece.room}}
+                </h6>
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -78,8 +99,8 @@
         </div>
       </div>
       <div id="buttons" class="float-right">
-        <button id="returnButton" class="btn btn-basic btn-md float-right" style="background-color: #9e9e9e;"
-          (click)="doReturn()" type="button">Volver</button>
+        <button id="returnButton" class="btn btn-basic btn-md float-right"
+          style="color: #ffffff; background-color: #0099cc;" (click)="doReturn()" type="button">Volver</button>
       </div>
     </div>
   </div>
