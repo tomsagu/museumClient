@@ -1,5 +1,62 @@
 <main class="mt-5 pt-5">
-  <div class="container">
+  <div class="container" *ngIf="charge">
+    <div class="card form-inline" style="text-align: center;">
+      <h2><strong>Top donantes</strong></h2>
+      <hr>
+      <div class="form-inline">
+        <div class="flip-card ">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+              <img src="https://live.staticflickr.com/65535/48038697027_ae4883442c_m.jpg" alt="Avatar"
+                style="width:300px;height:270px;">
+              <label style="background-color: darkorange;">{{donorPiecesArray[0][0]}}</label>
+            </div>
+            <div class="flip-card-back">
+                <br/>
+              <h1>Piezas</h1>
+              <div *ngFor="let piece of donorPiecesArray[0]">
+                <p *ngIf="donorPiecesArray[0][0]!=piece">{{piece}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://live.staticflickr.com/65535/48038696982_1e64e9d632_m.jpg" alt="Avatar"
+                style="width:300px;height:270px;">
+              <label style="background-color: darkorange;">{{donorPiecesArray[1][0]}}</label>
+            </div>
+            <div class="flip-card-back">
+              <br/>
+              <h1>Piezas</h1>
+              <div *ngFor="let piece of donorPiecesArray[1]">
+                <p *ngIf="donorPiecesArray[1][0]!=piece">{{piece}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://live.staticflickr.com/65535/48038593131_3bedea5eef_m.jpg" alt="Avatar"
+                style="width:300px;height:270px;">
+              <label style="background-color: darkorange;">{{donorPiecesArray[2][0]}}</label>
+            </div>
+            <div class="flip-card-back">
+                <br/>
+              <h1>Piezas</h1>
+              <div *ngFor="let piece of donorPiecesArray[2]">
+                <p *ngIf="donorPiecesArray[2][0]!=piece">{{piece}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="card" style="text-align: center;">
       <div class="card mb-3 mdb-color darken-2">
         <div
