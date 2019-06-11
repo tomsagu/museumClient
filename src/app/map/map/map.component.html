@@ -65,35 +65,44 @@
       <!--Right Column-->
       <div class="rightcolumn">
         <div class="card border-light mb-3" style=" padding: 12px; margin-top: 20px;">
-          <h4><b>{{room!=undefined ? room.name : 'Seleccione una sala'}}</b></h4>
+          <div class="card mb-3 mdb-color darken-2">
+            <div
+                style="font-family: 'Titillium Web', sans-serif; font-size: 30px; color: #ffffff; text-align: center">
+                <b>{{room!=undefined ? room.name : 'Seleccione una sala'}}</b></div>
+        </div>      
           <hr>
-          <h5><b>{{room!=undefined ? "Localizada en la: " + room.location : ''}}</b></h5>
-          <h5><b>{{room!=undefined ? "Descripción: " + room.text : ''}}</b></h5>
-          <h5 style="font-size: 20px"><b>
-              {{room!=undefined ? "Piezas en esta sala: "+ pieces.length : 'Seleccione una sala'}}
-            </b> </h5>
+          <div
+                style="font-family: 'Titillium Web', sans-serif; font-size: 20px; color: #003366; text-align: left; margin-left: 10px;">
+                <b>{{room!=undefined ? "Localizada en la: " + room.location : ''}}</b></div>
+          <div
+                style="font-family: 'Titillium Web', sans-serif; font-size: 20px; color: #003366; text-align: left; margin-left: 10px;">
+                <b>{{room!=undefined ? "Descripción: " + room.text : ''}}</b></div>
+                <div
+                style="font-family: 'Titillium Web', sans-serif; font-size: 20px; color: #003366; text-align: left; margin-left: 10px;">
+                <b>{{room!=undefined ? "Piezas en esta sala: "+ pieces.length : ''}}</b></div> 
+
           <div class="documentList" style="overflow-y: auto; height: 550px">
             <mat-nav-list *ngFor="let piece of pieces">
-              <div class="card border-light mb-3" style="padding: 3px; width: 90%">
-              <a (click)="goToPiece(piece)">
-                <div class="container hover margins">
-                  <div class="row">
-                    <div class="col-3" style="padding-left: 2px; padding-right: 2px">
-                      <img class="imageStyle" src="{{piece.images[0]}}" alt="{{piece.name}}">
-                    </div>
-                    <div class="col-9">
-                      <div class="col">
-                        <label class="title" style="margin-bottom: 0%">{{piece.name}}</label>
+              <div class="card border-info mb-3" style="padding: 3px; width: 90%">
+                <a (click)="goToPiece(piece)">
+                  <div class="container hover margins">
+                    <div class="row">
+                      <div class="col-3" style="padding-left: 2px; padding-right: 2px">
+                        <img class="imageStyle" src="{{piece.images[0]}}" alt="{{piece.name}}">
                       </div>
-                      <div class="col">
-                        <label
-                          class="text">{{(piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}</label>
+                      <div class="col-9">
+                        <div class="col">
+                          <label class="title" style="margin-bottom: 0%; color: #003366;">{{piece.name}}</label>
+                        </div>
+                        <div class="col">
+                          <label
+                            class="text">{{(piece.text).substring(0,100)}}{{piece.text.length > 100 ? '...' : ''}}</label>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
+                </a>
+              </div>
             </mat-nav-list>
           </div>
         </div>
