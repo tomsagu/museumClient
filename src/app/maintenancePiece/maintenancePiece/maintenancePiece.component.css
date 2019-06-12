@@ -38,9 +38,11 @@
 /* CSS Added from Documents */
 
 .title {
-  font-weight: bold;
-  font-size: 75%;
-  text-align: left;
+  font-weight:700;
+  font-size:75%;
+  text-align:left;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
 .imageButton{
@@ -59,4 +61,8 @@ height: 100px;
 }
 .mt-5.pt-5{
   padding-bottom: 100px;
- }  
+ } 
+ /*Margin with the nav*/
+.mt-5{
+  margin-top: -1.5rem !important;
+}

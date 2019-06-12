@@ -6,8 +6,7 @@
             <!-- Brand -->
             <a class="navbar-brand waves-effect" [routerLink]="['/home']">
                 <!--<strong class="blue-text">Museo Inform&aacute;tica</strong>-->
-                <img src="https://www.uco.es/investigacion/proyectos/SEBASENet/images/Logo_UMA.png"
-                    style="width:125px;height:125px;">
+                <img src="http://oceano.uma.es/logo-uma.png" style="width:125px;height:125px;">
             </a>
             <!-- Collapse -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -19,68 +18,59 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="container">
                     <div class="row">
-                            <ul class="navbar-nav nav-flex-icons" style="margin-left: 140px;">
-                                <div class="col-md-auto">
-                                    <li class="nav-item">
-                                        <a href="https://es-es.facebook.com/universidadmalaga/"
-                                            class="nav-link waves-effect" target="_blank">
-                                            <i class="fab fa-facebook-f" style="color: #ffffff;"></i>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li class="nav-item">
-                                        <a href="https://www.youtube.com/channel/UC8T2wOw_orprODSWMEHrqEw/"
-                                            class="nav-link waves-effect" target="_blank">
-                                            <i class="fab fa-youtube" style="color: #ffffff;"></i>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li class="nav-item">
-                                        <a href="https://twitter.com/informaticauma" class="nav-link waves-effect"
-                                            target="_blank">
-                                            <i class="fab fa-twitter" style="color: #ffffff;"></i>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li class="nav-item">
-                                        <a href="https://www.instagram.com/infouma/" class="nav-link waves-effect"
-                                            target="_blank">
-                                            <i class="fab fa-instagram" style="color: #ffffff;"></i>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li class="nav-item rounded">
-                                        <a class="nav-link border border-light rounded waves-effect"
-                                            (click)="doLogIn()">
-                                            <i class="fas fa-user-cog" style="color: #ffffff;"></i><label class="title"
-                                                style="color: #ffffff;">Administraci&oacute;n</label>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li id="signout" class="nav-item rounded" style="display:none;">
-                                        <a href="home" class="nav-link border border-light rounded waves-effect"
-                                            (click)="doSignOut()">
-                                            <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i><label
-                                                class="title" style="color: #ffffff;">Cerrar
-                                                Sesi&oacute;n</label>
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="col-md-auto">
-                                    <li class="nav-item">
-                                        <a [routerLink]="['/manual']" class="nav-link waves-effect">
-                                            <i class="far fa-question-circle" style="color: #ffffff;"></i>
-                                        </a>
-                                    </li>
-                                </div>
-                            </ul>
-
-                 
+                        <ul class="navbar-nav nav-flex-icons" style="margin-left: 140px;">
+                            <li class="nav-item">
+                                <a href="https://es-es.facebook.com/universidadmalaga/" class="nav-link waves-effect"
+                                    target="_blank">
+                                    <i class="fab fa-facebook-f" style="color: #ffffff;"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.youtube.com/channel/UC8T2wOw_orprODSWMEHrqEw/"
+                                    class="nav-link waves-effect" target="_blank">
+                                    <i class="fab fa-youtube" style="color: #ffffff;"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://twitter.com/informaticauma" class="nav-link waves-effect"
+                                    target="_blank">
+                                    <i class="fab fa-twitter" style="color: #ffffff;"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.instagram.com/infouma/" class="nav-link waves-effect"
+                                    target="_blank">
+                                    <i class="fab fa-instagram" style="color: #ffffff;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav mr-auto" style="margin-left: 50px;">
+                            <div class="col-md-auto">
+                                <li class="nav-item rounded">
+                                    <a class="nav-link border border-light rounded waves-effect" (click)="doLogIn()">
+                                        <i class="fas fa-user-cog" style="color: #ffffff;"></i><label class="title"
+                                            style="color: #ffffff;">Administraci&oacute;n</label>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="col-md-auto">
+                                <li id="signout" class="nav-item rounded" style="display:none;">
+                                    <a href="home" class="nav-link border border-light rounded waves-effect"
+                                        (click)="doSignOut()">
+                                        <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i><label class="title"
+                                            style="color: #ffffff;">Cerrar
+                                            Sesi&oacute;n</label>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="col-md-auto">
+                                <li class="nav-item">
+                                    <a [routerLink]="['/manual']" class="nav-link waves-effect">
+                                        <i class="far fa-question-circle" style="color: #ffffff;"></i>
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
 
                     </div>
                     <div class="row">
