@@ -90,7 +90,7 @@ export class PieceCRUDComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = { name: "piece" };
+    dialogConfig.data = { name: "esta pieza" };
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
