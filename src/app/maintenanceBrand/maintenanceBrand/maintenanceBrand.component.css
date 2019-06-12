@@ -95,3 +95,7 @@
       .mt-5.pt-5{
         padding-bottom: 100px;
        }
+       /*Margin with the nav*/
+.mt-5{
+  margin-top: -1.5rem !important;
+}

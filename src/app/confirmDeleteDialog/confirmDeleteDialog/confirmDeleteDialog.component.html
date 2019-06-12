@@ -2,12 +2,10 @@
 
 
 <mat-dialog-content >
-
-   <h5>¿Estás seguro de que quieres borrar {{infoName}}?</h5>
+   <h5 style="font-family: 'Titillium Web', sans-serif; font-size: 25px; margin-top: 10px; margin-bottom: 10px;">¿Estás seguro de que quieres borrar {{infoName}}?</h5>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-
+<div id="buttons" class="d-flex float-right">
     <button class="btn btn-basic btn-md" (click)="close()">
         Cancelar
     </button>
@@ -15,5 +13,4 @@
     <button class="btn btn-danger btn-md" (click)="delete()">
         Borrar
     </button>
-
-</mat-dialog-actions>
+</div>

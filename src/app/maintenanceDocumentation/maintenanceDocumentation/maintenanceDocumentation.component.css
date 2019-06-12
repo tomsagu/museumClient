@@ -84,3 +84,7 @@
   grid-gap:5px;
   padding:5px;
 }
+/*Margin with the nav*/
+.mt-5{
+  margin-top: -1.5rem !important;
+}

@@ -1,1 +1,10 @@
+.bg-navbar {
+    background: #2A3D5C;
+}
+.title{
+    color: #ffffff;
+}
+.active{
+    background-color: #6699CC;
+}
 

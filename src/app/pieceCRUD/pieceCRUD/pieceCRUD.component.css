@@ -49,10 +49,11 @@ font-size: 30px;
     padding-right: 30%;
 }
 .hover{
-  background-color: rgba(156, 156, 156, 0.425);
+  background-color: #C2D8ED;
 }
 .hover:hover{
-  background-color: rgba(156, 156, 156, 0.658);
+  background-color: #6699CC;
+  color: #ffffff;
 }
 .imageButton{
   width: 40px;
@@ -69,4 +70,9 @@ font-size: 30px;
 /*Margin with the nav*/
 .mt-5{
   margin-top: -4.5rem !important;
+}
+
+.btn{
+  margin-top: 0px;
+  margin-left: 2px;
 }
