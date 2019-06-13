@@ -58,8 +58,9 @@
   
 .card {
   background-color:#FFF;
-  margin-top:20px;
-  padding:20px;
+  padding-left:15px;
+  padding-top:20px;
+  padding-bottom:50px;
 }
   
 .cardmenu {
