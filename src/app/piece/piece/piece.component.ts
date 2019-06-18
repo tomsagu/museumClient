@@ -67,12 +67,9 @@ export class PieceComponent implements OnInit {
     
 
     incrementVisits(p){
-    console.log("hola");
      p.visits=String((Number(p.visits)+1));
     this.pieceProvider.put(this.route.snapshot.paramMap.get('id').toString(), p).subscribe(piecePut => {
     });
-
-     console.log(p.visits);
     }
 
     doReturn(){

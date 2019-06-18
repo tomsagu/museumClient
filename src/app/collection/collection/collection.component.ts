@@ -130,7 +130,6 @@ export class CollectionComponent implements OnInit {
   }
   
   submit() {
-    console.log(this.brands);
   }
 
 }

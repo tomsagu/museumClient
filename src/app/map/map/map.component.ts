@@ -24,10 +24,8 @@ export class MapComponent implements OnInit {
   }
 
     doSearch(varroom){
-      console.log(varroom);
       this.roomProvider.getByName(varroom).subscribe(room=>{
         this.room=room;
-        console.log(room.name)
       })
       this.pieceProvider.getByRoomName(varroom).subscribe(pieces => {
         this.pieces = pieces;
