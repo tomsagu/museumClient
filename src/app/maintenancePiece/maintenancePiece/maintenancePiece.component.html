@@ -31,7 +31,7 @@
         </select>
 
         <label class="title" style="font-family: 'Titillium Web', sans-serif; color: #003366; font-size: 20px;"
-          for="marca">Marca</label>
+          for="marca">Fabricante</label>
         <select name="selectedItem" [(ngModel)]="inputBrandValue" class="form-control partial" id="marca">
           <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
         </select>

@@ -10,7 +10,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link active" id="brand-tab" data-toggle="tab" [routerLink]="['/brandCRUD']" role="tab"
-                aria-controls="brand" aria-selected="false">Marca</a>
+                aria-controls="brand" aria-selected="false">Fabricante</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="type-tab" data-toggle="tab" [routerLink]="['/typeCRUD']" role="tab"
@@ -37,12 +37,12 @@
             <div class="grid-container1">
                 <div class="item1 title">{{brands.length}} resultados encontrados</div>
                 <div class="item2"><button class="btn btn-primary btn-md" (click)="goToCreateBrand()" type="button"
-                        id="button-addon2">Crear Marca</button></div>
+                        id="button-addon2">Crear Fabricante</button></div>
             </div>
             <div class="noBrands" style="text-align: center;">
                 <br />
                 <br />
-                <h2>No hay marcas que mostrar.</h2>
+                <h2>No hay fabricantes que mostrar.</h2>
                 <br />
                 <br />
             </div>

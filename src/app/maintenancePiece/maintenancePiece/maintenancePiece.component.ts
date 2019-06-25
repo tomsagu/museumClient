@@ -127,7 +127,7 @@ export class MaintenancePieceComponent implements OnInit {
           b.pieces[b.pieces.length] = this.inputNameValue;
           var idb = this.getId(b);
           this.brandProvider.put(idb, b).subscribe(brandPut => {
-          }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+          }, err => this.showToaster("Se ha producido un error al actualizar el fabricante de la pieza.", "error"));
           break;
         }
       }
@@ -155,7 +155,7 @@ export class MaintenancePieceComponent implements OnInit {
             b.pieces[b.pieces.length] = this.inputNameValue;
             var idb = this.getId(b);
             this.brandProvider.put(idb, b).subscribe(brandPut => {
-            }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+            }, err => this.showToaster("Se ha producido un error al actualizar el fabricante de la pieza.", "error"));
             break;
           }
         }
@@ -166,7 +166,7 @@ export class MaintenancePieceComponent implements OnInit {
             b.pieces.splice(index, 1)
             var idb = this.getId(b);
             this.brandProvider.put(idb, b).subscribe(brandPut => {
-            }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+            }, err => this.showToaster("Se ha producido un error al actualizar el fabricante de la pieza.", "error"));
             break;
           }
         }
