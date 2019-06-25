@@ -49,12 +49,12 @@
                         <!--Select Brand-->
                         <div class="form-group">
                             <hr>
-                            <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Marca de la
+                            <div style="font-family: 'Titillium Web', sans-serif; color: #0099cc;"><b>Fabricante de la
                                     pieza</b></div>
                             <hr>
                             <select name="selectedItem" [(ngModel)]="selectedBrand" class="form-control"
                                 id="exampleSelect1">
-                                <option [ngValue]="">Ninguna</option>
+                                <option [ngValue]="">Ninguno</option>
                                 <option *ngFor="let b of brands" [ngValue]="b.name">{{b.name}}</option>
                             </select>
                         </div>
@@ -69,8 +69,8 @@
                         <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Rango de Tiempo: </b>
                         </div>&nbsp; [{{minYear}},{{maxYear}}]
                         <br />
-                        <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Marca: </b></div>
-                        &nbsp;{{(selectedBrand=='') ? 'No ha elegido ninguna marca' : ''}} {{selectedBrand}}
+                        <div style="font-family: 'Titillium Web', sans-serif; color: #cd0067"><b>Fabricante: </b></div>
+                        &nbsp;{{(selectedBrand=='') ? 'No ha elegido ning&uacute; fabricante' : ''}} {{selectedBrand}}
                         <br />
                         <br />
                         <button (click)="doSearch()" class="btn btn-basic btn-md" type="button" id="button-addon2" style="color: #ffffff; background-color: #0099cc;">Buscar</button>

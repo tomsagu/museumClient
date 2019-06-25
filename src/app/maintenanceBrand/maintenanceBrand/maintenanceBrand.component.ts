@@ -44,12 +44,12 @@ export class MaintenanceBrandComponent implements OnInit {
 
     //If you select create a brand
     if (inMode == 'create') {
-      this.mainTitle = "Crear Marca";
+      this.mainTitle = "Crear Fabricante";
       createButton.style.display = "block";
 
       //If you select edit a brand
     } else {
-      this.mainTitle = "Editar Marca";
+      this.mainTitle = "Editar Fabricante";
       editButton.style.display = "block";
       if (this.brandID != null && this.brandID.localeCompare("") != 0) {
         this.brandProvider.get(this.brandID).subscribe(brand => {
@@ -79,10 +79,10 @@ export class MaintenanceBrandComponent implements OnInit {
       var brand = new Brand(this.inputNameValue, this.inputNameValue, this.inputDescriptionValue, this.namePieces);
       this.brandProvider.post(brand).subscribe(brandPost => {
         brand = brandPost;
-      }, err => this.showToaster("Se ha producido un error al crear la marca.", "error"));
+      }, err => this.showToaster("Se ha producido un error al crear el fabricante.", "error"));
       this.ngOnInit();
       this.router.navigate(['/brandCRUD']);
-      this.showToaster("Marca creada con éxito.", "success");
+      this.showToaster("Fabricante creado con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
     }
@@ -94,7 +94,7 @@ export class MaintenanceBrandComponent implements OnInit {
       var brand = new Brand(this.brandID, this.inputNameValue, this.inputDescriptionValue, this.namePieces);
       this.brandProvider.put(this.brandID, brand).subscribe(brandPut => {
 
-      }, err => this.showToaster("Se ha producido un error al actualizar la marca.", "error"));
+      }, err => this.showToaster("Se ha producido un error al actualizar el fabricante.", "error"));
 
       //Get all the pieces of the previous brand to update it
       this.pieceProvider.getByBrandName(this.brandName).subscribe(pieces => {
@@ -104,14 +104,14 @@ export class MaintenanceBrandComponent implements OnInit {
           p.brand = this.inputNameValue;
           var idp = this.getId(p);
           this.pieceProvider.put(idp, p).subscribe(piecePut => {
-          }, err => this.showToaster("Se ha producido un error al actualizar la marca de la pieza.", "error"));
+          }, err => this.showToaster("Se ha producido un error al actualizar el fabricante de la pieza.", "error"));
         }
       });
 
       //Redirect
       this.ngOnInit();
       this.router.navigate(['/brandCRUD']);
-      this.showToaster("Marca modificada con éxito.", "success");
+      this.showToaster("Fabricante modificado con éxito.", "success");
     } else {
       this.showToaster("Introduce un nombre.", "error");
     }

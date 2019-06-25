@@ -59,7 +59,7 @@ export class CollectionComponent implements OnInit {
         this.doSearchByBrandName();
       });
     }else{
-      this.selectedBrand = 'Ninguna';
+      this.selectedBrand = 'Ninguno';
     }
 
     this.pieceProvider.all().subscribe(pieces => {
@@ -104,7 +104,7 @@ export class CollectionComponent implements OnInit {
   }
 
   doSearch() {
-    if(this.selectedOptions.length==0 && this.selectedBrand=='Ninguna'){
+    if(this.selectedOptions.length==0 && this.selectedBrand=='Ninguno'){
       this.pieceProvider.getByYear(this.minYear.toString(), this.maxYear.toString()).subscribe(pieces => {
         this.pieces = pieces;
       });
@@ -112,7 +112,7 @@ export class CollectionComponent implements OnInit {
       this.pieceProvider.getByYearAndBrandName(this.minYear.toString(), this.maxYear.toString(), this.selectedBrand).subscribe(pieces => {
         this.pieces = pieces;
       });
-    }else if(this.selectedBrand=='Ninguna') {
+    }else if(this.selectedBrand=='Ninguno') {
       this.pieceProvider.getByYearAndTypes(this.minYear.toString(), this.maxYear.toString(), this.selectedOptions).subscribe(pieces => {
         this.pieces = pieces;
       });
