@@ -29,7 +29,7 @@
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
     "immutable": "^4.0.0-rc.12",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mat-nav-bar-pagination": "^1.1.0",
     "ng5-slider": "^1.1.14",
     "ngx-image-gallery": "^1.3.1",
